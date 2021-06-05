@@ -10,7 +10,7 @@ Map ForceWork::getItsMap()
 
 Camera& ForceWork::getCamera()
 {
-    return camera;
+    return *camera;
 }
 
 QSet<int>& ForceWork::getPressedKeys()
@@ -34,8 +34,7 @@ ForceWork::ForceWork(Settings * settings)
     Map map;
     itsMap = map;
     itsPersonnages = itsMap.loadMap("mapTest.txt");
-    Camera cam;
-    camera = cam;
+    camera = new Camera(itsMap.getItsWidthMap(),21);
 
 
 }

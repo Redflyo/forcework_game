@@ -65,7 +65,7 @@ private:
     QImage *image2;
     QImage *image3;
     QImage *image4;
-    QImage *image5;
+    QImage *flag;
 
     void launchGame();
     QTimer * gameTimer;

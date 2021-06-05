@@ -12,7 +12,6 @@ SOURCES += \
     block.cpp \
     bullet.cpp \
     camera.cpp \
-    flag.cpp \
     forcework.cpp \
     ia.cpp \
     main.cpp \
@@ -27,7 +26,6 @@ HEADERS += \
     block.h \
     bullet.h \
     camera.h \
-    flag.h \
     forcework.h \
     ia.h \
     mainwindow.h \

@@ -46,9 +46,8 @@ void MainWindow::loadImage()
     image4 = new QImage;
     image4->load("3ttp.png");
 
-    image5 = new QImage;
-    image5->load("20ttp.png");
-
+    flag = new QImage;
+    flag->load("20ttp.png");
 }
 
 
@@ -182,6 +181,8 @@ void MainWindow::paintEvent(QPaintEvent *event)
             locX = blocks[i].getItsBlockX()*21+ offSetX;
             if(locX > -50 && locX < 1200)
             {
+
+
                 if (blocks[i].getItsBlockType() == 2){
                     painter->drawImage(locX,locY, *image1);
                 }
@@ -190,17 +191,18 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 }
                 if (blocks[i].getItsBlockType() == 0 or blocks[i].getItsBlockType() == 1){
                     painter->drawImage(locX,locY, *image3);
+                    if (blocks[i].getItsBlockType() == 1){
 
+                        painter->drawImage(locX,locY-21, *flag);
+
+                    }
                 }
-                if (blocks[i].getItsBlockType() == 1){
 
-                    painter->drawImage(locX,locY, *image5);
-
-                }
                 if (blocks[i].getItsBlockType() == 4){
                     painter->drawImage(locX,locY, *image4);
 
                 }
+
             }
         }
             painter->end();

@@ -7,9 +7,15 @@ class Camera
 private:
     int itsOffsetX;
     int itsOffsetY;
-    bool itsFollowing;
+    int itsWidthBlockMap;
+    int itsSizeBlock;
 public:
-    Camera();
+    ///
+    /// \brief Camera constructeur de Camera
+    /// \param widthBlockMap obtiens la taille de la carte en block
+    /// \param sizeBlock définie la taille d'un bloc
+    ///
+    Camera(int widthBlockMap, int sizeBlock);
     void follow(PhysicalObject object);
 
 

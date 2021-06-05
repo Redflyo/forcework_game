@@ -21,7 +21,7 @@ private:
     ///
     vector<Personnage*> itsPersonnages;
     Map itsMap;
-    Camera camera;
+    Camera * camera;
     Settings *itsSettings;
 
 

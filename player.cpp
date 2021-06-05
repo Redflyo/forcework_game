@@ -11,13 +11,15 @@ Player::~Player()
 }
 void Player::move()
 {
+    // left
     if(itsMovement == 1)
     {
-        itsX +=5;
+        itsX -=5;
     }
+    //right
     if(itsMovement == 2)
     {
-        itsX -= 5;
+        itsX += 5;
     }
 }
 

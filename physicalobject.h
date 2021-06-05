@@ -6,11 +6,11 @@
 class PhysicalObject
 {
 protected:
-    int itsBlockX, itsBlockY;
-    int itsX;
-    int itsY;
-    int itsWidth;
-    int itsHeight;
+    int itsBlockX, itsBlockY=0;
+    int itsX=0;
+    int itsY=0;
+    int itsWidth=0;
+    int itsHeight=0;
 public:
     PhysicalObject();
     ~PhysicalObject();

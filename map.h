@@ -1,7 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
 #include "string"
-#include "flag.h"
+
 #include "block.h"
 #include <vector>
 #include "ia.h"
@@ -11,7 +11,7 @@ class Map
 {
 private:
 
-    Flag itsFlag;
+
 
     bool replace(std::string& str, const std::string& from, const std::string& to) ;
 
@@ -28,7 +28,7 @@ private:
     std::string itsMapFile;
     std::vector<Block> itsBlocks;
     void addBlock(Block & block);
-
+    int itsWidthMap;
 
 public:
 
@@ -40,6 +40,7 @@ public:
     ///
     vector<Personnage*> loadMap(std::string mapFile);
     std::vector<Block> getItsBlocks() const;
+    int getItsWidthMap() const;
 };
 
 #endif // MAP_H

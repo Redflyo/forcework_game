@@ -29,7 +29,7 @@ Settings::Settings(string templeFile)
 void Settings::split(std::string strToSplit, char charSeparation, std::vector<std::string> &vecToReturn)
 {
   string x="";
-  for(int i=0; i<strToSplit.size(); ++i)
+  for(int i=0; i<(int)strToSplit.size(); ++i)
   {
     if(strToSplit[i]!=charSeparation) x+=strToSplit[i];
     else {vecToReturn.push_back(x); x="";}

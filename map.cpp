@@ -8,6 +8,13 @@ void Map::addBlock(Block & block)
     itsBlocks.push_back(block);
 }
 
+int Map::getItsWidthMap() const
+{
+    return itsWidthMap;
+}
+
+
+
 Map::Map()
 {
 
@@ -51,7 +58,7 @@ bool Map::replace(std::string& str, const std::string& from, const std::string& 
 vector<Personnage*> Map::loadMap(std::string mapFile)
 {
     vector<Personnage*> result;
-
+    Block flag(1);
     this->itsMapFile = mapFile;
     ifstream stream(mapFile);
     int y = -1;
@@ -98,33 +105,37 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
             for(int i = 0; i<(int)line.size();i++,c = line[i])
             {
 
-                if(line[i] == '*')
-                {
-                    Player * player = new Player();
-                    player->setItsBlockX(i);
-                    player->setItsBlockY(y);
-                    result.push_back(player);
-                }
-                else
-                {
+                // récupère le plus grand x pour définir la longueur de la carte
+                itsWidthMap = itsWidthMap < i ? i : itsWidthMap;
+
+
                     if(line[i] >= '2' && line[i] <= '4')
                     {
                         Block block(line[i]- '0',i,y);
                         itsBlocks.push_back(block);
                     }
-                   if(line[i] == '.')
+                    else
                     {
-                        Block block(0,i,y);
-                        itsBlocks.push_back(block);
+                        if(line[i] == '*')
+                        {
+                            Player * player = new Player();
+                            player->setItsBlockX(i);
+                            player->setItsBlockY(y);
+                            result.push_back(player);
+                        }
+                        if(line[i] == '.'|| line[i] == '*')
+                        {
+                            Block block(0,i,y);
+                            itsBlocks.push_back(block);
+                        }
+                        if(line[i] == '1')
+                        {
+                            flag.setItsBlockX(i);
+                            flag.setItsBlockY(y);
+                        }
+
                     }
-                    else if(line[i] == 1)
-                    {
-                        Flag flag;
-                        flag.setItsBlockX(i);
-                        flag.setItsBlockY(y);
-                        itsFlag = flag;
-                    }
-                }
+
 
 
 
@@ -134,6 +145,8 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
         }
 
     }
+
     stream.close();
+    itsBlocks.push_back(flag);
     return result;
 }
