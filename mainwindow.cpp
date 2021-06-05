@@ -2,13 +2,18 @@
 #include "ui_mainwindow.h"
 #include <QPainter>
 #include <QDebug>
+#include <QGraphicsEffect>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    this->setFixedSize(1200,399);
+    setWindowTitle("ForceWork");
+    setWindowIcon(QIcon("logo.png"));
+    m_opaEffect = new QGraphicsOpacityEffect(this);
+    m_opaEffect->setOpacity(0.9);
     // Timer du jeu
     gameTimer = new QTimer();
     itsSetting = new Settings("");
@@ -16,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentWidget(ui->StartMenu);
     qDebug()<<(ui->stackedWidget->currentIndex());
     loadImage();
-
     //Connect des differents boutons
     connect(ui->editL,SIGNAL(clicked()), this, SLOT(editLfunc()));
     connect(ui->editR,SIGNAL(clicked()), this, SLOT(editRfunc()));
@@ -91,6 +95,12 @@ void MainWindow::keyPressEvent(QKeyEvent*ev)
         ui->keyJ1->setText(ev->text());
         itsSetting->setItsJump1(ev->key());
     }
+    if(ui->stackedWidget->currentIndex()==1 && ev->key()== Qt::Key_Escape)
+    {
+        gameTimer->stop();
+        ui->frame_4->setGraphicsEffect(m_opaEffect);
+        ui->stackedWidget->setCurrentWidget(ui->EscMenu);
+    }
 
 
     if(ui->stackedWidget->currentIndex() == 1)
@@ -143,15 +153,10 @@ void MainWindow::on_PB_launchGame_clicked()
 
     ui->stackedWidget->setCurrentWidget(ui->GameWidget);
     launchGame();
-
-
-
-
 }
 
 void MainWindow::launchGame()
 {
-    this->setFixedSize(1200,399);
     currentGame = new ForceWork(itsSetting);
     gameTimer->start(10);
 
@@ -167,7 +172,7 @@ void MainWindow::gameLoop()
 void MainWindow::paintEvent(QPaintEvent *event)
 {
 
-    if(ui->stackedWidget->currentIndex() == 1)
+    if(ui->stackedWidget->currentIndex() == 1 || ui->stackedWidget->currentIndex() == 4)
     {
         blocks = currentGame->getItsMap().getItsBlocks();
         int offSetX = currentGame->getCamera().getItsOffsetX();
@@ -208,4 +213,20 @@ void MainWindow::paintEvent(QPaintEvent *event)
             painter->end();
     }
 
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    gameTimer->start(10);
+    ui->stackedWidget->setCurrentWidget(ui->GameWidget);
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->StartMenu);
+}
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    this->close();
 }

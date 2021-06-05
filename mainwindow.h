@@ -10,6 +10,7 @@
 #include <QPaintEvent>
 #include <QSet>
 #include <QEvent>
+#include <QGraphicsEffect>
 
 
 QT_BEGIN_NAMESPACE
@@ -40,6 +41,9 @@ private slots:
 
     void paintEvent(QPaintEvent *event);
 
+    ///
+    /// \brief on_pushButton_clicked Bouton pour aller à la page Settings
+    ///
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
@@ -55,12 +59,18 @@ private slots:
 
     void gameLoop();
 
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_8_clicked();
+
 private:
 
 
 
     std::vector<Block> blocks;
-
+    QGraphicsOpacityEffect *m_opaEffect;
     QImage *image1;
     QImage *image2;
     QImage *image3;
