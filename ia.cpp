@@ -1,14 +1,21 @@
 #include "ia.h"
 
-IA::IA()
+
+IA::IA(int blockXBegin,int blockXEnd,int blockYRound)
 {
 
 }
 
-void IA::move(int anMovement)
+IA::~IA()
 {
 
 }
+
+void IA::move()
+{
+
+}
+
 
 void IA::shoot()
 {

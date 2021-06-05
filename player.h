@@ -6,12 +6,15 @@ class Player: public Personnage
 {
 public:
     Player();
-    virtual void move(int anMovement);
+    virtual ~Player();
+    virtual void move();
     virtual void shoot();
     virtual void beShot();
     virtual void die();
     virtual void animate();
     void checkMove(int anMovement);
 };
+
+
 
 #endif // PLAYER_H

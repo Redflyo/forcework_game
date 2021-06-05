@@ -9,7 +9,7 @@ using namespace std;
 class Settings
 {
 private:
-    string itsTempleFile;
+    string itsTempleFile="../forceWork/hallOfFame.txt";
     int itsLeft1=-50;
     int itsLeft2=Qt::Key_Left;
     int itsRight1=-50;
@@ -23,7 +23,7 @@ private:
     string itsShootButton;
 
 public:
-    Settings(string templeFiles);
+    Settings();
     void split(string str, char charSeparation, std::vector<std::string> &vecToReturn);
     bool isTopFive(PlayerScore &playerScore);
     void writeTempleFile(PlayerScore &playerScore);
@@ -35,7 +35,6 @@ public:
     void setItsLeft1(int value);
     void setItsRight1(int value);
     void setItsJump1(int value);
-
 };
 
 #endif // SETTINGS_H

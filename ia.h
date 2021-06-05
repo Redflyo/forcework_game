@@ -6,11 +6,16 @@ class IA : public Personnage
 {
 private:
     bool itsOrientation;
+
     int roundXBegin,roundYEnd;
     int roundY;
+
+    int roundBlockY;
+    int roundBlockXBegin,roundBlockYEnd;
 public:
-    IA();
-    virtual void move(int anMovement);
+    IA(int blockXBegin,int blockXEnd,int blockYRound);
+    virtual ~IA();
+    virtual void move();
     virtual void shoot();
     virtual void beShot();
     virtual void die();

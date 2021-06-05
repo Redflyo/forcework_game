@@ -9,9 +9,13 @@ protected:
     int itsAnimationImage;
     bool itsGround;
     float itsSpeedY;
+    int itsMovement;
 public:
+
     Personnage();
-    virtual void move(int anMovement) = 0;
+    virtual ~Personnage();
+    virtual void move() = 0;
+    virtual void setMovement(int movement);
     virtual void shoot() = 0;
     virtual void beShot() = 0;
     virtual void die() = 0;
