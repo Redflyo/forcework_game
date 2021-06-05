@@ -5,6 +5,21 @@ using namespace std;
 
 #include "settings.h"
 
+void Settings::setItsLeft1(int value)
+{
+    itsLeft1 = value;
+}
+
+void Settings::setItsRight1(int value)
+{
+    itsRight1 = value;
+}
+
+void Settings::setItsJump1(int value)
+{
+    itsJump1 = value;
+}
+
 
 Settings::Settings(string templeFile)
 {
@@ -22,7 +37,7 @@ void Settings::split(std::string strToSplit, char charSeparation, std::vector<st
   vecToReturn.push_back(x);
 }
 
-bool Settings::isTopFive(double score, int position)
+bool Settings::isTopFive(PlayerScore &playerScore)
 {
   vector<string> vecScoresNames;
   vector<double>vecScores;
@@ -30,30 +45,34 @@ bool Settings::isTopFive(double score, int position)
   bool isTop=false;
   ifstream inputFile(itsTempleFile);
   if(!inputFile) qDebug() << "Reading error";
-  else qDebug() << "Reading okk";
   while(!inputFile.eof())
   {
     getline(inputFile, lineOfFile);
     split(lineOfFile, ':', vecScoresNames);
+
   }
-  for(int i=0; i<vecScoresNames.size(); i+=2)
+  inputFile.close();
+  for(int i=0; i<vecScoresNames.size()-1; i+=2)
   {
-  qDebug() << "mhhh";
     vecScores.push_back(stod(vecScoresNames[i]));
-    if(score<vecScores[vecScores.size()-1]) position=vecScores.size()-1;
+  }
+  playerScore.position=0;
+  for(int i=0; i<vecScores.size(); ++i)
+  {
+    if(playerScore.score<vecScores[i]) {playerScore.position=i; break;}
+    else playerScore.position=vecScores.size();
   }
   if(vecScores.size()>=5)
   {
-    if(score<vecScores[4]) isTop=true;
+    if(playerScore.score<vecScores[4]) isTop=true;
   }
   else isTop=true;
-  qDebug() << isTop;
   return isTop;
 }
 
-void Settings::writeTempleFile(string name, double score, int position)
+void Settings::writeTempleFile(PlayerScore &playerScore)
 {
-  ofstream outputFile(itsTempleFile);
+  ofstream outputFile(itsTempleFile, ios::app);
   ifstream inputFile(itsTempleFile);
   string lineOfFile;
   vector<string> vecScoresNames;
@@ -62,25 +81,49 @@ void Settings::writeTempleFile(string name, double score, int position)
     getline(inputFile, lineOfFile);
     split(lineOfFile, ':', vecScoresNames);
   }
-  position*=2;
-  qDebug() << position;
-  vector<string>::iterator it=vecScoresNames.begin()+position;
-  vecScoresNames.insert(it, name);
-  qDebug() << "yaa";
-  //vecScoresNames.insert(it, name);
-  qDebug() << "yoo";
-  for(int i=0; i<vecScoresNames.size(); i+=2)
+  vecScoresNames.pop_back(); //supprime le dernier element qui est la remise a la ligne automatique a la fin du fichier
+  inputFile.close();
+  playerScore.position*=2;
+  vector<string>::iterator it=vecScoresNames.begin()+playerScore.position;
+  it=vecScoresNames.insert(it, playerScore.name);
+  vecScoresNames.insert(it, to_string(playerScore.score));
+  if(vecScoresNames.size()>10)
+  {
+    vecScoresNames.pop_back();
+    vecScoresNames.pop_back();
+  }
+  ofstream out(itsTempleFile); //ouvre le fichier en écriture pour effacer son contenu afin d'eviter les doublons lors du re-enregistrement
+
+
+  for(int i=0; i<vecScoresNames.size()-1; i+=2)
   {
     outputFile << vecScoresNames[i] << ":" << vecScoresNames[i+1] << endl;
   }
   outputFile.close();
-  inputFile.close();
 }
 
 void Settings::displayTemple()
 {
 
 }
+
+
+bool Settings::validLeft(int key)
+{
+    return(itsLeft1 == key || itsLeft2 == key);
+}
+
+bool Settings::validRight(int key)
+{
+    return(itsRight1 == key || itsRight2 == key);
+}
+
+bool Settings::validJump(int key)
+{
+    return(itsJump1 == key || itsJump2 == key);
+}
+
+
 
 
 
