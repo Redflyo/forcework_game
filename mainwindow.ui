@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="StartMenu">
      <widget class="QFrame" name="frame">
@@ -96,7 +96,7 @@ color: rgb(0, 0, 0);</string>
         <string>HALL OF FAME</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QPushButton" name="PB_launchGame">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -115,6 +115,7 @@ color: rgb(0, 0, 0);</string>
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="GameWidget"/>
     <widget class="QWidget" name="Settings">
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
@@ -437,7 +438,7 @@ color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

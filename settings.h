@@ -2,17 +2,18 @@
 #define SETTINGS_H
 #include <iostream>
 #include <vector>
+#include <QKeyEvent>
 using namespace std;
 class Settings
 {
 private:
     string itsTempleFile;
-    string itsLeft1;
-    string itsLeft2;
-    string itsRight1;
-    string itsRight2;
-    string itsJump1;
-    string itsJump2;
+    int itsLeft1=-50;
+    int itsLeft2 = Qt::Key_Left;
+    int itsRight1=-50;
+    int itsRight2 = Qt::Key_Right;
+    int itsJump1=-50;
+    int itsJump2 = Qt::Key_Up;
     double itsTimer;
     float itsReactionTimeIA;
     int itsAreaDetected;
@@ -25,6 +26,13 @@ public:
     bool isTopFive(double score, int position);
     void writeTempleFile(string name, double score, int position);
     void displayTemple();
+    bool validLeft(int key);
+    bool validRight(int key);
+    bool validJump(int key);
+
+    void setItsLeft1(int value);
+    void setItsRight1(int value);
+    void setItsJump1(int value);
 };
 
 #endif // SETTINGS_H

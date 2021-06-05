@@ -6,9 +6,24 @@ using namespace std;
 #include "settings.h"
 
 
+void Settings::setItsLeft1(int value)
+{
+    itsLeft1 = value;
+}
+
+void Settings::setItsRight1(int value)
+{
+    itsRight1 = value;
+}
+
+void Settings::setItsJump1(int value)
+{
+    itsJump1 = value;
+}
+
 Settings::Settings(string templeFile)
 {
-  itsTempleFile=templeFile;
+    itsTempleFile=templeFile;
 }
 
 void Settings::split(std::string strToSplit, char charSeparation, std::vector<std::string> &vecToReturn)
@@ -80,6 +95,21 @@ void Settings::writeTempleFile(string name, double score, int position)
 void Settings::displayTemple()
 {
 
+}
+
+bool Settings::validLeft(int key)
+{
+    return(itsLeft1 == key || itsLeft2 == key);
+}
+
+bool Settings::validRight(int key)
+{
+    return(itsRight1 == key || itsRight2 == key);
+}
+
+bool Settings::validJump(int key)
+{
+    return(itsJump1 == key || itsJump2 == key);
 }
 
 
