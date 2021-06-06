@@ -3,6 +3,7 @@
 #include <QPainter>
 #include <QDebug>
 #include <QGraphicsEffect>
+#include <fstream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -16,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_opaEffect->setOpacity(0.9);
     // Timer du jeu
     gameTimer = new QTimer();
-    itsSetting = new Settings("");
+    itsSetting = new Settings();
     //Choisir la fenetre affiché au demarrage (StartMenu)
     ui->stackedWidget->setCurrentWidget(ui->StartMenu);
     qDebug()<<(ui->stackedWidget->currentIndex());
@@ -54,7 +55,45 @@ void MainWindow::loadImage()
     flag->load("20ttp.png");
 }
 
+void MainWindow::displayHallOfFame()
+{
+  ifstream inputFile(itsSetting->getItsHallOfFameFile());
+  if(!inputFile) qDebug() << "Reading error";
+  vector<string> vecScoresNames;
+  string lineOfFile;
+  while(!inputFile.eof()) //cre un vecteur avec une fois sur deux le score, puis le nom du joueur, avec en indices pairs les scores et en indices impairs les noms des joueurs
+  {
+    getline(inputFile, lineOfFile);
+    itsSetting->split(lineOfFile, ':', vecScoresNames);
+  }
+  inputFile.close();
+  vecScoresNames.pop_back(); //supprime le retour a la ligne automatique du fichier qui a ete pris en compte dans le vecteur
+  for(int i=vecScoresNames.size(); i<10; ++i) //complete les champs vides si il n'y a pas encore eu cinq joueurs enregistres
+  {
+    vecScoresNames.push_back("-");
+  }
 
+  ui->score1->setText(QString::fromStdString(vecScoresNames[0]));
+  ui->score1->setAlignment(Qt::AlignCenter);
+  ui->name1->setText(QString::fromStdString(vecScoresNames[1]));
+  ui->name1->setAlignment(Qt::AlignCenter);
+  ui->score2->setText(QString::fromStdString(vecScoresNames[2]));
+  ui->score2->setAlignment(Qt::AlignCenter);
+  ui->name2->setText(QString::fromStdString(vecScoresNames[3]));
+  ui->name2->setAlignment(Qt::AlignCenter);
+  ui->score3->setText(QString::fromStdString(vecScoresNames[4]));
+  ui->score3->setAlignment(Qt::AlignCenter);
+  ui->name3->setText(QString::fromStdString(vecScoresNames[5]));
+  ui->name3->setAlignment(Qt::AlignCenter);
+  ui->score4->setText(QString::fromStdString(vecScoresNames[6]));
+  ui->score4->setAlignment(Qt::AlignCenter);
+  ui->name4->setText(QString::fromStdString(vecScoresNames[7]));
+  ui->name4->setAlignment(Qt::AlignCenter);
+  ui->score5->setText(QString::fromStdString(vecScoresNames[8]));
+  ui->score5->setAlignment(Qt::AlignCenter);
+  ui->name5->setText(QString::fromStdString(vecScoresNames[9]));
+  ui->name5->setAlignment(Qt::AlignCenter);
+}
 
 void MainWindow::on_pushButton_clicked()
 {
@@ -69,6 +108,7 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_pushButton_4_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->HOF);
+    displayHallOfFame();
 }
 
 void MainWindow::on_pushButton_6_clicked()

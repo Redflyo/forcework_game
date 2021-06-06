@@ -20,25 +20,9 @@ void Settings::setItsJump1(int value)
     itsJump1 = value;
 }
 
-
-void Settings::setItsLeft1(int value)
+Settings::Settings()
 {
-    itsLeft1 = value;
-}
 
-void Settings::setItsRight1(int value)
-{
-    itsRight1 = value;
-}
-
-void Settings::setItsJump1(int value)
-{
-    itsJump1 = value;
-}
-
-Settings::Settings(string templeFile)
-{
-    itsTempleFile=templeFile;
 }
 
 void Settings::split(std::string strToSplit, char charSeparation, std::vector<std::string> &vecToReturn)
@@ -58,21 +42,21 @@ bool Settings::isTopFive(PlayerScore &playerScore)
   vector<double>vecScores;
   string lineOfFile;
   bool isTop=false;
-  ifstream inputFile(itsTempleFile);
+  ifstream inputFile(itsHallOfFameFile);
   if(!inputFile) qDebug() << "Reading error";
-  while(!inputFile.eof())
-  {
+  while(!inputFile.eof()) //cre un vecteur avec une fois sur deux le score, puis le nom du joueur, avec en indices pairs les scores et en indices impairs les noms des joueurs
+  {                       //exemple: vecScoresNames={score1, nom1, score2, nom2 etc...}
     getline(inputFile, lineOfFile);
     split(lineOfFile, ':', vecScoresNames);
 
   }
   inputFile.close();
-  for(int i=0; i<vecScoresNames.size()-1; i+=2)
+  for(int i=0; i<vecScoresNames.size()-1; i+=2) //cre un vecteur que de scores pour pouvoir les comparer
   {
     vecScores.push_back(stod(vecScoresNames[i]));
   }
   playerScore.position=0;
-  for(int i=0; i<vecScores.size(); ++i)
+  for(int i=0; i<vecScores.size(); ++i) //recherche de la position exacte du nouveau score dans le top cinq
   {
     if(playerScore.score<vecScores[i]) {playerScore.position=i; break;}
     else playerScore.position=vecScores.size();
@@ -85,10 +69,10 @@ bool Settings::isTopFive(PlayerScore &playerScore)
   return isTop;
 }
 
-void Settings::writeTempleFile(PlayerScore &playerScore)
+void Settings::writeHallOfFameFile(PlayerScore &playerScore)
 {
-  ofstream outputFile(itsTempleFile, ios::app);
-  ifstream inputFile(itsTempleFile);
+  ofstream outputFile(itsHallOfFameFile, ios::app);
+  ifstream inputFile(itsHallOfFameFile);
   string lineOfFile;
   vector<string> vecScoresNames;
   while(!inputFile.eof())
@@ -96,18 +80,18 @@ void Settings::writeTempleFile(PlayerScore &playerScore)
     getline(inputFile, lineOfFile);
     split(lineOfFile, ':', vecScoresNames);
   }
-  vecScoresNames.pop_back(); //supprime le dernier element qui est la remise a la ligne automatique a la fin du fichier
+  vecScoresNames.pop_back(); //supprime le retour a la ligne automatique du fichier qui a ete pris en compte dans le vecteur
   inputFile.close();
-  playerScore.position*=2;
+  playerScore.position*=2; //multiplication par 2 car la position a ete trouve dans le vecteur de scores or maintenant nous travaillons avec un vecteur de scores avec les noms
   vector<string>::iterator it=vecScoresNames.begin()+playerScore.position;
-  it=vecScoresNames.insert(it, playerScore.name);
+  it=vecScoresNames.insert(it, playerScore.name);                           //insertion du nouveau score et nom a la position trouvee precedemment
   vecScoresNames.insert(it, to_string(playerScore.score));
-  if(vecScoresNames.size()>10)
+  if(vecScoresNames.size()>10) //supprime les lignes de scores et de noms qui ne sont pas dans le top cinq
   {
     vecScoresNames.pop_back();
     vecScoresNames.pop_back();
   }
-  ofstream out(itsTempleFile); //ouvre le fichier en écriture pour effacer son contenu afin d'eviter les doublons lors du re-enregistrement
+  ofstream out(itsHallOfFameFile); //ouvre le fichier en écriture pour effacer son contenu afin d'eviter les doublons lors du re-enregistrement
 
 
   for(int i=0; i<vecScoresNames.size()-1; i+=2)
@@ -117,9 +101,9 @@ void Settings::writeTempleFile(PlayerScore &playerScore)
   outputFile.close();
 }
 
-void Settings::displayTemple()
+string Settings::getItsHallOfFameFile()
 {
-
+  return itsHallOfFameFile;
 }
 
 bool Settings::validLeft(int key)
@@ -138,20 +122,7 @@ bool Settings::validJump(int key)
 }
 
 
-bool Settings::validLeft(int key)
-{
-    return(itsLeft1 == key || itsLeft2 == key);
-}
 
-bool Settings::validRight(int key)
-{
-    return(itsRight1 == key || itsRight2 == key);
-}
-
-bool Settings::validJump(int key)
-{
-    return(itsJump1 == key || itsJump2 == key);
-}
 
 
 

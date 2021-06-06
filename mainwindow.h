@@ -35,6 +35,7 @@ public:
     /// \brief loadImage charge les images
     ///
     void loadImage();
+    void displayHallOfFame();
 
 private slots:
 
@@ -42,7 +43,7 @@ private slots:
     void paintEvent(QPaintEvent *event);
 
     ///
-    /// \brief on_pushButton_clicked Bouton pour aller Ã  la page Settings
+    /// \brief on_pushButton_clicked Bouton pour aller Ã  la page Settings
     ///
     void on_pushButton_clicked();
 
@@ -66,8 +67,6 @@ private slots:
     void on_pushButton_8_clicked();
 
 private:
-
-
 
     std::vector<Block> blocks;
     QGraphicsOpacityEffect *m_opaEffect;
