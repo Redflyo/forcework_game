@@ -5,10 +5,10 @@
 class Camera
 {
 private:
-    int itsOffsetX;
-    int itsOffsetY;
-    int itsWidthBlockMap;
-    int itsSizeBlock;
+    int itsOffsetX=0;
+    int itsOffsetY=0;
+    int itsWidthBlockMap=21;
+    int itsSizeBlock=21;
 public:
     ///
     /// \brief Camera constructeur de Camera
