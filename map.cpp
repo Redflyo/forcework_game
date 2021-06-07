@@ -57,6 +57,7 @@ bool Map::replace(std::string& str, const std::string& from, const std::string& 
 
 vector<Personnage*> Map::loadMap(std::string mapFile)
 {
+    itsWidthMap =0;
     vector<Personnage*> result;
     Block flag(1);
     this->itsMapFile = mapFile;
@@ -100,6 +101,7 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
         {
             // map
             char c;
+
 
 
             for(int i = 0; i<(int)line.size();i++,c = line[i])
