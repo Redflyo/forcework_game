@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     itsSetting = new Settings();
     //Choisir la fenetre affiché au demarrage (StartMenu)
     ui->stackedWidget->setCurrentWidget(ui->StartMenu);
-    qDebug()<<(ui->stackedWidget->currentIndex());
+    //qDebug()<<(ui->stackedWidget->currentIndex());
     loadImage();
     //Connect des differents boutons
     connect(ui->editL,SIGNAL(clicked()), this, SLOT(editLfunc()));
@@ -141,9 +141,7 @@ void MainWindow::keyPressEvent(QKeyEvent*ev)
         ui->frame_4->setGraphicsEffect(m_opaEffect);
         ui->stackedWidget->setCurrentWidget(ui->EscMenu);
     }
-
-
-    if(ui->stackedWidget->currentIndex() == 1)
+    else if(ui->stackedWidget->currentIndex() == 1)
     {
         if ( ev->type() == QEvent::KeyPress ) {
 
@@ -154,6 +152,7 @@ void MainWindow::keyPressEvent(QKeyEvent*ev)
 }
 void MainWindow::keyReleaseEvent(QKeyEvent *ev)
 {
+    if(ui->stackedWidget->currentIndex() == 4) currentGame->getPressedKeys().clear();
     if(ui->stackedWidget->currentIndex() == 1)
     {
         if ( ev->type() == QEvent::KeyRelease )
