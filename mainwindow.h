@@ -76,6 +76,7 @@ private:
     QImage *image4;
     QImage *flag;
     QImage *flag2;
+<<<<<<< HEAD
     bool itsFlagBool = false;
     int itsFlagTime = 0;
 
@@ -98,6 +99,10 @@ private:
     int itsPersoTimeD = 0;
     int itsPersoTimeG = 0;
 
+=======
+    bool itsFlagAnim = false;
+    int timeFlag = 0;
+>>>>>>> master
 
     void launchGame();
     QTimer * gameTimer;

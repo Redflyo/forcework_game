@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->setFixedSize(1200,399);
     setWindowTitle("ForceWork");
-    setWindowIcon(QIcon("logo.png"));
+    setWindowIcon(QIcon("../forcework_game/data/logo.png"));
     m_opaEffect = new QGraphicsOpacityEffect(this);
     m_opaEffect->setOpacity(0.9);
     // Timer du jeu
@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     itsSetting = new Settings();
     //Choisir la fenetre affiché au demarrage (StartMenu)
     ui->stackedWidget->setCurrentWidget(ui->StartMenu);
-    qDebug()<<(ui->stackedWidget->currentIndex());
+    //qDebug()<<(ui->stackedWidget->currentIndex());
     loadImage();
     //Connect des differents boutons
     connect(ui->editL,SIGNAL(clicked()), this, SLOT(editLfunc()));
@@ -56,6 +56,7 @@ void MainWindow::loadImage()
 
     flag2 = new QImage;
     flag2->load("../forcework_game/data/drapeau2-2.png");
+<<<<<<< HEAD
 
     perso1 = new QImage;
     perso1->load("../forcework_game/data/persoStopD.png");
@@ -98,6 +99,8 @@ void MainWindow::loadImage()
 
     persoMarcher6_6G = new QImage;
     persoMarcher6_6G->load("../forcework_game/data/persoMarcher6-6G.png");
+=======
+>>>>>>> master
 }
 
 void MainWindow::displayHallOfFame()
@@ -186,9 +189,7 @@ void MainWindow::keyPressEvent(QKeyEvent*ev)
         ui->frame_4->setGraphicsEffect(m_opaEffect);
         ui->stackedWidget->setCurrentWidget(ui->EscMenu);
     }
-
-
-    if(ui->stackedWidget->currentIndex() == 1)
+    else if(ui->stackedWidget->currentIndex() == 1)
     {
         if ( ev->type() == QEvent::KeyPress ) {
 
@@ -199,6 +200,7 @@ void MainWindow::keyPressEvent(QKeyEvent*ev)
 }
 void MainWindow::keyReleaseEvent(QKeyEvent *ev)
 {
+    if(ui->stackedWidget->currentIndex() == 4) currentGame->getPressedKeys().clear();
     if(ui->stackedWidget->currentIndex() == 1)
     {
         if ( ev->type() == QEvent::KeyRelease )
@@ -249,6 +251,7 @@ void MainWindow::launchGame()
 
 void MainWindow::gameLoop()
 {
+<<<<<<< HEAD
     itsFlagTime++;
 
     if (itsFlagTime == 40)
@@ -256,6 +259,14 @@ void MainWindow::gameLoop()
         itsFlagBool =! itsFlagBool;
         itsFlagTime = 0;
     }
+=======
+    if (timeFlag == 50)
+    {
+        itsFlagAnim=!itsFlagAnim;
+        timeFlag=0;
+    }
+    timeFlag++;
+>>>>>>> master
 
     currentGame->gameLoop();
     repaint();
@@ -292,6 +303,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 if (blocks[i].getItsBlockType() == 0 or blocks[i].getItsBlockType() == 1){
                     painter->drawImage(locX,locY, *image3);
                     if (blocks[i].getItsBlockType() == 1){
+<<<<<<< HEAD
 
                         if (itsFlagBool == false)
                         {
@@ -303,6 +315,16 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
                         painter->drawImage(locX,locY-21, *flag2);
                         }
+=======
+                        if (itsFlagAnim == true)
+                        {
+                            painter->drawImage(locX,locY-21, *flag2);
+                        }
+                        else
+                        {
+                        painter->drawImage(locX,locY-21, *flag);
+                        }
+>>>>>>> master
 
                     }
                 }

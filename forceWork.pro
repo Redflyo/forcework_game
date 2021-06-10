@@ -20,6 +20,7 @@ SOURCES += \
     personnage.cpp \
     physicalobject.cpp \
     player.cpp \
+    ../forcework_game/data/*
     settings.cpp
 
 HEADERS += \

@@ -22,6 +22,9 @@ void Settings::setItsJump1(int value)
 
 Settings::Settings()
 {
+    itsJump1 = -50;
+    itsLeft1 = -50;
+    itsRight1 = -50;
 
 }
 
