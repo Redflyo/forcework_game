@@ -42,8 +42,10 @@ ForceWork::ForceWork(Settings * settings)
 void ForceWork::gameLoop()
 {
     manageKeys();
-    getPlayer()->move();
-    getCamera().follow((PhysicalObject)(*getPlayer()));
+    Player* aPlayer = getPlayer();
+    aPlayer->move();
+    aPlayer->animate();
+    getCamera().follow((PhysicalObject)(*aPlayer));
 
 
 

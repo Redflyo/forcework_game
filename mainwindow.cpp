@@ -56,7 +56,6 @@ void MainWindow::loadImage()
 
     flag2 = new QImage;
     flag2->load("../forcework_game/data/drapeau2-2.png");
-<<<<<<< HEAD
 
     perso1 = new QImage;
     perso1->load("../forcework_game/data/persoStopD.png");
@@ -99,8 +98,6 @@ void MainWindow::loadImage()
 
     persoMarcher6_6G = new QImage;
     persoMarcher6_6G->load("../forcework_game/data/persoMarcher6-6G.png");
-=======
->>>>>>> master
 }
 
 void MainWindow::displayHallOfFame()
@@ -251,7 +248,7 @@ void MainWindow::launchGame()
 
 void MainWindow::gameLoop()
 {
-<<<<<<< HEAD
+
     itsFlagTime++;
 
     if (itsFlagTime == 40)
@@ -259,14 +256,6 @@ void MainWindow::gameLoop()
         itsFlagBool =! itsFlagBool;
         itsFlagTime = 0;
     }
-=======
-    if (timeFlag == 50)
-    {
-        itsFlagAnim=!itsFlagAnim;
-        timeFlag=0;
-    }
-    timeFlag++;
->>>>>>> master
 
     currentGame->gameLoop();
     repaint();
@@ -303,28 +292,18 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 if (blocks[i].getItsBlockType() == 0 or blocks[i].getItsBlockType() == 1){
                     painter->drawImage(locX,locY, *image3);
                     if (blocks[i].getItsBlockType() == 1){
-<<<<<<< HEAD
+
 
                         if (itsFlagBool == false)
                         {
 
                         painter->drawImage(locX,locY-21, *flag);
                         }
-                        if (itsFlagBool == true)
+                        else
                         {
 
                         painter->drawImage(locX,locY-21, *flag2);
                         }
-=======
-                        if (itsFlagAnim == true)
-                        {
-                            painter->drawImage(locX,locY-21, *flag2);
-                        }
-                        else
-                        {
-                        painter->drawImage(locX,locY-21, *flag);
-                        }
->>>>>>> master
 
                     }
                 }

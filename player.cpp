@@ -21,7 +21,7 @@ void Player::move()
     {
         itsX += 2;
     }
-    animate();
+
 }
 
 
