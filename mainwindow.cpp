@@ -98,6 +98,35 @@ void MainWindow::loadImage()
 
     persoMarcher6_6G = new QImage;
     persoMarcher6_6G->load("../forcework_game/data/persoMarcher6-6G.png");
+
+    *persoMarcher1_6D = persoMarcher1_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMarcher2_6D = persoMarcher2_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMarcher3_6D = persoMarcher3_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMarcher4_6D = persoMarcher4_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMarcher5_6D = persoMarcher5_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMarcher6_6D = persoMarcher6_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    *persoMarcher1_6G = persoMarcher1_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMarcher2_6G = persoMarcher2_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMarcher3_6G = persoMarcher3_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMarcher4_6G = persoMarcher4_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMarcher5_6G = persoMarcher5_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMarcher6_6G = persoMarcher6_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+
+
+    *perso1 = perso1->scaled(QSize(sizeBlock,sizeBlock*2));
+    *perso2 = perso2->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    *flag = flag->scaled(QSize(sizeBlock,sizeBlock*2));
+    *flag2 = flag2->scaled(QSize(sizeBlock,sizeBlock*2));
+
+
+    *image1 = image1->scaled(QSize(sizeBlock,sizeBlock));
+    *image2 = image2->scaled(QSize(sizeBlock,sizeBlock));
+    *image3 = image3->scaled(QSize(sizeBlock,sizeBlock));
+    *image4 = image4->scaled(QSize(sizeBlock,sizeBlock));
+
+
 }
 
 void MainWindow::displayHallOfFame()
@@ -277,8 +306,8 @@ void MainWindow::paintEvent(QPaintEvent *event)
         for (int i = 0; i<(int)blocks.size() ;i++ ) {
 
 
-            locY = blocks[i].getItsBlockY()*21+ offSetY;
-            locX = blocks[i].getItsBlockX()*21+ offSetX;
+            locY = blocks[i].getItsBlockY()*sizeBlock+ offSetY;
+            locX = blocks[i].getItsBlockX()*sizeBlock+ offSetX;
             if(locX > -50 && locX < 1200)
             {
 
@@ -297,12 +326,12 @@ void MainWindow::paintEvent(QPaintEvent *event)
                         if (itsFlagBool == false)
                         {
 
-                        painter->drawImage(locX,locY-21, *flag);
+                        painter->drawImage(locX,locY-sizeBlock, *flag);
                         }
                         else
                         {
 
-                        painter->drawImage(locX,locY-21, *flag2);
+                        painter->drawImage(locX,locY-sizeBlock, *flag2);
                         }
 
                     }
@@ -322,11 +351,11 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
             if (itsPersoSens == false)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *perso1);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *perso1);
             }
             if (itsPersoSens == true)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *perso2);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *perso2);
             }
         }
         if (currentGame->getPlayer()->getItsAnimationImage() == 1)
@@ -334,33 +363,33 @@ void MainWindow::paintEvent(QPaintEvent *event)
             itsPersoTimeD = 0;
             if (itsPersoTimeG >= 0 and itsPersoTimeG <15)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher1_6G);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher1_6G);
             }
             if (itsPersoTimeG >= 15 and itsPersoTimeG <30)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher2_6G);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher2_6G);
             }
             if (itsPersoTimeG >= 30 and itsPersoTimeG <45)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher3_6G);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher3_6G);
             }
             if (itsPersoTimeG >= 45 and itsPersoTimeG <60)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher4_6G);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher4_6G);
             }
             if (itsPersoTimeG >= 60 and itsPersoTimeG <75)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher5_6G);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher5_6G);
             }
             if (itsPersoTimeG >= 75 and itsPersoTimeG <90)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher6_6G);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher6_6G);
 
             }
             if (itsPersoTimeG == 90)
             {
 
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher1_6G);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher1_6G);
 
             itsPersoTimeG = 0;
             }
@@ -371,37 +400,37 @@ void MainWindow::paintEvent(QPaintEvent *event)
             itsPersoTimeG = 0;
             if (itsPersoTimeD >= 0 and itsPersoTimeD <15)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher1_6D);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher1_6D);
             }
             if (itsPersoTimeD >= 15 and itsPersoTimeD <30)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher2_6D);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher2_6D);
             }
             if (itsPersoTimeD >= 30 and itsPersoTimeD <45)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher3_6D);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher3_6D);
             }
             if (itsPersoTimeD >= 45 and itsPersoTimeD <60)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher4_6D);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher4_6D);
             }
             if (itsPersoTimeD >= 60 and itsPersoTimeD <75)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher5_6D);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher5_6D);
             }
             if (itsPersoTimeD >= 75 and itsPersoTimeD <90)
             {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher6_6D);
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher6_6D);
             }
             if (itsPersoTimeD == 90)
             {
             itsPersoTimeD = 0;
-             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher1_6D);
+             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher1_6D);
             }
             itsPersoSens = false;
 
         }
-            painter->end();
+           painter->end();
     }
 
 }

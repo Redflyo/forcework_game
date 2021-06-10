@@ -8,6 +8,7 @@ int PhysicalObject::getItsBlockX() const
 void PhysicalObject::setItsBlockX(int value)
 {
     itsBlockX = value;
+    itsX = blockToPixel(itsBlockX);
 }
 
 int PhysicalObject::getItsBlockY() const
@@ -18,6 +19,7 @@ int PhysicalObject::getItsBlockY() const
 void PhysicalObject::setItsBlockY(int value)
 {
     itsBlockY = value;
+    itsY = blockToPixel(itsBlockY);
 }
 
 int PhysicalObject::getItsY() const
@@ -28,6 +30,7 @@ int PhysicalObject::getItsY() const
 void PhysicalObject::setItsY(int value)
 {
     itsY = value;
+    itsBlockY = pixelToBlock(itsY);
 }
 
 int PhysicalObject::getItsX() const
@@ -38,6 +41,7 @@ int PhysicalObject::getItsX() const
 void PhysicalObject::setItsX(int value)
 {
     itsX = value;
+    itsBlockX = pixelToBlock(itsX);
 }
 
 PhysicalObject::PhysicalObject()

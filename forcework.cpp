@@ -34,7 +34,7 @@ ForceWork::ForceWork(Settings * settings)
     Map map;
     itsMap = map;
     itsPersonnages = itsMap.loadMap("../forcework_game/data/mapTest.txt");
-    camera = new Camera(itsMap.getItsWidthMap(),21);
+    camera = new Camera(itsMap.getItsWidthMap(),itsMap.getItsHeightMap());
 
 
 }

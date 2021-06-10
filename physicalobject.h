@@ -3,6 +3,17 @@
 
 #include <QMainWindow>
 
+static const int sizeBlock = 42;
+static int pixelToBlock(int xOrY)
+{
+
+    return xOrY / sizeBlock;
+}
+static int blockToPixel(int xOrY)
+{
+    return xOrY * sizeBlock;
+}
+
 class PhysicalObject
 {
 protected:

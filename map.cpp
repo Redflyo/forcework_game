@@ -8,6 +8,11 @@ void Map::addBlock(Block & block)
     itsBlocks.push_back(block);
 }
 
+int Map::getItsHeightMap() const
+{
+    return itsHeightMap;
+}
+
 int Map::getItsWidthMap() const
 {
     return itsWidthMap;
@@ -122,7 +127,7 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
                         {
                             Player * player = new Player();
                             player->setItsBlockX(i);
-                            player->setItsBlockY(y);
+                            player->setItsBlockY(y-1);
                             result.push_back(player);
                         }
                         if(line[i] == '.'|| line[i] == '*')
@@ -147,6 +152,7 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
         }
 
     }
+    itsHeightMap = y;
 
     stream.close();
     itsBlocks.push_back(flag);

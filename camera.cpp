@@ -9,11 +9,11 @@ int Camera::getItsOffsetY() const
 {
     return itsOffsetY;
 }
-Camera::Camera(int widthBlockMap,int sizeBlock)
+Camera::Camera(int widthBlockMap,int heightBlockMap)
 
 {
     itsWidthBlockMap = widthBlockMap;
-    itsSizeBlock = sizeBlock;
+    itsHeightBlockMap = heightBlockMap;
     itsOffsetX = 0;
     itsOffsetY = 0;
 }
@@ -22,12 +22,22 @@ void Camera::follow(PhysicalObject object)
 {
 
     itsOffsetX = -(object.getItsX() -500);
-    if(itsOffsetX*-1 < 0)
+    itsOffsetY = -(object.getItsY()-200);
+    if(-itsOffsetX < 0)
     {
         itsOffsetX =0;
     }
-    else if(1200 >= itsWidthBlockMap*itsSizeBlock+itsOffsetX )
+    else if(1200 >= itsWidthBlockMap*sizeBlock+itsOffsetX )
     {
-        itsOffsetX = -(itsSizeBlock*itsWidthBlockMap) + 1200;
+        itsOffsetX = -(sizeBlock*itsWidthBlockMap) + 1200;
     }
+    if(-itsOffsetY < 0)
+    {
+        itsOffsetX =0;
+    }
+    else if(399 >= itsHeightBlockMap*sizeBlock+itsOffsetY )
+    {
+        itsOffsetY = -(sizeBlock*itsHeightBlockMap) + 399;
+    }
+
 }

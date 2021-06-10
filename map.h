@@ -28,7 +28,7 @@ private:
     std::string itsMapFile;
     std::vector<Block> itsBlocks;
     void addBlock(Block & block);
-    int itsWidthMap;
+    int itsWidthMap,itsHeightMap;
 
 public:
 
@@ -41,6 +41,7 @@ public:
     vector<Personnage*> loadMap(std::string mapFile);
     std::vector<Block> getItsBlocks() const;
     int getItsWidthMap() const;
+    int getItsHeightMap() const;
 };
 
 #endif // MAP_H

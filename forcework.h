@@ -8,7 +8,6 @@
 #include <QSet>
 #include "settings.h"
 
-
 using namespace std;
 class ForceWork
 {
@@ -26,6 +25,7 @@ private:
 
 
 public:
+
     ~ForceWork();
     ForceWork(Settings * settings);
     void gameLoop();
