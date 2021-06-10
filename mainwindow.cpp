@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     this->setFixedSize(1200,399);
     setWindowTitle("ForceWork");
-    setWindowIcon(QIcon("logo.png"));
+    setWindowIcon(QIcon("../forcework_game/data/logo.png"));
     m_opaEffect = new QGraphicsOpacityEffect(this);
     m_opaEffect->setOpacity(0.9);
     // Timer du jeu
@@ -40,19 +40,22 @@ MainWindow::~MainWindow()
 void MainWindow::loadImage()
 {
     image1 = new QImage;
-    image1->load("12ttp.png");
+    image1->load("../forcework_game/data/Terre.png");
 
     image2 = new QImage;
-    image2->load("18ttp.png");
+    image2->load("../forcework_game/data/Metal.png");
 
     image3 = new QImage;
-    image3->load("19ttp.png");
+    image3->load("../forcework_game/data/Ciel.png");
 
     image4 = new QImage;
-    image4->load("3ttp.png");
+    image4->load("../forcework_game/data/Herbe.png");
 
     flag = new QImage;
-    flag->load("20ttp.png");
+    flag->load("../forcework_game/data/drapeau1-2.png");
+
+    flag2 = new QImage;
+    flag2->load("../forcework_game/data/drapeau2-2.png");
 }
 
 void MainWindow::displayHallOfFame()
@@ -203,6 +206,12 @@ void MainWindow::launchGame()
 
 void MainWindow::gameLoop()
 {
+    if (timeFlag == 50)
+    {
+        itsFlagAnim=!itsFlagAnim;
+        timeFlag=0;
+    }
+    timeFlag++;
 
     currentGame->gameLoop();
     repaint();
@@ -236,8 +245,14 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 if (blocks[i].getItsBlockType() == 0 or blocks[i].getItsBlockType() == 1){
                     painter->drawImage(locX,locY, *image3);
                     if (blocks[i].getItsBlockType() == 1){
-
+                        if (itsFlagAnim == true)
+                        {
+                            painter->drawImage(locX,locY-21, *flag2);
+                        }
+                        else
+                        {
                         painter->drawImage(locX,locY-21, *flag);
+                        }
 
                     }
                 }

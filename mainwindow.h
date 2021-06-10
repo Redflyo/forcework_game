@@ -75,6 +75,9 @@ private:
     QImage *image3;
     QImage *image4;
     QImage *flag;
+    QImage *flag2;
+    bool itsFlagAnim = false;
+    int timeFlag = 0;
 
     void launchGame();
     QTimer * gameTimer;

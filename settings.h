@@ -9,7 +9,7 @@ using namespace std;
 class Settings
 {
 private:
-    string itsHallOfFameFile="../forcework_game/hallOfFame.txt";
+    string itsHallOfFameFile="../forcework_game/data/hallOfFame.txt";
     int itsLeft1=-50;
     int itsLeft2=Qt::Key_Left;
     int itsRight1=-50;
