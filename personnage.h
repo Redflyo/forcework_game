@@ -6,7 +6,7 @@ class Personnage: public PhysicalObject
 {
 protected:
     int itsLife;
-    int itsAnimationImage;
+    int itsAnimationImage = 0;
     bool itsGround;
     float itsSpeedY;
     int itsMovement;

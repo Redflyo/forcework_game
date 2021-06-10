@@ -14,13 +14,14 @@ void Player::move()
     // left
     if(itsMovement == 1)
     {
-        itsX -=5;
+        itsX -=2;
     }
     //right
     if(itsMovement == 2)
     {
-        itsX += 5;
+        itsX += 2;
     }
+    animate();
 }
 
 
@@ -51,7 +52,7 @@ void Player::animate()
     {
         itsAnimationImage = 2;
     }
-    if (itsMovement != 2 and itsMovement != 1)
+    if (itsMovement == 0)
     {
         itsAnimationImage = 0;
     }

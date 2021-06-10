@@ -80,6 +80,7 @@ private:
     int itsFlagTime = 0;
 
     QImage *perso1;
+    QImage *perso2;
     QImage *persoMarcher1_6D;
     QImage *persoMarcher2_6D;
     QImage *persoMarcher3_6D;
@@ -92,6 +93,10 @@ private:
     QImage *persoMarcher4_6G;
     QImage *persoMarcher5_6G;
     QImage *persoMarcher6_6G;
+
+    bool itsPersoSens = false;
+    int itsPersoTimeD = 0;
+    int itsPersoTimeG = 0;
 
 
     void launchGame();

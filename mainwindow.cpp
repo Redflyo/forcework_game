@@ -60,6 +60,9 @@ void MainWindow::loadImage()
     perso1 = new QImage;
     perso1->load("../forcework_game/data/persoStopD.png");
 
+    perso2 = new QImage;
+    perso2->load("../forcework_game/data/persoStopG.png");
+
     persoMarcher1_6D = new QImage;
     persoMarcher1_6D->load("../forcework_game/data/persoMarcher1-6D.png");
 
@@ -94,7 +97,7 @@ void MainWindow::loadImage()
     persoMarcher5_6G->load("../forcework_game/data/persoMarcher5-6G.png");
 
     persoMarcher6_6G = new QImage;
-    persoMarcher6_6D->load("../forcework_game/data/persoMarcher6-6G.png");
+    persoMarcher6_6G->load("../forcework_game/data/persoMarcher6-6G.png");
 }
 
 void MainWindow::displayHallOfFame()
@@ -247,6 +250,7 @@ void MainWindow::launchGame()
 void MainWindow::gameLoop()
 {
     itsFlagTime++;
+
     if (itsFlagTime == 40)
     {
         itsFlagBool =! itsFlagBool;
@@ -255,6 +259,9 @@ void MainWindow::gameLoop()
 
     currentGame->gameLoop();
     repaint();
+
+    itsPersoTimeD++;
+    itsPersoTimeG++;
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)
@@ -309,15 +316,89 @@ void MainWindow::paintEvent(QPaintEvent *event)
         }
         if (currentGame->getPlayer()->getItsAnimationImage() == 0)
         {
+            itsPersoTimeD = 0;
+            itsPersoTimeG = 0;
+
+            if (itsPersoSens == false)
+            {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *perso1);
+            }
+            if (itsPersoSens == true)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *perso2);
+            }
         }
         if (currentGame->getPlayer()->getItsAnimationImage() == 1)
         {
+            itsPersoTimeD = 0;
+            if (itsPersoTimeG >= 0 and itsPersoTimeG <15)
+            {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher1_6G);
+            }
+            if (itsPersoTimeG >= 15 and itsPersoTimeG <30)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher2_6G);
+            }
+            if (itsPersoTimeG >= 30 and itsPersoTimeG <45)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher3_6G);
+            }
+            if (itsPersoTimeG >= 45 and itsPersoTimeG <60)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher4_6G);
+            }
+            if (itsPersoTimeG >= 60 and itsPersoTimeG <75)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher5_6G);
+            }
+            if (itsPersoTimeG >= 75 and itsPersoTimeG <90)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher6_6G);
+
+            }
+            if (itsPersoTimeG == 90)
+            {
+
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher1_6G);
+
+            itsPersoTimeG = 0;
+            }
+            itsPersoSens = true;
         }
         if (currentGame->getPlayer()->getItsAnimationImage() == 2)
         {
+            itsPersoTimeG = 0;
+            if (itsPersoTimeD >= 0 and itsPersoTimeD <15)
+            {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher1_6D);
+            }
+            if (itsPersoTimeD >= 15 and itsPersoTimeD <30)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher2_6D);
+            }
+            if (itsPersoTimeD >= 30 and itsPersoTimeD <45)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher3_6D);
+            }
+            if (itsPersoTimeD >= 45 and itsPersoTimeD <60)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher4_6D);
+            }
+            if (itsPersoTimeD >= 60 and itsPersoTimeD <75)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher5_6D);
+            }
+            if (itsPersoTimeD >= 75 and itsPersoTimeD <90)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher6_6D);
+            }
+            if (itsPersoTimeD == 90)
+            {
+            itsPersoTimeD = 0;
+             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher1_6D);
+            }
+            itsPersoSens = false;
+
         }
             painter->end();
     }
