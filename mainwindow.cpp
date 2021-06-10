@@ -56,6 +56,45 @@ void MainWindow::loadImage()
 
     flag2 = new QImage;
     flag2->load("../forcework_game/data/drapeau2-2.png");
+
+    perso1 = new QImage;
+    perso1->load("../forcework_game/data/persoStopD.png");
+
+    persoMarcher1_6D = new QImage;
+    persoMarcher1_6D->load("../forcework_game/data/persoMarcher1-6D.png");
+
+    persoMarcher2_6D = new QImage;
+    persoMarcher2_6D->load("../forcework_game/data/persoMarcher2-6D.png");
+
+    persoMarcher3_6D = new QImage;
+    persoMarcher3_6D->load("../forcework_game/data/persoMarcher3-6D.png");
+
+    persoMarcher4_6D = new QImage;
+    persoMarcher4_6D->load("../forcework_game/data/persoMarcher4-6D.png");
+
+    persoMarcher5_6D = new QImage;
+    persoMarcher5_6D->load("../forcework_game/data/persoMarcher5-6D.png");
+
+    persoMarcher6_6D = new QImage;
+    persoMarcher6_6D->load("../forcework_game/data/persoMarcher6-6D.png");
+
+    persoMarcher1_6G = new QImage;
+    persoMarcher1_6G->load("../forcework_game/data/persoMarcher1-6G.png");
+
+    persoMarcher2_6G = new QImage;
+    persoMarcher2_6G->load("../forcework_game/data/persoMarcher2-6G.png");
+
+    persoMarcher3_6G = new QImage;
+    persoMarcher3_6G->load("../forcework_game/data/persoMarcher3-6G.png");
+
+    persoMarcher4_6G = new QImage;
+    persoMarcher4_6G->load("../forcework_game/data/persoMarcher4-6G.png");
+
+    persoMarcher5_6G = new QImage;
+    persoMarcher5_6G->load("../forcework_game/data/persoMarcher5-6G.png");
+
+    persoMarcher6_6G = new QImage;
+    persoMarcher6_6D->load("../forcework_game/data/persoMarcher6-6G.png");
 }
 
 void MainWindow::displayHallOfFame()
@@ -267,6 +306,18 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 }
 
             }
+        }
+        if (currentGame->getPlayer()->getItsAnimationImage() == 0)
+        {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *perso1);
+        }
+        if (currentGame->getPlayer()->getItsAnimationImage() == 1)
+        {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher1_6G);
+        }
+        if (currentGame->getPlayer()->getItsAnimationImage() == 2)
+        {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY(), *persoMarcher1_6D);
         }
             painter->end();
     }

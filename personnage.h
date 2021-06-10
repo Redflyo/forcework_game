@@ -20,6 +20,7 @@ public:
     virtual void beShot() = 0;
     virtual void die() = 0;
     virtual void animate() = 0;
+    int getItsAnimationImage() const;
 };
 
 #endif // PERSONNAGE_H

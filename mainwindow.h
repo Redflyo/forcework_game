@@ -79,6 +79,21 @@ private:
     bool itsFlagBool = false;
     int itsFlagTime = 0;
 
+    QImage *perso1;
+    QImage *persoMarcher1_6D;
+    QImage *persoMarcher2_6D;
+    QImage *persoMarcher3_6D;
+    QImage *persoMarcher4_6D;
+    QImage *persoMarcher5_6D;
+    QImage *persoMarcher6_6D;
+    QImage *persoMarcher1_6G;
+    QImage *persoMarcher2_6G;
+    QImage *persoMarcher3_6G;
+    QImage *persoMarcher4_6G;
+    QImage *persoMarcher5_6G;
+    QImage *persoMarcher6_6G;
+
+
     void launchGame();
     QTimer * gameTimer;
     ForceWork * currentGame = nullptr;

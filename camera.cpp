@@ -9,8 +9,8 @@ int Camera::getItsOffsetY() const
 {
     return itsOffsetY;
 }
-
 Camera::Camera(int widthBlockMap,int sizeBlock)
+
 {
     itsWidthBlockMap = widthBlockMap;
     itsSizeBlock = sizeBlock;

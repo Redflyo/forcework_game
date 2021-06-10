@@ -42,5 +42,18 @@ void Player::die()
 
 void Player::animate()
 {
+    if(itsMovement == 1)
+    {
+        itsAnimationImage = 1;
+    }
+    //right
+    if(itsMovement == 2)
+    {
+        itsAnimationImage = 2;
+    }
+    if (itsMovement != 2 and itsMovement != 1)
+    {
+        itsAnimationImage = 0;
+    }
 
 }
