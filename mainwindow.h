@@ -100,6 +100,7 @@ private:
     int itsPersoTimeG = 0;
 
 
+
     void launchGame();
     QTimer * gameTimer;
     ForceWork * currentGame = nullptr;
