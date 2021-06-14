@@ -65,12 +65,13 @@ void ForceWork::manageKeys()
             {
                 getPlayer()->setMovement(2);
             }
-            if(itsSettings->validLeft(key))
+            else if(itsSettings->validLeft(key))
             {
                 getPlayer()->setMovement(1);
             }
-            if(itsSettings->validJump(key))
+            else if(itsSettings->validJump(key))
             {
+                getPlayer()->setMovement(3);
 
             }
         }

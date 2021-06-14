@@ -476,6 +476,70 @@ void MainWindow::paintEvent(QPaintEvent *event)
             itsPersoSens = false;
 
         }
+        if (currentGame->getPlayer()->getItsAnimationImage() == 3 and itsPersoSens == false)
+        {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5D);
+            /*                          Pour annimation plus tard
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5D);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD2_5D);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD3_5D);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD4_5D);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
+            }
+            if ()
+            {
+            itsPersoTimeD = 0;
+             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5D);
+            }*/
+
+
+        }
+        if (currentGame->getPlayer()->getItsAnimationImage() == 3 and itsPersoSens == true)
+        {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5G);
+
+           /* if ()                         pour annimation du saut plus tard
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5G);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD2_5G);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD3_5G);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD4_5G);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
+            }
+            if ()
+            {
+            itsPersoTimeD = 0;
+             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5G);
+            }*/
+
+
+        }
            painter->end();
     }
 

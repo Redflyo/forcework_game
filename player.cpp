@@ -56,5 +56,9 @@ void Player::animate()
     {
         itsAnimationImage = 0;
     }
+    if (itsMovement == 3)
+    {
+        itsAnimationImage = 3;
+    }
 
 }
