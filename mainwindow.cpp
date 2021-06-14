@@ -131,6 +131,20 @@ void MainWindow::loadImage()
 
 
 
+
+
+    *persoSautHD1_5D =  persoSautHD1_5D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD2_5D =  persoSautHD2_5D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD3_5D =  persoSautHD3_5D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD4_5D =  persoSautHD4_5D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD5_5D =  persoSautHD5_5D->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    *persoSautHD1_5G =  persoSautHD1_5G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD2_5G =  persoSautHD2_5G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD3_5G =  persoSautHD3_5G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD4_5G =  persoSautHD4_5G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD5_5G =  persoSautHD5_5G->scaled(QSize(sizeBlock,sizeBlock*2));
+
     *persoMarcher1_6D = persoMarcher1_6D->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoMarcher2_6D = persoMarcher2_6D->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoMarcher3_6D = persoMarcher3_6D->scaled(QSize(sizeBlock,sizeBlock*2));
