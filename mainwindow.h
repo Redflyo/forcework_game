@@ -94,6 +94,16 @@ private:
     QImage *persoMarcher4_6G;
     QImage *persoMarcher5_6G;
     QImage *persoMarcher6_6G;
+    QImage *persoSautHD1_5D;
+    QImage *persoSautHD2_5D;
+    QImage *persoSautHD3_5D;
+    QImage *persoSautHD4_5D;
+    QImage *persoSautHD5_5D;
+    QImage *persoSautHD1_5G;
+    QImage *persoSautHD2_5G;
+    QImage *persoSautHD3_5G;
+    QImage *persoSautHD4_5G;
+    QImage *persoSautHD5_5G;
 
     bool itsPersoSens = false;
     int itsPersoTimeD = 0;

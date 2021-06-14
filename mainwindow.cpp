@@ -58,46 +58,78 @@ void MainWindow::loadImage()
     flag2->load("../forcework_game/data/drapeau2-2.png");
 
     perso1 = new QImage;
-    perso1->load("../forcework_game/data/persoStopD.png");
+    perso1->load("../forcework_game/data/persoStopHDD.png");
 
     perso2 = new QImage;
-    perso2->load("../forcework_game/data/persoStopG.png");
+    perso2->load("../forcework_game/data/persoStopHDG.png");
 
     persoMarcher1_6D = new QImage;
-    persoMarcher1_6D->load("../forcework_game/data/persoMarcher1-6D.png");
+    persoMarcher1_6D->load("../forcework_game/data/persoMarcherHD1-6D.png");
 
     persoMarcher2_6D = new QImage;
-    persoMarcher2_6D->load("../forcework_game/data/persoMarcher2-6D.png");
+    persoMarcher2_6D->load("../forcework_game/data/persoMarcherHD2-6D.png");
 
     persoMarcher3_6D = new QImage;
-    persoMarcher3_6D->load("../forcework_game/data/persoMarcher3-6D.png");
+    persoMarcher3_6D->load("../forcework_game/data/persoMarcherHD3-6D.png");
 
     persoMarcher4_6D = new QImage;
-    persoMarcher4_6D->load("../forcework_game/data/persoMarcher4-6D.png");
+    persoMarcher4_6D->load("../forcework_game/data/persoMarcherHD4-6D.png");
 
     persoMarcher5_6D = new QImage;
-    persoMarcher5_6D->load("../forcework_game/data/persoMarcher5-6D.png");
+    persoMarcher5_6D->load("../forcework_game/data/persoMarcherHD5-6D.png");
 
     persoMarcher6_6D = new QImage;
-    persoMarcher6_6D->load("../forcework_game/data/persoMarcher6-6D.png");
+    persoMarcher6_6D->load("../forcework_game/data/persoMarcherHD6-6D.png");
 
     persoMarcher1_6G = new QImage;
-    persoMarcher1_6G->load("../forcework_game/data/persoMarcher1-6G.png");
+    persoMarcher1_6G->load("../forcework_game/data/persoMarcherHD1-6G.png");
 
     persoMarcher2_6G = new QImage;
-    persoMarcher2_6G->load("../forcework_game/data/persoMarcher2-6G.png");
+    persoMarcher2_6G->load("../forcework_game/data/persoMarcherHD2-6G.png");
 
     persoMarcher3_6G = new QImage;
-    persoMarcher3_6G->load("../forcework_game/data/persoMarcher3-6G.png");
+    persoMarcher3_6G->load("../forcework_game/data/persoMarcherHD3-6G.png");
 
     persoMarcher4_6G = new QImage;
-    persoMarcher4_6G->load("../forcework_game/data/persoMarcher4-6G.png");
+    persoMarcher4_6G->load("../forcework_game/data/persoMarcherHD4-6G.png");
 
     persoMarcher5_6G = new QImage;
-    persoMarcher5_6G->load("../forcework_game/data/persoMarcher5-6G.png");
+    persoMarcher5_6G->load("../forcework_game/data/persoMarcherHD5-6G.png");
 
     persoMarcher6_6G = new QImage;
-    persoMarcher6_6G->load("../forcework_game/data/persoMarcher6-6G.png");
+    persoMarcher6_6G->load("../forcework_game/data/persoMarcherHD6-6G.png");
+
+    persoSautHD1_5G = new QImage;
+    persoSautHD1_5G->load("../forcework_game/data/persoSautHD1-5G.png");
+
+    persoSautHD2_5G = new QImage;
+    persoSautHD2_5G->load("../forcework_game/data/persoSautHD2-5G.png");
+
+    persoSautHD3_5G = new QImage;
+    persoSautHD3_5G->load("../forcework_game/data/persoSautHD3-5G.png");
+
+    persoSautHD4_5G = new QImage;
+    persoSautHD4_5G->load("../forcework_game/data/persoSautHD4-5G.png");
+
+    persoSautHD5_5G = new QImage;
+    persoSautHD5_5G->load("../forcework_game/data/persoSautHD5-5G.png");
+
+    persoSautHD1_5D = new QImage;
+    persoSautHD1_5D->load("../forcework_game/data/persoSautHD1-5D.png");
+
+    persoSautHD2_5D = new QImage;
+    persoSautHD2_5D->load("../forcework_game/data/persoSautHD2-5D.png");
+
+    persoSautHD3_5D = new QImage;
+    persoSautHD3_5D->load("../forcework_game/data/persoSautHD3-5D.png");
+
+    persoSautHD4_5D = new QImage;
+    persoSautHD4_5D->load("../forcework_game/data/persoSautHD4-5D.png");
+
+    persoSautHD5_5D = new QImage;
+    persoSautHD5_5D->load("../forcework_game/data/persoSautHD5-5D.png");
+
+
 
     *persoMarcher1_6D = persoMarcher1_6D->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoMarcher2_6D = persoMarcher2_6D->scaled(QSize(sizeBlock,sizeBlock*2));
