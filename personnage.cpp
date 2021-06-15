@@ -5,6 +5,11 @@ int Personnage::getItsAnimationImage() const
     return itsAnimationImage;
 }
 
+float Personnage::getItsSpeedY() const
+{
+    return itsSpeedY;
+}
+
 Personnage::Personnage()
 {
     

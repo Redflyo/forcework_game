@@ -8,7 +8,8 @@ class Player: public Personnage
 {
 private:
     int itsTimeOfJump = 0;
-    bool itsImpulsion = false;
+    bool itsImpulsion = false; // true monte false descend
+    bool itsGround=true; // true au sol false en l'air
     float itsPowerImpulsion = 0.4;
     const float gravity = 0.2;
 public:
@@ -23,6 +24,8 @@ public:
     virtual void die();
     virtual void animate();
     bool isWin();
+    bool getItsImpulsion() const;
+    bool getItsGround() const;
 };
 
 

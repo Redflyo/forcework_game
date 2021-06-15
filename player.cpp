@@ -1,6 +1,16 @@
 #include "player.h"
 #include <QDebug>
 
+bool Player::getItsImpulsion() const
+{
+    return itsImpulsion;
+}
+
+bool Player::getItsGround() const
+{
+    return itsGround;
+}
+
 Player::Player()
 {
 
@@ -39,7 +49,6 @@ void Player::move(vector<Block> & itsMap)
         if( getItsBlockY() >= bloc.getItsBlockY()-3 && getItsBlockY() <= bloc.getItsBlockY() +3)
         {
            arroundPlayer.push_back(bloc);
-           qDebug() << bloc.getItsX() << " " <<  bloc.getItsY();
         }
       }
     }
@@ -142,6 +151,10 @@ void Player::animate()
     if (itsMovement == 0)
     {
         itsAnimationImage = 0;
+    }
+    if (itsMovement == 3)
+    {
+        itsAnimationImage = 3;
     }
 
 }

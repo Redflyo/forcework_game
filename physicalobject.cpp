@@ -87,7 +87,6 @@ int PhysicalObject::isCollide(PhysicalObject anObject1, PhysicalObject anObject2
       x3 = anObject2.getItsX(),
       x4 = anObject2.getItsX()+anObject1.getItsWidth();
 
-  qDebug() << x1 << " " << x2 << " " << x3 << " " << x4;
   int y1 = anObject1.getItsY(),
       y2 = anObject1.getItsY()+anObject1.getItsHeight(),
       y3 = anObject2.getItsY(),

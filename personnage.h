@@ -8,7 +8,6 @@ class Personnage: public PhysicalObject
 protected:
     int itsLife;
     int itsAnimationImage = 0;
-    bool itsGround=true;
     float itsSpeedY;
     int itsMovement;
 public:
@@ -22,6 +21,7 @@ public:
     virtual void die() = 0;
     virtual void animate() = 0;
     int getItsAnimationImage() const;
+    float getItsSpeedY() const;
 };
 
 #endif // PERSONNAGE_H
