@@ -443,6 +443,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
         int offSetY = currentGame->getCamera().getItsOffsetY();
         QPainter * painter = new QPainter(this);
         int locX,locY;
+        bool haveDrawSomething = false;
         bool ground = currentGame->getPlayer()->getItsSpeedY()<1 and currentGame->getPlayer()->getItsSpeedY()>-1 ;
         for (int i = 0; i<(int)blocks.size() ;i++ ) {
 
@@ -489,7 +490,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
         {
             itsPersoTimeD = 0;
             itsPersoTimeG = 0;
-
+            haveDrawSomething = true;
             if (itsPersoSens == false and ground == true)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *perso1);
@@ -501,6 +502,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
         }
         if (currentGame->getPlayer()->getItsAnimationImage() == 1 and ground == true)
         {
+            haveDrawSomething = true;
             itsPersoTimeD = 0;
             if (itsPersoTimeG >= 0 and itsPersoTimeG <15)
             {
@@ -538,6 +540,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
         }
         if (currentGame->getPlayer()->getItsAnimationImage() == 2 and ground == true)
         {
+            haveDrawSomething = true;
             itsPersoTimeG = 0;
             if (itsPersoTimeD >= 0 and itsPersoTimeD <15)
             {
@@ -571,8 +574,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
             itsPersoSens = false;
 
         }
+        bool fall = false;
 
-        if (ground == false and itsPersoSens == false and currentGame->getPlayer()->getItsAnimationImage() == 3)
+        // animation saut droit
+        if (ground == false and itsPersoSens == false)
         {
             if (currentGame->getPlayer()->getItsImpulsion() == true)
             {
@@ -588,22 +593,17 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 {
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD3_5D);
                 }
+                haveDrawSomething = true;
             }
-            if (currentGame->getPlayer()->getItsImpulsion() == false)
+            else
             {
-                if (itsPersoTimeJump>= 30 and itsPersoTimeJump <40)
-                {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD4_5D);
-                }
-                if (itsPersoTimeJump >= 40)
-                {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
-                }
+                itsPersoTimeJump = 0;
+                fall = true;
             }
 
         }
-
-        if (ground == false and itsPersoSens == true and currentGame->getPlayer()->getItsAnimationImage() == 3)
+        // animation saut gauche
+        if (ground == false and itsPersoSens == true)
         {
             if (currentGame->getPlayer()->getItsImpulsion() == true)
             {
@@ -619,21 +619,19 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 {
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD3_5G);
                 }
+                haveDrawSomething = true;
             }
-            if (currentGame->getPlayer()->getItsImpulsion() == false)
+            else
             {
-                if (itsPersoTimeJump>= 30 and itsPersoTimeJump <40)
-                {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD4_5G);
-                }
-                if (itsPersoTimeJump >= 40)
-                {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
-                }
+                itsPersoTimeJump = 0;
+                fall = true;
             }
 
         }
-        if (ground == false and itsPersoSens == true and currentGame->getPlayer()->getItsImpulsion() == false)
+
+
+        // animation chute gauche
+        if ((ground == false and itsPersoSens == true and currentGame->getPlayer()->getItsImpulsion() == false) or (fall == true and itsPersoSens == true))
         {
                 if (itsPersoTimeJump>= 0 and itsPersoTimeJump <10)
                 {
@@ -644,11 +642,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
                 }
 
+            haveDrawSomething = true;
         }
-        if (ground == false and itsPersoSens == false and currentGame->getPlayer()->getItsImpulsion() == false)
+        if ((ground == false and itsPersoSens == false and currentGame->getPlayer()->getItsImpulsion() == false) or (fall == true and itsPersoSens == false))
         {
-            qDebug() << currentGame->getPlayer()->getItsGround();
-            qDebug() << currentGame->getPlayer()->getItsImpulsion();
 
                 if (itsPersoTimeJump>= 0 and itsPersoTimeJump <10)
                 {
@@ -658,6 +655,36 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 {
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
                 }
+            haveDrawSomething = true;
+        }
+
+        if(!haveDrawSomething)
+        {
+            if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 3 and itsPersoSens == false)
+            {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
+            }
+            if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 3 and itsPersoSens == true)
+            {
+                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
+            }
+            if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 2 and itsPersoSens == false)
+            {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
+            }
+            if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 1 and itsPersoSens == true)
+            {
+                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
+            }
+
+            if(!itsPersoSens)
+            {
+              painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
+            }
+            else
+            {
+              painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
+            }
 
         }
 
@@ -667,9 +694,12 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
 
 
-        if (currentGame->getPlayer()->getItsGround() == true)
+
+        if (ground == true)
         {
+
             itsPersoTimeJump =0;
+            fall = false;
         }
            painter->end();
     }

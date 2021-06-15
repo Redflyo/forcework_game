@@ -70,7 +70,7 @@ void ForceWork::manageKeys()
             {
                 getPlayer()->setMovement(2);
             }
-            else if(itsSettings->validLeft(key))
+            if(itsSettings->validLeft(key))
             {
                 getPlayer()->setMovement(1);
             }
