@@ -18,6 +18,6 @@ Block::Block(int type)
 Block::Block(int type, int blockX, int blockY)
 {
     this->itsBlockType = type;
-    this->itsBlockX = blockX;
-    this->itsBlockY = blockY;
+    this->setItsBlockX(blockX);
+    this->setItsBlockY(blockY);
 }

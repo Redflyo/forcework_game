@@ -44,6 +44,10 @@ public:
     void setItsY(int value);
     int getItsX() const;
     void setItsX(int value);
+    int getItsWidth() const;
+    void setItsWidth(int value);
+    int getItsHeight() const;
+    void setItsHeight(int value);
 };
 
 #endif // PHYSICALOBJECT_H

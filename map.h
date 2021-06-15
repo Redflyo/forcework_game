@@ -17,7 +17,7 @@ private:
 
     ///
     /// \brief split divise une chaine de caractère
-    /// \param s string à diviser
+    /// \param s string �  diviser
     /// \param delimeter le string qui fixe les lignes de découpage
     /// \return le vecteur contenant les différents morceaux
     ///
@@ -39,7 +39,7 @@ public:
     /// \param mapFile path to get the map
     ///
     vector<Personnage*> loadMap(std::string mapFile);
-    std::vector<Block> getItsBlocks() const;
+    std::vector<Block> & getItsBlocks();
     int getItsWidthMap() const;
     int getItsHeightMap() const;
 };
