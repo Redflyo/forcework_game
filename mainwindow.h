@@ -80,6 +80,7 @@ private:
     bool itsFlagBool = false;
     int itsFlagTime = 0;
 
+    // Image du personage principal
     QImage *perso1;
     QImage *perso2;
     QImage *persoMarcher1_6D;
@@ -104,6 +105,42 @@ private:
     QImage *persoSautHD3_5G;
     QImage *persoSautHD4_5G;
     QImage *persoSautHD5_5G;
+
+    // image de Rambo
+
+    QImage *rambo1;
+    QImage *rambo2;
+    QImage *ramboMarcher1_6D;
+    QImage *ramboMarcher2_6D;
+    QImage *ramboMarcher3_6D;
+    QImage *ramboMarcher4_6D;
+    QImage *ramboMarcher5_6D;
+    QImage *ramboMarcher6_6D;
+    QImage *ramboMarcher1_6G;
+    QImage *ramboMarcher2_6G;
+    QImage *ramboMarcher3_6G;
+    QImage *ramboMarcher4_6G;
+    QImage *ramboMarcher5_6G;
+    QImage *ramboMarcher6_6G;
+
+
+    // image de Costar
+
+    QImage *costar1;
+    QImage *costar2;
+    QImage *costarMarcher1_6D;
+    QImage *costarMarcher2_6D;
+    QImage *costarMarcher3_6D;
+    QImage *costarMarcher4_6D;
+    QImage *costarMarcher5_6D;
+    QImage *costarMarcher6_6D;
+    QImage *costarMarcher1_6G;
+    QImage *costarMarcher2_6G;
+    QImage *costarMarcher3_6G;
+    QImage *costarMarcher4_6G;
+    QImage *costarMarcher5_6G;
+    QImage *costarMarcher6_6G;
+
 
     bool itsPersoSens = false;
     int itsPersoTimeD = 0;

@@ -132,6 +132,99 @@ void MainWindow::loadImage()
 
 
 
+    // image rambo
+
+    rambo1 = new QImage;
+    rambo1->load("../forcework_game/data/ramboStopD.png");
+
+    rambo2 = new QImage;
+    rambo2->load("../forcework_game/data/ramboStopG.png");
+
+    ramboMarcher1_6D = new QImage;
+    ramboMarcher1_6D->load("../forcework_game/data/ramboMarcher1-6D.png");
+
+    ramboMarcher2_6D = new QImage;
+    ramboMarcher2_6D->load("../forcework_game/data/ramboMarcher2-6D.png");
+
+    ramboMarcher3_6D = new QImage;
+    ramboMarcher3_6D->load("../forcework_game/data/ramboMarcher3-6D.png");
+
+    ramboMarcher4_6D = new QImage;
+    ramboMarcher4_6D->load("../forcework_game/data/ramboMarcher4-6D.png");
+
+    ramboMarcher5_6D = new QImage;
+    ramboMarcher5_6D->load("../forcework_game/data/ramboMarcher5-6D.png");
+
+    ramboMarcher6_6D = new QImage;
+    ramboMarcher6_6D->load("../forcework_game/data/ramboMarcher6-6D.png");
+
+    ramboMarcher1_6G = new QImage;
+    ramboMarcher1_6G->load("../forcework_game/data/ramboMarcher1-6G.png");
+
+    ramboMarcher2_6G = new QImage;
+    ramboMarcher2_6G->load("../forcework_game/data/ramboMarcher2-6G.png");
+
+    ramboMarcher3_6G = new QImage;
+    ramboMarcher3_6G->load("../forcework_game/data/ramboMarcher3-6G.png");
+
+    ramboMarcher4_6G = new QImage;
+    ramboMarcher4_6G->load("../forcework_game/data/ramboMarcher4-6G.png");
+
+    ramboMarcher5_6G = new QImage;
+    ramboMarcher5_6G->load("../forcework_game/data/ramboMarcher5-6G.png");
+
+    ramboMarcher6_6G = new QImage;
+    ramboMarcher6_6G->load("../forcework_game/data/ramboMarcher6-6G.png");
+
+
+
+    // image costar
+
+    costar1 = new QImage;
+    costar1->load("../forcework_game/data/costarStopD.png");
+
+    costar2 = new QImage;
+    costar2->load("../forcework_game/data/costarStopG.png");
+
+    costarMarcher1_6D = new QImage;
+    costarMarcher1_6D->load("../forcework_game/data/costarMarcherHD1-6D.png");
+
+    costarMarcher2_6D = new QImage;
+    costarMarcher2_6D->load("../forcework_game/data/costarMarcherHD2-6D.png");
+
+    costarMarcher3_6D = new QImage;
+    costarMarcher3_6D->load("../forcework_game/data/costarMarcherHD3-6D.png");
+
+    costarMarcher4_6D = new QImage;
+    costarMarcher4_6D->load("../forcework_game/data/costarMarcherHD4-6D.png");
+
+    costarMarcher5_6D = new QImage;
+    costarMarcher5_6D->load("../forcework_game/data/costarMarcherHD5-6D.png");
+
+    costarMarcher6_6D = new QImage;
+    costarMarcher6_6D->load("../forcework_game/data/costarMarcherHD6-6D.png");
+
+    costarMarcher1_6G = new QImage;
+    costarMarcher1_6G->load("../forcework_game/data/costarMarcherHD1-6G.png");
+
+    costarMarcher2_6G = new QImage;
+    costarMarcher2_6G->load("../forcework_game/data/costarMarcherHD2-6G.png");
+
+    costarMarcher3_6G = new QImage;
+    costarMarcher3_6G->load("../forcework_game/data/costarMarcherHD3-6G.png");
+
+    costarMarcher4_6G = new QImage;
+    costarMarcher4_6G->load("../forcework_game/data/costarMarcherHD4-6G.png");
+
+    costarMarcher5_6G = new QImage;
+    costarMarcher5_6G->load("../forcework_game/data/costarMarcherHD5-6G.png");
+
+    costarMarcher6_6G = new QImage;
+    costarMarcher6_6G->load("../forcework_game/data/costarMarcherHD6-6G.png");
+
+
+
+
 
     *persoSautHD1_5D =  persoSautHD1_5D->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoSautHD2_5D =  persoSautHD2_5D->scaled(QSize(sizeBlock,sizeBlock*2));
