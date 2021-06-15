@@ -71,11 +71,11 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
     string line;
     while(!stream.eof())
     {
-        y++;
         getline(stream,line);
 
         if(line[0] == '(' )
         {
+
             // round of enemies
             while(replace(line," ", ""));
             while(replace(line,"(", ""));
@@ -107,7 +107,7 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
             // map
             char c;
 
-
+            y++;
 
             for(int i = 0; i<(int)line.size();i++,c = line[i])
             {

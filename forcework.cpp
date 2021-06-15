@@ -20,7 +20,7 @@ QSet<int>& ForceWork::getPressedKeys()
 
 ForceWork::~ForceWork()
 {
-
+    delete  camera;
     for(Personnage* perso: itsPersonnages)
     {
         delete perso;
@@ -64,7 +64,6 @@ void ForceWork::manageKeys()
             if(itsSettings->validJump(key))
             {
                 getPlayer()->jump();
-                getPlayer()->setMovement(3);
             }
             if(itsSettings->validRight(key))
             {

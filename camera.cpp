@@ -33,7 +33,7 @@ void Camera::follow(PhysicalObject object)
     }
     if(-itsOffsetY < 0)
     {
-        itsOffsetX =0;
+        itsOffsetY =0;
     }
     else if(399 >= itsHeightBlockMap*sizeBlock+itsOffsetY )
     {
