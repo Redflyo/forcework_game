@@ -9,11 +9,12 @@ private:
     int itsSpeedX;
     int itsSpeedY;
     int itsAnimationImage;
-    Personnage * itsOwner;
+    Personnage *itsOwner;
 public:
     void move();
     void animate();
-    Bullet();
+    Bullet(Personnage *owner);
+    Personnage *getItsOwner() const;
 };
 
 #endif // BULLET_H

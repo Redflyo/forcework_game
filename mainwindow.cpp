@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QGraphicsEffect>
 #include <fstream>
+#include <QProcess>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     setWindowTitle("ForceWork");
     setWindowIcon(QIcon("../forcework_game/data/logo.png"));
     m_opaEffect = new QGraphicsOpacityEffect(this);
-    m_opaEffect->setOpacity(0.9);
+    m_opaEffect->setOpacity(0.85);
     // Timer du jeu
     gameTimer = new QTimer();
     itsSetting = new Settings();
@@ -99,6 +100,12 @@ void MainWindow::loadImage()
     persoMarcher6_6G = new QImage;
     persoMarcher6_6G->load("../forcework_game/data/persoMarcher6-6G.png");
 
+    balleDroite = new QImage;
+    balleDroite->load("../forcework_game/data/BalleD.png");
+
+    balleGauche = new QImage;
+    balleGauche->load("../forcework_game/data/BalleG.png");
+
     *persoMarcher1_6D = persoMarcher1_6D->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoMarcher2_6D = persoMarcher2_6D->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoMarcher3_6D = persoMarcher3_6D->scaled(QSize(sizeBlock,sizeBlock*2));
@@ -125,8 +132,6 @@ void MainWindow::loadImage()
     *image2 = image2->scaled(QSize(sizeBlock,sizeBlock));
     *image3 = image3->scaled(QSize(sizeBlock,sizeBlock));
     *image4 = image4->scaled(QSize(sizeBlock,sizeBlock));
-
-
 }
 
 void MainWindow::displayHallOfFame()
@@ -223,6 +228,13 @@ void MainWindow::keyPressEvent(QKeyEvent*ev)
 
         }
     }
+    //------------------------------------------------------------------------
+    if(ev->key()== Qt::Key_A)
+    {
+        ui->label_winscore->setText(currentGame->getItsSettings()->getItsTimer());
+        Win();
+    }
+    //--------------------------------------------------------------------------------
 }
 void MainWindow::keyReleaseEvent(QKeyEvent *ev)
 {
@@ -237,6 +249,15 @@ void MainWindow::keyReleaseEvent(QKeyEvent *ev)
     }
 }
 
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    if(event->button() == Qt::LeftButton && ui->stackedWidget->currentIndex() == 1)
+    {
+        Bullet *bull = new Bullet((Personnage*)currentGame->getPlayer());
+        currentGame->addBullet(bull);
+    }
+}
 
 void MainWindow::editLfunc()
 {
@@ -268,6 +289,12 @@ void MainWindow::on_PB_launchGame_clicked()
     launchGame();
 }
 
+void MainWindow::Win()
+{
+    ui->frame_menuwin->setGraphicsEffect(m_opaEffect);
+    ui->stackedWidget->setCurrentWidget(ui->MenuWin);
+}
+
 void MainWindow::launchGame()
 {
     currentGame = new ForceWork(itsSetting);
@@ -291,12 +318,14 @@ void MainWindow::gameLoop()
 
     itsPersoTimeD++;
     itsPersoTimeG++;
+    ui->lcdNumber->display(currentGame->getTickScore());
+    currentGame->getItsSettings()->setItsTimer(currentGame->getTickScore());
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)
 {
 
-    if(ui->stackedWidget->currentIndex() == 1 || ui->stackedWidget->currentIndex() == 4)
+    if(ui->stackedWidget->currentIndex() == 1 || ui->stackedWidget->currentIndex() == 4 || ui->stackedWidget->currentIndex() == 5)
     {
         blocks = currentGame->getItsMap().getItsBlocks();
         int offSetX = currentGame->getCamera().getItsOffsetX();
@@ -430,10 +459,19 @@ void MainWindow::paintEvent(QPaintEvent *event)
             itsPersoSens = false;
 
         }
+        if(currentGame->getItsBullets().size()!=0)
+        {
+            for(Bullet * bullet : currentGame->getItsBullets())
+            {
+                if(itsPersoSens == true) painter->drawImage((bullet->getItsOwner())->getItsX(), bullet->getItsOwner()->getGunY(), *balleGauche);
+                else if(itsPersoSens == false) painter->drawImage((bullet->getItsOwner())->getItsX()+sizeBlock, bullet->getItsOwner()->getGunY(), *balleDroite);
+            }
+         }
            painter->end();
     }
 
 }
+
 
 void MainWindow::on_pushButton_5_clicked()
 {
@@ -449,4 +487,17 @@ void MainWindow::on_pushButton_7_clicked()
 void MainWindow::on_pushButton_8_clicked()
 {
     this->close();
+}
+
+void MainWindow::on_PB_startmenu_fromMenuWin_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->StartMenu);
+}
+
+void MainWindow::on_PB_startNewGame_fromMenuWin_clicked()
+{
+    delete currentGame;
+    delete itsSetting;
+    itsSetting = new Settings;
+    ui->PB_launchGame->click();
 }

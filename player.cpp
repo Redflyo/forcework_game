@@ -14,12 +14,12 @@ void Player::move()
     // left
     if(itsMovement == 1)
     {
-        itsX -=2;
+        setItsX(itsX -2);
     }
     //right
     if(itsMovement == 2)
     {
-        itsX += 2;
+        setItsX(itsX - 2);
     }
 
 }

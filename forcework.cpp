@@ -18,6 +18,27 @@ QSet<int>& ForceWork::getPressedKeys()
     return pressedKeys;
 }
 
+QString ForceWork::getTickScore() const
+{
+    QString Score;
+    int cent =tickScore%100;
+    int second = tickScore/100;
+    int min = second/60;
+    second -= min*60;
+    Score = QString::number(min) + ":" + QString::number(second) + ":" + QString::number(cent);
+    return Score;
+}
+
+Settings *ForceWork::getItsSettings() const
+{
+    return itsSettings;
+}
+
+vector<Bullet *> ForceWork::getItsBullets() const
+{
+    return itsBullets;
+}
+
 ForceWork::~ForceWork()
 {
 
@@ -46,7 +67,7 @@ void ForceWork::gameLoop()
     aPlayer->move();
     aPlayer->animate();
     getCamera().follow((PhysicalObject)(*aPlayer));
-
+    tickScore++;
 
 
 }
@@ -96,4 +117,17 @@ void ForceWork::addPersonnage(IA ia)
 Player *ForceWork::getPlayer()
 {
     return (Player*)itsPersonnages[0];
+}
+
+void ForceWork::addBullet(Bullet *a)
+{
+    itsBullets.emplace_back(a);
+}
+
+void ForceWork::deleteBullet(Bullet *a)
+{
+    for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end(); it++)
+    {
+        if(*it == a) itsBullets.erase(it);
+    }
 }

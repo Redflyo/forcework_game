@@ -11,6 +11,7 @@
 #include <QSet>
 #include <QEvent>
 #include <QGraphicsEffect>
+#include <QMouseEvent>
 
 
 QT_BEGIN_NAMESPACE
@@ -27,6 +28,7 @@ public slots :
     void editJfunc();
     void keyPressEvent(QKeyEvent*ev);
     void keyReleaseEvent(QKeyEvent * ev);
+    void mousePressEvent(QMouseEvent *event);
 public:
     MainWindow(QWidget *parent = nullptr);
 
@@ -43,7 +45,7 @@ private slots:
     void paintEvent(QPaintEvent *event);
 
     ///
-    /// \brief on_pushButton_clicked Bouton pour aller Ã  la page Settings
+    /// \brief on_pushButton_clicked Bouton pour aller a la page Settings
     ///
     void on_pushButton_clicked();
 
@@ -57,6 +59,7 @@ private slots:
 
     void on_PB_launchGame_clicked();
 
+    void Win();
 
     void gameLoop();
 
@@ -65,6 +68,10 @@ private slots:
     void on_pushButton_7_clicked();
 
     void on_pushButton_8_clicked();
+
+    void on_PB_startmenu_fromMenuWin_clicked();
+
+    void on_PB_startNewGame_fromMenuWin_clicked();
 
 private:
 
@@ -94,6 +101,8 @@ private:
     QImage *persoMarcher4_6G;
     QImage *persoMarcher5_6G;
     QImage *persoMarcher6_6G;
+    QImage *balleGauche;
+    QImage *balleDroite;
 
     bool itsPersoSens = false;
     int itsPersoTimeD = 0;

@@ -6,6 +6,7 @@
 #include <map.h>
 #include <camera.h>
 #include <QSet>
+#include "bullet.h"
 #include "settings.h"
 
 using namespace std;
@@ -19,9 +20,11 @@ private:
     /// \brief personnages Le joueur est à l'index 0
     ///
     vector<Personnage*> itsPersonnages;
+    vector<Bullet*> itsBullets;
     Map itsMap;
     Camera * camera;
     Settings *itsSettings;
+    int tickScore = 0;
 
 
 public:
@@ -34,11 +37,15 @@ public:
     void addPersonnage(Player player);
     void addPersonnage(IA ia);
     Player* getPlayer();
-
+    void addBullet(Bullet *a);
+    void deleteBullet(Bullet *a);
     Map getItsMap();
 
     Camera& getCamera();
     QSet<int>& getPressedKeys();
+    QString getTickScore() const;
+    Settings *getItsSettings() const;
+    vector<Bullet *> getItsBullets() const;
 };
 
 #endif // FORCEWORK_H

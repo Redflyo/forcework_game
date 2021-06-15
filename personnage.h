@@ -10,6 +10,7 @@ protected:
     bool itsGround;
     float itsSpeedY;
     int itsMovement;
+    int gunY;
 public:
 
     Personnage();
@@ -21,6 +22,8 @@ public:
     virtual void die() = 0;
     virtual void animate() = 0;
     int getItsAnimationImage() const;
+    int getGunY() const;
+    void setGunY(int value);
 };
 
 #endif // PERSONNAGE_H

@@ -2,7 +2,12 @@
 ///
 /// \brief Bullet::Bullet
 ///
-Bullet::Bullet()
+Personnage *Bullet::getItsOwner() const
 {
+    return itsOwner;
+}
 
+Bullet::Bullet(Personnage *owner)
+{
+    itsOwner = owner;
 }
