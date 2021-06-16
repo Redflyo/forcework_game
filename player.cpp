@@ -127,10 +127,7 @@ void Player::move(vector<Block> & itsMap)
 
 
 
-void Player::shoot()
-{
 
-}
 
 void Player::beShot()
 {

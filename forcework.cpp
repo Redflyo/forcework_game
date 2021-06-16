@@ -61,9 +61,9 @@ Settings *ForceWork::getItsSettings() const
     return itsSettings;
 }
 
-void ForceWork::moveBulletGameloop(vector<Bullet*>& bullets)
+void ForceWork::moveBulletGameloop()
 {
-    for(vector<Bullet*>::iterator it = bullets.begin(); it!=bullets.end();)
+    for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end();)
     {
         (*it)->move();
         if((*it)->getIsHit() && (*it)->getAnimTime() > 60)
@@ -217,7 +217,7 @@ void ForceWork::gameLoop()
     aPlayer->animate();
     getCamera().follow((PhysicalObject)(*aPlayer));
     tickScore++;
-    moveBulletGameloop(itsBullets);
+    moveBulletGameloop();
     bulletsCheckCollision();
 
     playerHaveWin();

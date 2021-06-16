@@ -25,20 +25,49 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public slots :
+
+    ///
+    /// \brief editLfunc Signigie que la touche qui va etre edite dans le menu est celle de la touche gauche
+    ///
     void editLfunc();
+    ///
+    /// \brief editRfunc Signigie que la touche qui va etre edite dans le menu est celle de la touche droite
+    ///
     void editRfunc();
+    ///
+    /// \brief editJfunc Signigie que la touche qui va etre edite dans le menu est celle de la touche de saut
+    ///
     void editJfunc();
+    ///
+    /// \brief keyPressEvent Enregistre les touches enfoncés
+    /// \param ev evenement de keyPressEvent
+    ///
     void keyPressEvent(QKeyEvent*ev);
+    ///
+    /// \brief keyReleaseEvent Enregistre les touches relachés
+    /// \param ev evenement de keyReleaseEvent
+    ///
     void keyReleaseEvent(QKeyEvent * ev);
+    ///
+    /// \brief mousePressEvent Enregistre que un bouton de la souris est enfoncé
+    /// \param event evenement de mousePressEvent
+    ///
     void mousePressEvent(QMouseEvent *event);
 public:
+    ///
+    /// \brief MainWindow constructeur
+    /// \param parent pointeur du parent de MainWindow
+    ///
     MainWindow(QWidget *parent = nullptr);
-
+    /// \brief Destructeur MainWindow
     ~MainWindow();
     ///
-    /// \brief loadImage charge les images
+    /// \brief loadImage charge les images nécessaire à l'interface
     ///
     void loadImage();
+    ///
+    /// \brief displayHallOfFame affiche les temple de la renommé
+    ///
     void displayHallOfFame();
 
 private slots:
@@ -61,10 +90,17 @@ private slots:
 
     void on_PB_launchGame_clicked();
 
+    ///
+    /// \brief Win affiche la victoire du joueur
+    ///
     void Win();
-
+    ///
+    /// \brief Loose affiche la défaite du joueur
+    ///
     void Loose();
-
+    ///
+    /// \brief gameLoop methode permettant d'appeller les autres methode afin de derouler le jeu
+    ///
     void gameLoop();
 
     void on_pushButton_5_clicked();

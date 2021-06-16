@@ -31,16 +31,33 @@ private:
     int itsWidthMap,itsHeightMap;
 
 public:
-
-    Map();
-    ~Map();
     ///
-    /// \brief loadMap Load the map in memory
-    /// \param mapFile path to get the map
+    /// \brief Map constructeur de la carte
+    ///
+    Map();
+
+    /// \brief ~Map destructeur de la carte
+    ~Map();
+
+    ///
+    /// \brief loadMap charge le fichier correspond au niveau dans la memoire
+    /// \param mapFile chemin d'acces vers le niveau a charger
     ///
     vector<Personnage*> loadMap(std::string mapFile);
+    ///
+    /// \brief getItsBlocks getter de itsBlocks
+    /// \return retourne les blocks de la carte chargé
+    ///
     std::vector<Block> & getItsBlocks();
+    ///
+    /// \brief getItsWidthMap getter itsWidthMap soit la largeur de la carte
+    /// \return retourne la largeur de la carte en block
+    ///
     int getItsWidthMap() const;
+    ///
+    /// \brief getItsHeightMap getter itsHeightMap soit la hauteur de la carte
+    /// \return retourne la hauteur de la carte en block
+    ///
     int getItsHeightMap() const;
 };
 
