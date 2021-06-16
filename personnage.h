@@ -1,6 +1,7 @@
 #ifndef PERSONNAGE_H
 #define PERSONNAGE_H
 #include "physicalobject.h"
+#include "block.h"
 
 class Personnage: public PhysicalObject
 {
@@ -14,7 +15,7 @@ public:
 
     Personnage();
     virtual ~Personnage();
-    virtual void move() = 0;
+    virtual void move(std::vector<Block> itsMap) = 0;
     virtual void setMovement(int movement);
     virtual void shoot() = 0;
     virtual void beShot() = 0;

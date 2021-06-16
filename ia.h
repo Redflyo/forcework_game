@@ -1,6 +1,7 @@
 #ifndef IA_H
 #define IA_H
 #include "personnage.h"
+#include "block.h"
 
 class IA : public Personnage
 {
@@ -15,7 +16,7 @@ private:
 public:
     IA(int blockXBegin,int blockXEnd,int blockYRound);
     virtual ~IA();
-    virtual void move();
+    virtual void move(std::vector<Block> itsMap);
     virtual void shoot();
     virtual void beShot();
     virtual void die();

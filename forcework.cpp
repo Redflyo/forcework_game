@@ -43,7 +43,7 @@ void ForceWork::gameLoop()
 {
     manageKeys();
     Player* aPlayer = getPlayer();
-    aPlayer->move();
+    aPlayer->move(itsMap.getItsBlocks());
     aPlayer->animate();
     getCamera().follow((PhysicalObject)(*aPlayer));
 

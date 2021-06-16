@@ -30,7 +30,8 @@ public:
     /// \param anObject1
     /// \param anObject2
     /// \return
-    static int isCollide(PhysicalObject anObject1,PhysicalObject anObject2);
+    static int isCollideH(PhysicalObject anObject1,PhysicalObject anObject2);
+    static int isCollideV(PhysicalObject anObject1,PhysicalObject anObject2);
 
 
 
@@ -44,6 +45,10 @@ public:
     void setItsY(int value);
     int getItsX() const;
     void setItsX(int value);
+    int getItsWidth() const;
+    void setItsWidth(int value);
+    int getItsHeight() const;
+    void setItsHeight(int value);
 };
 
 #endif // PHYSICALOBJECT_H

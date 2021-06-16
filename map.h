@@ -17,7 +17,7 @@ private:
 
     ///
     /// \brief split divise une chaine de caractère
-    /// \param s string à diviser
+    /// \param s string �  diviser
     /// \param delimeter le string qui fixe les lignes de découpage
     /// \return le vecteur contenant les différents morceaux
     ///
