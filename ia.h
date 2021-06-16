@@ -10,6 +10,7 @@ private:
     int switchMove = 0;
     bool stop = false;
     bool forNoMove = false;
+    bool animationDead = false;
 
     int roundXBegin,roundXEnd;
     int roundY;
@@ -44,6 +45,8 @@ public:
     int getItsTimeG() const;
     void setItsTimeG(int value);
     int getSwitchMove() const;
+    void setAnimationDead(bool value);
+    bool getAnimationDead() const;
 };
 
 

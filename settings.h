@@ -5,7 +5,7 @@
 #include <QKeyEvent>
 
 using namespace std;
-  struct PlayerScore{string name; double score; int position;};
+  struct PlayerScore{string name; string score; int position;};
 class Settings
 {
 private:
