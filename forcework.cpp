@@ -38,6 +38,38 @@ Settings *ForceWork::getItsSettings() const
     return itsSettings;
 }
 
+void ForceWork::moveBulletGameloop(vector<Bullet*> bullets)
+{
+    for(vector<Bullet*>::iterator it = bullets.begin(); it!=bullets.end(); it++)
+    {
+        (*it)->move();
+    }
+}
+
+void ForceWork::bulletsCheckCollision(vector<Bullet *> bullets)
+{
+
+    for(Block bloc: itsMap.getItsBlocks())
+    {
+        if(!(bloc.getItsBlockType()==0 || bloc.getItsBlockType()==1))
+        {
+            for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end();)
+            {
+                 if((*it)->isCollide((*(*it)), bloc)==1)
+                 {
+                     //bull->animate();
+                     Bullet * bull = *it;
+                     itsBullets.erase(it);
+                     delete bull;
+
+
+                 }
+                 if(it != itsBullets.end()) it++;
+            }
+        }
+    }
+}
+
 vector<Bullet *> ForceWork::getItsBullets() const
 {
     return itsBullets;
@@ -72,10 +104,9 @@ void ForceWork::gameLoop()
     aPlayer->animate();
     getCamera().follow((PhysicalObject)(*aPlayer));
     tickScore++;
-    for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end(); it++)
-    {
-        (*it)->move();
-    }
+    moveBulletGameloop(itsBullets);
+    bulletsCheckCollision(itsBullets);
+
 
 }
 
@@ -133,11 +164,11 @@ void ForceWork::addBullet(Bullet *a)
 {
     itsBullets.emplace_back(a);
 }
-
-void ForceWork::deleteBullet(Bullet *a)
+/*
+void ForceWork::deleteBullet(Bullet * it)
 {
-    for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end(); it++)
-    {
-        if(*it == a) itsBullets.erase(it);
-    }
-}
+    Bullet* bull(*it);
+
+    itsBullets.erase(it);
+    delete bull;
+}*/

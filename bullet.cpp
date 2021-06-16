@@ -6,6 +6,8 @@
 Bullet::Bullet(Personnage *owner, bool direction)
 {
     itsOwner = owner;
+    setItsWidth(5);
+    setItsHeight(10);
     if(direction == true)
     {
         itsX = owner->getItsX();
@@ -26,6 +28,12 @@ Personnage *Bullet::getItsOwner() const
 
 void Bullet::move()
 {
+
     itsX+=itsSpeedX;
+}
+
+void Bullet::animate()
+{
+
 }
 

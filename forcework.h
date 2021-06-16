@@ -38,13 +38,15 @@ public:
     void addPersonnage(IA ia);
     Player* getPlayer();
     void addBullet(Bullet *a);
-    void deleteBullet(Bullet *a);
+    void deleteBullet(vector<Bullet*>::iterator it);
     Map getItsMap();
 
     Camera& getCamera();
     QSet<int>& getPressedKeys();
     QString getTickScore() const;
     Settings *getItsSettings() const;
+    void moveBulletGameloop(vector<Bullet*> bullets);
+    void bulletsCheckCollision(vector<Bullet*> bullets);
     vector<Bullet *> getItsBullets() const;
 };
 
