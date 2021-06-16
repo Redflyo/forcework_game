@@ -97,7 +97,71 @@ MainWindow::~MainWindow()
     delete persoSautHD5_5D;
     delete persoSautHD5_5G;
 
+    delete costarMort1_9D;
+    delete costarMort2_9D;
+    delete costarMort3_9D;
+    delete costarMort4_9D;
+    delete costarMort5_9D;
+    delete costarMort6_9D;
+    delete costarMort7_9D;
+    delete costarMort8_9D;
+    delete costarMort9_9D;
+    delete costarMort1_9G;
+    delete costarMort2_9G;
+    delete costarMort3_9G;
+    delete costarMort4_9G;
+    delete costarMort5_9G;
+    delete costarMort6_9G;
+    delete costarMort7_9G;
+    delete costarMort8_9G;
+    delete costarMort9_9G;
+
+    delete ramboMort1_9D;
+    delete ramboMort2_9D;
+    delete ramboMort3_9D;
+    delete ramboMort4_9D;
+    delete ramboMort5_9D;
+    delete ramboMort6_9D;
+    delete ramboMort7_9D;
+    delete ramboMort8_9D;
+    delete ramboMort9_9D;
+    delete ramboMort1_9G;
+    delete ramboMort2_9G;
+    delete ramboMort3_9G;
+    delete ramboMort4_9G;
+    delete ramboMort5_9G;
+    delete ramboMort6_9G;
+    delete ramboMort7_9G;
+    delete ramboMort8_9G;
+    delete ramboMort9_9G;
+
+    delete persoMort1_9D;
+    delete persoMort2_9D;
+    delete persoMort3_9D;
+    delete persoMort4_9D;
+    delete persoMort5_9D;
+    delete persoMort6_9D;
+    delete persoMort7_9D;
+    delete persoMort8_9D;
+    delete persoMort9_9D;
+    delete persoMort1_9G;
+    delete persoMort2_9G;
+    delete persoMort3_9G;
+    delete persoMort4_9G;
+    delete persoMort5_9G;
+    delete persoMort6_9G;
+    delete persoMort7_9G;
+    delete persoMort8_9G;
+    delete persoMort9_9G;
+
     delete heart;
+
+    delete boom1_6;
+    delete boom2_6;
+    delete boom3_6;
+    delete boom4_6;
+    delete boom5_6;
+    delete boom6_6;
 
     delete m_opaEffect;
     delete gameTimer;
@@ -198,6 +262,60 @@ void MainWindow::loadImage()
     persoSautHD5_5D = new QImage;
     persoSautHD5_5D->load("../forcework_game/data/persoSautHD5-5D.png");
 
+    persoMort1_9D = new QImage;
+    persoMort1_9D->load("../forcework_game/data/persoMort1-9D.png");
+
+    persoMort2_9D = new QImage;
+    persoMort2_9D->load("../forcework_game/data/persoMort2-9D.png");
+
+    persoMort3_9D = new QImage;
+    persoMort3_9D->load("../forcework_game/data/persoMort3-9D.png");
+
+    persoMort4_9D = new QImage;
+    persoMort4_9D->load("../forcework_game/data/persoMort4-9D.png");
+
+    persoMort5_9D = new QImage;
+    persoMort5_9D->load("../forcework_game/data/persoMort5-9D.png");
+
+    persoMort6_9D = new QImage;
+    persoMort6_9D->load("../forcework_game/data/persoMarche6-9D.png");
+
+    persoMort7_9D = new QImage;
+    persoMort7_9D->load("../forcework_game/data/persoMort7-9D.png");
+
+    persoMort8_9D = new QImage;
+    persoMort8_9D->load("../forcework_game/data/persoMort8-9D.png");
+
+    persoMort9_9D = new QImage;
+    persoMort9_9D->load("../forcework_game/data/persoMort9-9D.png");
+
+    persoMort1_9G = new QImage;
+    persoMort1_9G->load("../forcework_game/data/persoMort1-9G.png");
+
+    persoMort2_9G = new QImage;
+    persoMort2_9G->load("../forcework_game/data/persoMort2-9G.png");
+
+    persoMort3_9G = new QImage;
+    persoMort3_9G->load("../forcework_game/data/persoMort3-9G.png");
+
+    persoMort4_9G = new QImage;
+    persoMort4_9G->load("../forcework_game/data/persoMort4-9G.png");
+
+    persoMort5_9G = new QImage;
+    persoMort5_9G->load("../forcework_game/data/persoMort5-9G.png");
+
+    persoMort6_9G = new QImage;
+    persoMort6_9G->load("../forcework_game/data/persoMarche6-9G.png");
+
+    persoMort7_9G = new QImage;
+    persoMort7_9G->load("../forcework_game/data/persoMort7-9G.png");
+
+    persoMort8_9G = new QImage;
+    persoMort8_9G->load("../forcework_game/data/persoMort8-9G.png");
+
+    persoMort9_9G = new QImage;
+    persoMort9_9G->load("../forcework_game/data/persoMort9-9G.png");
+
 
     heart = new QImage;
     heart->load("../forcework_game/data/heart.webp");
@@ -246,6 +364,60 @@ void MainWindow::loadImage()
     ramboMarcher6_6G = new QImage;
     ramboMarcher6_6G->load("../forcework_game/data/ramboMarcher6-6G.png");
 
+    ramboMort1_9D = new QImage;
+    ramboMort1_9D->load("../forcework_game/data/ramboMort1-9D.png");
+
+    ramboMort2_9D = new QImage;
+    ramboMort2_9D->load("../forcework_game/data/ramboMort2-9D.png");
+
+    ramboMort3_9D = new QImage;
+    ramboMort3_9D->load("../forcework_game/data/ramboMort3-9D.png");
+
+    ramboMort4_9D = new QImage;
+    ramboMort4_9D->load("../forcework_game/data/ramboMort4-9D.png");
+
+    ramboMort5_9D = new QImage;
+    ramboMort5_9D->load("../forcework_game/data/ramboMort5-9D.png");
+
+    ramboMort6_9D = new QImage;
+    ramboMort6_9D->load("../forcework_game/data/ramboMarche6-9D.png");
+
+    ramboMort7_9D = new QImage;
+    ramboMort7_9D->load("../forcework_game/data/ramboMort7-9D.png");
+
+    ramboMort8_9D = new QImage;
+    ramboMort8_9D->load("../forcework_game/data/ramboMort8-9D.png");
+
+    ramboMort9_9D = new QImage;
+    ramboMort9_9D->load("../forcework_game/data/ramboMort9-9D.png");
+
+    ramboMort1_9G = new QImage;
+    ramboMort1_9G->load("../forcework_game/data/ramboMort1-9G.png");
+
+    ramboMort2_9G = new QImage;
+    ramboMort2_9G->load("../forcework_game/data/ramboMort2-9G.png");
+
+    ramboMort3_9G = new QImage;
+    ramboMort3_9G->load("../forcework_game/data/ramboMort3-9G.png");
+
+    ramboMort4_9G = new QImage;
+    ramboMort4_9G->load("../forcework_game/data/ramboMort4-9G.png");
+
+    ramboMort5_9G = new QImage;
+    ramboMort5_9G->load("../forcework_game/data/ramboMort5-9G.png");
+
+    ramboMort6_9G = new QImage;
+    ramboMort6_9G->load("../forcework_game/data/ramboMarche6-9G.png");
+
+    ramboMort7_9G = new QImage;
+    ramboMort7_9G->load("../forcework_game/data/ramboMort7-9G.png");
+
+    ramboMort8_9G = new QImage;
+    ramboMort8_9G->load("../forcework_game/data/ramboMort8-9G.png");
+
+    ramboMort9_9G = new QImage;
+    ramboMort9_9G->load("../forcework_game/data/ramboMort9-9G.png");
+
 
 
     // image costar
@@ -291,11 +463,85 @@ void MainWindow::loadImage()
 
     costarMarcher6_6G = new QImage;
     costarMarcher6_6G->load("../forcework_game/data/costarMarcherHD6-6G.png");
+
+    costarMort1_9D = new QImage;
+    costarMort1_9D->load("../forcework_game/data/costarMort1-9D.png");
+
+    costarMort2_9D = new QImage;
+    costarMort2_9D->load("../forcework_game/data/costarMort2-9D.png");
+
+    costarMort3_9D = new QImage;
+    costarMort3_9D->load("../forcework_game/data/costarMort3-9D.png");
+
+    costarMort4_9D = new QImage;
+    costarMort4_9D->load("../forcework_game/data/costarMort4-9D.png");
+
+    costarMort5_9D = new QImage;
+    costarMort5_9D->load("../forcework_game/data/costarMort5-9D.png");
+
+    costarMort6_9D = new QImage;
+    costarMort6_9D->load("../forcework_game/data/costarMarche6-9D.png");
+
+    costarMort7_9D = new QImage;
+    costarMort7_9D->load("../forcework_game/data/costarMort7-9D.png");
+
+    costarMort8_9D = new QImage;
+    costarMort8_9D->load("../forcework_game/data/costarMort8-9D.png");
+
+    costarMort9_9D = new QImage;
+    costarMort9_9D->load("../forcework_game/data/costarMort9-9D.png");
+
+    costarMort1_9G = new QImage;
+    costarMort1_9G->load("../forcework_game/data/costarMort1-9G.png");
+
+    costarMort2_9G = new QImage;
+    costarMort2_9G->load("../forcework_game/data/costarMort2-9G.png");
+
+    costarMort3_9G = new QImage;
+    costarMort3_9G->load("../forcework_game/data/costarMort3-9G.png");
+
+    costarMort4_9G = new QImage;
+    costarMort4_9G->load("../forcework_game/data/costarMort4-9G.png");
+
+    costarMort5_9G = new QImage;
+    costarMort5_9G->load("../forcework_game/data/costarMort5-9G.png");
+
+    costarMort6_9G = new QImage;
+    costarMort6_9G->load("../forcework_game/data/costarMarche6-9G.png");
+
+    costarMort7_9G = new QImage;
+    costarMort7_9G->load("../forcework_game/data/costarMort7-9G.png");
+
+    costarMort8_9G = new QImage;
+    costarMort8_9G->load("../forcework_game/data/costarMort8-9G.png");
+
+    costarMort9_9G = new QImage;
+    costarMort9_9G->load("../forcework_game/data/costarMort9-9G.png");
+
     balleDroite = new QImage;
     balleDroite->load("../forcework_game/data/BalleD.png");
 
     balleGauche = new QImage;
     balleGauche->load("../forcework_game/data/BalleG.png");
+
+
+    boom1_6 = new QImage;
+    boom1_6->load("../forcework_game/data/boom1-6.png");
+
+    boom2_6 = new QImage;
+    boom2_6->load("../forcework_game/data/boom2-6.png");
+
+    boom3_6 = new QImage;
+    boom3_6->load("../forcework_game/data/boom3-6.png");
+
+    boom4_6 = new QImage;
+    boom4_6->load("../forcework_game/data/boom4-6.png");
+
+    boom5_6 = new QImage;
+    boom5_6->load("../forcework_game/data/boom5-6.png");
+
+    boom6_6 = new QImage;
+    boom6_6->load("../forcework_game/data/boom6-6.png");
 
 
     // dimention des images personnage principal
@@ -311,12 +557,6 @@ void MainWindow::loadImage()
     *persoSautHD4_5G =  persoSautHD4_5G->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoSautHD5_5G =  persoSautHD5_5G->scaled(QSize(sizeBlock,sizeBlock*2));
 
-    balleDroite = new QImage;
-    balleDroite->load("../forcework_game/data/BalleD.png");
-
-    balleGauche = new QImage;
-    balleGauche->load("../forcework_game/data/BalleG.png");
-
     *persoMarcher1_6D = persoMarcher1_6D->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoMarcher2_6D = persoMarcher2_6D->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoMarcher3_6D = persoMarcher3_6D->scaled(QSize(sizeBlock,sizeBlock*2));
@@ -330,6 +570,26 @@ void MainWindow::loadImage()
     *persoMarcher4_6G = persoMarcher4_6G->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoMarcher5_6G = persoMarcher5_6G->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoMarcher6_6G = persoMarcher6_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    *persoMort1_9D = persoMort1_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort2_9D = persoMort2_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort3_9D = persoMort3_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort4_9D = persoMort4_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort5_9D = persoMort5_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort6_9D = persoMort6_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort7_9D = persoMort7_9D->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *persoMort8_9D = persoMort8_9D->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *persoMort9_9D = persoMort9_9D->scaled(QSize(sizeBlock*2,sizeBlock));
+
+    *persoMort1_9G = persoMort1_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort2_9G = persoMort2_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort3_9G = persoMort3_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort4_9G = persoMort4_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort5_9G = persoMort5_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort6_9G = persoMort6_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoMort7_9G = persoMort7_9G->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *persoMort8_9G = persoMort8_9G->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *persoMort9_9G = persoMort9_9G->scaled(QSize(sizeBlock*2,sizeBlock));
 
     *perso1 = perso1->scaled(QSize(sizeBlock,sizeBlock*2));
     *perso2 = perso2->scaled(QSize(sizeBlock,sizeBlock*2));
@@ -350,6 +610,26 @@ void MainWindow::loadImage()
     *ramboMarcher5_6G = ramboMarcher5_6G->scaled(QSize(sizeBlock,sizeBlock*2));
     *ramboMarcher6_6G = ramboMarcher6_6G->scaled(QSize(sizeBlock,sizeBlock*2));
 
+    *ramboMort1_9D = ramboMort1_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort2_9D = ramboMort2_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort3_9D = ramboMort3_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort4_9D = ramboMort4_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort5_9D = ramboMort5_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort6_9D = ramboMort6_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort7_9D = ramboMort7_9D->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *ramboMort8_9D = ramboMort8_9D->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *ramboMort9_9D = ramboMort9_9D->scaled(QSize(sizeBlock*2,sizeBlock));
+
+    *ramboMort1_9G = ramboMort1_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort2_9G = ramboMort2_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort3_9G = ramboMort3_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort4_9G = ramboMort4_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort5_9G = ramboMort5_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort6_9G = ramboMort6_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMort7_9G = ramboMort7_9G->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *ramboMort8_9G = ramboMort8_9G->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *ramboMort9_9G = ramboMort9_9G->scaled(QSize(sizeBlock*2,sizeBlock));
+
     *rambo1 = rambo1->scaled(QSize(sizeBlock,sizeBlock*2));
     *rambo2 = rambo2->scaled(QSize(sizeBlock,sizeBlock*2));
 
@@ -368,6 +648,26 @@ void MainWindow::loadImage()
     *costarMarcher4_6G = costarMarcher4_6G->scaled(QSize(sizeBlock,sizeBlock*2));
     *costarMarcher5_6G = costarMarcher5_6G->scaled(QSize(sizeBlock,sizeBlock*2));
     *costarMarcher6_6G = costarMarcher6_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    *costarMort1_9D = costarMort1_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort2_9D = costarMort2_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort3_9D = costarMort3_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort4_9D = costarMort4_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort5_9D = costarMort5_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort6_9D = costarMort6_9D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort7_9D = costarMort7_9D->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *costarMort8_9D = costarMort8_9D->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *costarMort9_9D = costarMort9_9D->scaled(QSize(sizeBlock*2,sizeBlock));
+
+    *costarMort1_9G = costarMort1_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort2_9G = costarMort2_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort3_9G = costarMort3_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort4_9G = costarMort4_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort5_9G = costarMort5_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort6_9G = costarMort6_9G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMort7_9G = costarMort7_9G->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *costarMort8_9G = costarMort8_9G->scaled(QSize(sizeBlock*2,sizeBlock*2));
+    *costarMort9_9G = costarMort9_9G->scaled(QSize(sizeBlock*2,sizeBlock));
 
     *costar1 = costar1->scaled(QSize(sizeBlock,sizeBlock*2));
     *costar2 = costar2->scaled(QSize(sizeBlock,sizeBlock*2));
@@ -653,17 +953,13 @@ void MainWindow::paintEvent(QPaintEvent *event)
             }
         }
 
-
+        if (currentGame->getPlayer()->getIsDead() == false)
+        {
         if (currentGame->getPlayer()->getItsAnimationImage() == 0)
         {
             haveDrawSomething = true;
             itsPersoTimeD = 0;
             itsPersoTimeG = 0;
-
-            if (currentGame->getPlayer()->getDirection() == false and ground == true)
-            {
-            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *perso1);
-            }
 
             if (currentGame->getPlayer()->getDirection() == false and ground == true)
             {
@@ -750,14 +1046,6 @@ void MainWindow::paintEvent(QPaintEvent *event)
             }
 
         }
-        if(currentGame->getItsBullets().size()!=0)
-        {
-            for(Bullet * bullet : currentGame->getItsBullets())
-            {
-                if(currentGame->getPlayer()->getDirection() == true) painter->drawImage(bullet->getItsX()+offSetX, bullet->getItsY()+offSetY, *balleGauche);
-                else if(currentGame->getPlayer()->getDirection() == false) painter->drawImage(bullet->getItsX()+offSetX, bullet->getItsY()+offSetY, *balleDroite);
-            }
-         }
 
 
 
@@ -869,103 +1157,400 @@ void MainWindow::paintEvent(QPaintEvent *event)
               painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
             }
         }
+        }
+        if (currentGame->getPlayer()->getIsDead() == true)
+        {
+            if (currentGame->getPlayer()->getDirection() == false)
+            {
+
+                itsPersoTimeG=0;
+                if (itsPersoTimeD >= 0 and itsPersoTimeD <15)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort1_9D);
+                }
+                else if (itsPersoTimeD >= 10 and itsPersoTimeD <20)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort2_9D);
+                }
+                else if (itsPersoTimeD >= 20 and itsPersoTimeD <30)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort3_9D);
+                }
+                else if (itsPersoTimeD >= 30 and itsPersoTimeD <40)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort4_9D);
+                }
+                else if (itsPersoTimeD >= 40 and itsPersoTimeD <50)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort5_9D);
+                }
+                else if (itsPersoTimeD >= 50 and itsPersoTimeD <60)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort6_9D);
+                }
+                else if (itsPersoTimeD >= 60 and itsPersoTimeD <70)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort7_9D);
+                }
+                else if (itsPersoTimeD >= 70 and itsPersoTimeD <80)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort8_9D);
+                }
+                else if (itsPersoTimeD >= 80)
+                {
+                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY+sizeBlock+10, *persoMort9_9D);
+
+                }
+            }
+
+            if (currentGame->getPlayer()->getDirection() == true)
+            {
+
+                itsPersoTimeD=0;
+                if (itsPersoTimeG >= 0 and itsPersoTimeG <15)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort1_9G);
+                }
+                else if (itsPersoTimeG >= 10 and itsPersoTimeG <20)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort2_9G);
+                }
+                else if (itsPersoTimeG >= 20 and itsPersoTimeG <30)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort3_9G);
+                }
+                else if (itsPersoTimeG >= 30 and itsPersoTimeG <40)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort4_9G);
+                }
+                else if (itsPersoTimeG >= 40 and itsPersoTimeG <50)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort5_9G);
+                }
+                else if (itsPersoTimeG >= 50 and itsPersoTimeG <60)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort6_9G);
+                }
+                else if (itsPersoTimeG >= 60 and itsPersoTimeG <70)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort7_9G);
+                }
+                else if (itsPersoTimeG >= 70 and itsPersoTimeG <80)
+                {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY, *persoMort8_9G);
+                }
+                else if (itsPersoTimeG >= 80)
+                {
+                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY+sizeBlock+10, *persoMort9_9D);
+
+                }
+            }
+
+        }
 
         // IA -------------------------------------------------------------------------------------------------------
         bool first = true;
         for (Personnage* i:currentGame->getItsPersonnages() ) {
             if(!first)
             {
-                if (((IA*)i)->getItsMoveOrNot() == false)
+                if(((IA*)i)->getIsDead() == false)
                 {
-                    if (((IA*)i)->getItsAnimationImage() == 4 and ((IA*)i)->getItsTurn() == false)
+                    if (((IA*)i)->getItsMoveOrNot() == false)
                     {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar1);
+                        if (((IA*)i)->getItsAnimationImage() == 4 and ((IA*)i)->getItsTurn() == false)
+                        {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar1);
+                        }
+                        if (((IA*)i)->getItsAnimationImage() == 4 and ((IA*)i)->getItsTurn() == true)
+                        {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar2);
+                        }
                     }
-                    if (((IA*)i)->getItsAnimationImage() == 4 and ((IA*)i)->getItsTurn() == true)
+
+                    if (((IA*)i)->getItsMoveOrNot() == true)
                     {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar2);
+                        if (((IA*)i)->getItsAnimationImage() == 0 and ((IA*)i)->getItsTurn() == false)
+                        {
+                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *rambo1);
+                        }
+                        if (((IA*)i)->getItsAnimationImage() == 0 and ((IA*)i)->getItsTurn() == true)
+                        {
+                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *rambo2);
+                        }
+
+                        if (((IA*)i)->getItsAnimationImage() == 2)
+                        {
+                            ((IA*)i)->setItsTimeG(0);
+                            if (((IA*)i)->getItsTimeD() >= 0 and ((IA*)i)->getItsTimeD() <15)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 15 and ((IA*)i)->getItsTimeD() <30)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher2_6D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 30 and ((IA*)i)->getItsTimeD() <45)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher3_6D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 45 and ((IA*)i)->getItsTimeD() <60)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher4_6D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 60 and ((IA*)i)->getItsTimeD() <75)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher5_6D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 75 and ((IA*)i)->getItsTimeD() <90)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher6_6D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 90)
+                            {
+                            ((IA*)i)->setItsTimeD(0);
+                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6D);
+                            }
+                        }
+
+                        if (((IA*)i)->getItsAnimationImage() == 1)
+                        {
+                            ((IA*)i)->setItsTimeD(0);
+                            if (((IA*)i)->getItsTimeG() >= 0 and ((IA*)i)->getItsTimeG() <15)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 15 and ((IA*)i)->getItsTimeG() <30)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher2_6G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 30 and ((IA*)i)->getItsTimeG() <45)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher3_6G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 45 and ((IA*)i)->getItsTimeG() <60)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher4_6G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 60 and ((IA*)i)->getItsTimeG() <75)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher5_6G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 75 and ((IA*)i)->getItsTimeG() <90)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher6_6G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 90)
+                            {
+                            ((IA*)i)->setItsTimeG(0);
+                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6G);
+                            }
+                        }
+                    }
+                }
+                // La mort de l'ia -----------------------------------------------------------------------------------------
+                if(((IA*)i)->getIsDead() == true)
+                {
+
+                    if (((IA*)i)->getItsMoveOrNot() == false)
+                    {
+                        if ( ((IA*)i)->getItsTurn() == false and ((IA*)i)->getAnimationDead() == false)
+                        {
+                            ((IA*)i)->setItsTimeG(0);
+                            if (((IA*)i)->getItsTimeD() >= 0 and ((IA*)i)->getItsTimeD() <15)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort1_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 10 and ((IA*)i)->getItsTimeD() <20)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort2_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 20 and ((IA*)i)->getItsTimeD() <30)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort3_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 30 and ((IA*)i)->getItsTimeD() <40)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort4_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 40 and ((IA*)i)->getItsTimeD() <50)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort5_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 50 and ((IA*)i)->getItsTimeD() <60)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort6_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 60 and ((IA*)i)->getItsTimeD() <70)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort7_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 70 and ((IA*)i)->getItsTimeD() <80)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort8_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 80)
+                            {
+                            ((IA*)i)->setItsTimeD(0);
+                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *costarMort9_9D);
+                             ((IA*)i)->setAnimationDead(true);
+                            }
+                        }
+                        if ( ((IA*)i)->getItsTurn() == true and ((IA*)i)->getAnimationDead() == false)
+                        {
+                            ((IA*)i)->setItsTimeD(0);
+                            if (((IA*)i)->getItsTimeG() >= 0 and ((IA*)i)->getItsTimeG() <10)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort1_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 10 and ((IA*)i)->getItsTimeG() <20)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort2_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 20 and ((IA*)i)->getItsTimeG() <30)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort3_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 30 and ((IA*)i)->getItsTimeG() <40)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort4_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 40 and ((IA*)i)->getItsTimeG() <50)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort5_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 50 and ((IA*)i)->getItsTimeG() <60)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort6_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 60 and ((IA*)i)->getItsTimeG() <70)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort7_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 70 and ((IA*)i)->getItsTimeG() <80)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costarMort8_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 80)
+                            {
+                            ((IA*)i)->setItsTimeG(0);
+                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *costarMort9_9G);
+                             ((IA*)i)->setAnimationDead(true);
+                            }
+                        }
+
+
+                        if (((IA*)i)->getItsTurn() == false and ((IA*)i)->getAnimationDead() == true)
+                        {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *costarMort9_9D);
+                        }
+                        if (((IA*)i)->getItsTurn() == true and ((IA*)i)->getAnimationDead() == true)
+                        {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *costarMort9_9G);
+                        }
+                    }
+
+                    if (((IA*)i)->getItsMoveOrNot() == true)
+                    {
+
+                        if ((((IA*)i)->getItsAnimationImage() == 0 or ((IA*)i)->getItsAnimationImage() == 2) and ((IA*)i)->getItsTurn() == false and ((IA*)i)->getAnimationDead() == false)
+                        {
+                            ((IA*)i)->setItsTimeG(0);
+                            if (((IA*)i)->getItsTimeD() >= 0 and ((IA*)i)->getItsTimeD() <15)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort1_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 10 and ((IA*)i)->getItsTimeD() <20)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort2_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 20 and ((IA*)i)->getItsTimeD() <30)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort3_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 30 and ((IA*)i)->getItsTimeD() <40)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort4_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 40 and ((IA*)i)->getItsTimeD() <50)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort5_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 50 and ((IA*)i)->getItsTimeD() <60)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort6_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 60 and ((IA*)i)->getItsTimeD() <70)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort7_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 70 and ((IA*)i)->getItsTimeD() <80)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort8_9D);
+                            }
+                            else if (((IA*)i)->getItsTimeD() >= 80)
+                            {
+                            ((IA*)i)->setItsTimeD(0);
+                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *ramboMort9_9D);
+                             ((IA*)i)->setAnimationDead(true);
+                            }
+                        }
+                        if ((((IA*)i)->getItsAnimationImage() == 0 or ((IA*)i)->getItsAnimationImage() == 1) and ((IA*)i)->getItsTurn() == true and ((IA*)i)->getAnimationDead() == false)
+                        {
+                            ((IA*)i)->setItsTimeD(0);
+                            if (((IA*)i)->getItsTimeG() >= 0 and ((IA*)i)->getItsTimeG() <10)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort1_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 10 and ((IA*)i)->getItsTimeG() <20)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort2_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 20 and ((IA*)i)->getItsTimeG() <30)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort3_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 30 and ((IA*)i)->getItsTimeG() <40)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort4_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 40 and ((IA*)i)->getItsTimeG() <50)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort5_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 50 and ((IA*)i)->getItsTimeG() <60)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort6_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 60 and ((IA*)i)->getItsTimeG() <70)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort7_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 70 and ((IA*)i)->getItsTimeG() <80)
+                            {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMort8_9G);
+                            }
+                            else if (((IA*)i)->getItsTimeG() >= 80)
+                            {
+                            ((IA*)i)->setItsTimeG(0);
+                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *ramboMort9_9G);
+                             ((IA*)i)->setAnimationDead(true);
+                            }
+                        }
+                        if (((IA*)i)->getItsTurn() == true and ((IA*)i)->getAnimationDead() == true)
+                        {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *ramboMort9_9G);
+
+                        }
+                        if (((IA*)i)->getItsTurn() == false and ((IA*)i)->getAnimationDead() == true)
+                        {
+                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *ramboMort9_9D);
+
+                        }
+
                     }
                 }
 
-                if (((IA*)i)->getItsMoveOrNot() == true)
-                {
-                    if (((IA*)i)->getItsAnimationImage() == 0 and ((IA*)i)->getItsTurn() == false)
-                    {
-                         painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *rambo1);
-                    }
-                    if (((IA*)i)->getItsAnimationImage() == 0 and ((IA*)i)->getItsTurn() == true)
-                    {
-                         painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *rambo2);
-                    }
 
-                    if (((IA*)i)->getItsAnimationImage() == 2)
-                    {
-                        ((IA*)i)->setItsTimeG(0);
-                        if (((IA*)i)->getItsTimeD() >= 0 and ((IA*)i)->getItsTimeD() <15)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6D);
-                        }
-                        else if (((IA*)i)->getItsTimeD() >= 15 and ((IA*)i)->getItsTimeD() <30)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher2_6D);
-                        }
-                        else if (((IA*)i)->getItsTimeD() >= 30 and ((IA*)i)->getItsTimeD() <45)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher3_6D);
-                        }
-                        else if (((IA*)i)->getItsTimeD() >= 45 and ((IA*)i)->getItsTimeD() <60)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher4_6D);
-                        }
-                        else if (((IA*)i)->getItsTimeD() >= 60 and ((IA*)i)->getItsTimeD() <75)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher5_6D);
-                        }
-                        else if (((IA*)i)->getItsTimeD() >= 75 and ((IA*)i)->getItsTimeD() <90)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher6_6D);
-                        }
-                        else if (((IA*)i)->getItsTimeD() >= 90)
-                        {
-                        ((IA*)i)->setItsTimeD(0);
-                         painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6D);
-                        }
-                    }
-
-                    if (((IA*)i)->getItsAnimationImage() == 1)
-                    {
-                        ((IA*)i)->setItsTimeD(0);
-                        if (((IA*)i)->getItsTimeG() >= 0 and ((IA*)i)->getItsTimeG() <15)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6G);
-                        }
-                        else if (((IA*)i)->getItsTimeG() >= 15 and ((IA*)i)->getItsTimeG() <30)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher2_6G);
-                        }
-                        else if (((IA*)i)->getItsTimeG() >= 30 and ((IA*)i)->getItsTimeG() <45)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher3_6G);
-                        }
-                        else if (((IA*)i)->getItsTimeG() >= 45 and ((IA*)i)->getItsTimeG() <60)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher4_6G);
-                        }
-                        else if (((IA*)i)->getItsTimeG() >= 60 and ((IA*)i)->getItsTimeG() <75)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher5_6G);
-                        }
-                        else if (((IA*)i)->getItsTimeG() >= 75 and ((IA*)i)->getItsTimeG() <90)
-                        {
-                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher6_6G);
-                        }
-                        else if (((IA*)i)->getItsTimeG() >= 90)
-                        {
-                        ((IA*)i)->setItsTimeG(0);
-                         painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6G);
-                        }
-                    }
-                }
             }
             else
             {
@@ -993,6 +1578,47 @@ void MainWindow::paintEvent(QPaintEvent *event)
         {
              painter->drawImage((i*(sizeBlock/2))+3,5,*heart);
         }
+
+        // Balle ------------------------------------------------------------------------------------------------------------------------------
+
+        if(currentGame->getItsBullets().size()!=0)
+        {
+            for(Bullet * bullet : currentGame->getItsBullets())
+            {
+                if(currentGame->getPlayer()->getDirection() == true and bullet->getIsHit() == false) painter->drawImage(bullet->getItsX()+offSetX, bullet->getItsY()+offSetY, *balleGauche);
+                else if(currentGame->getPlayer()->getDirection() == false and bullet->getIsHit() == false) painter->drawImage(bullet->getItsX()+offSetX, bullet->getItsY()+offSetY, *balleDroite);
+                else if(bullet->getIsHit() == true)
+                { if (bullet->getAnimTime() >= 0 and bullet->getAnimTime() < 10)
+                    {
+                        painter->drawImage(bullet->getItsX()+offSetX-10, bullet->getItsY()+offSetY-6, *boom1_6);
+                    }
+                    if (bullet->getAnimTime() >= 10 and bullet->getAnimTime() < 20)
+                    {
+                         painter->drawImage(bullet->getItsX()+offSetX-10, bullet->getItsY()+offSetY-6, *boom2_6);
+                    }
+                    if (bullet->getAnimTime() >= 20 and bullet->getAnimTime() < 30)
+                    {
+                         painter->drawImage(bullet->getItsX()+offSetX-10, bullet->getItsY()+offSetY-6, *boom3_6);
+                    }
+                    if (bullet->getAnimTime() >= 30 and bullet->getAnimTime() < 40)
+                    {
+                         painter->drawImage(bullet->getItsX()+offSetX-10, bullet->getItsY()+offSetY-6, *boom4_6);
+                    }
+                    if (bullet->getAnimTime() >= 40 and bullet->getAnimTime() < 50)
+                    {
+                         painter->drawImage(bullet->getItsX()+offSetX-10, bullet->getItsY()+offSetY-6, *boom5_6);
+                    }
+                    if (bullet->getAnimTime() >= 50 and bullet->getAnimTime() < 60)
+                    {
+                         painter->drawImage(bullet->getItsX()+offSetX-10, bullet->getItsY()+offSetY-6, *boom6_6);
+                    }
+
+                }
+            }
+         }
+
+
+
            painter->end();
            delete painter;
     }
