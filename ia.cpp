@@ -32,6 +32,11 @@ void IA::die()
 
 }
 
+int IA::getGunY() const
+{
+    return itsHeight/3+itsY;
+}
+
 void IA::animate()
 {
 

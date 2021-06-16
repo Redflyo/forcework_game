@@ -433,13 +433,7 @@ void MainWindow::keyPressEvent(QKeyEvent*ev)
 
         }
     }
-    //------------------------------------------------------------------------
-    if(ev->key()== Qt::Key_A)
-    {
-        ui->label_winscore->setText(currentGame->getItsSettings()->getItsTimer());
-        Win();
-    }
-    //--------------------------------------------------------------------------------
+
 }
 void MainWindow::keyReleaseEvent(QKeyEvent *ev)
 {
@@ -498,6 +492,7 @@ void MainWindow::Win()
 {
     ui->frame_menuwin->setGraphicsEffect(m_opaEffect);
     ui->stackedWidget->setCurrentWidget(ui->MenuWin);
+    gameTimer->stop();
 }
 
 void MainWindow::launchGame()
@@ -526,6 +521,11 @@ void MainWindow::gameLoop()
     ui->lcdNumber->display(currentGame->getTickScore());
     currentGame->getItsSettings()->setItsTimer(currentGame->getTickScore());
     itsPersoTimeJump++;
+    if(currentGame->getHaveWin() == true)
+    {
+        ui->label_winscore->setText(currentGame->getItsSettings()->getItsTimer());
+        Win();
+    }
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)

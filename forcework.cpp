@@ -57,22 +57,52 @@ void ForceWork::bulletsCheckCollision(vector<Bullet *> bullets)
             {
                  if((*it)->isCollide((*(*it)), bloc)==1)
                  {
-                     //bull->animate();
-                     Bullet * bull = *it;
-                     itsBullets.erase(it);
-                     delete bull;
-
-
+                     (*it)->setIsHit(true);
+                     (*it)->setItsSpeedX(0);
                  }
                  if(it != itsBullets.end()) it++;
             }
         }
     }
+    for(Personnage *person: itsPersonnages)
+    {
+            for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end();)
+            {
+                 if((*it)->isCollide((*(*it)), *person)==1)
+                 {
+                     (*it)->setIsHit(true);
+                     (*it)->setItsSpeedX(0);
+                     person->setItsLife(person->getItsLife()-1);
+
+                 }
+                 if(it != itsBullets.end()) it++;
+            }
+        }
 }
 
 vector<Bullet *> ForceWork::getItsBullets() const
 {
     return itsBullets;
+}
+
+void ForceWork::animateBullets()
+{
+    for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end();)
+    {
+        (*it)->animate();
+        if((*it)->getAnimTime()>100)
+        {
+            Bullet * bull = *it;
+            itsBullets.erase(it);
+            delete bull;
+        }
+        if(it != itsBullets.end()) it++;
+    }
+}
+
+bool ForceWork::getHaveWin() const
+{
+    return haveWin;
 }
 
 ForceWork::~ForceWork()
@@ -96,6 +126,20 @@ ForceWork::ForceWork(Settings * settings)
 
 }
 
+void ForceWork::playerHaveWin()
+{
+
+    if(itsMap.getItsBlocks()[itsMap.getItsBlocks().size()-1].getItsBlockType() == 1 )
+    {
+        if(getPlayer()->isCollide(*getPlayer(),itsMap.getItsBlocks()[itsMap.getItsBlocks().size()-1]) == 1)
+        {
+            haveWin = true;
+        }
+
+    }
+
+}
+
 void ForceWork::gameLoop()
 {
     manageKeys();
@@ -106,6 +150,7 @@ void ForceWork::gameLoop()
     tickScore++;
     moveBulletGameloop(itsBullets);
     bulletsCheckCollision(itsBullets);
+    playerHaveWin();
 
 
 }

@@ -20,6 +20,7 @@ public:
     virtual void shoot();
     virtual void beShot();
     virtual void die();
+    virtual int getGunY() const;
     virtual void animate();
 };
 

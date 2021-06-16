@@ -24,6 +24,7 @@ private:
     Map itsMap;
     Camera * camera;
     Settings *itsSettings;
+    bool haveWin = false;
     int tickScore = 0;
 
 
@@ -31,6 +32,7 @@ public:
 
     ~ForceWork();
     ForceWork(Settings * settings);
+    void playerHaveWin();
     void gameLoop();
     void manageKeys();
     void addPersonnage(Personnage * personnage);
@@ -48,6 +50,8 @@ public:
     void moveBulletGameloop(vector<Bullet*> bullets);
     void bulletsCheckCollision(vector<Bullet*> bullets);
     vector<Bullet *> getItsBullets() const;
+    void animateBullets();
+    bool getHaveWin() const;
 };
 
 #endif // FORCEWORK_H

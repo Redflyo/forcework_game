@@ -43,7 +43,7 @@ void Player::move(vector<Block> & itsMap)
   arroundPlayer.clear();
   for(Block bloc: itsMap)
   {
-    if(bloc.getItsBlockType() != 0)
+    if(bloc.getItsBlockType() != 0 && bloc.getItsBlockType() != 1)
     {
       if( getItsBlockX() >= bloc.getItsBlockX()-2 && getItsBlockX() <= bloc.getItsBlockX() +2)
       {
@@ -164,11 +164,11 @@ void Player::animate()
 
 }
 
-
-bool Player::isWin()
+int Player::getGunY() const
 {
-
+    return itsHeight/3+itsY-5;
 }
+
 
 
 
