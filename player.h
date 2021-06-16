@@ -6,15 +6,26 @@
 
 class Player: public Personnage
 {
+private:
+    int itsTimeOfJump = 0;
+    bool itsImpulsion = false; // true monte false descend
+    bool itsGround=true; // true au sol false en l'air
+    float itsPowerImpulsion = 0.4;
+    const float gravity = 0.2;
 public:
     Player();
+
+    void resetJump();
+    void jump();
     virtual ~Player();
-    virtual void move(std::vector<Block> itsMap);
+    void move(std::vector<Block> & itsMap);
     virtual void shoot();
     virtual void beShot();
     virtual void die();
     virtual void animate();
     bool isWin();
+    bool getItsImpulsion() const;
+    bool getItsGround() const;
 };
 
 

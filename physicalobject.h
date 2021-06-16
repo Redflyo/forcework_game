@@ -30,8 +30,7 @@ public:
     /// \param anObject1
     /// \param anObject2
     /// \return
-    static int isCollideH(PhysicalObject anObject1,PhysicalObject anObject2);
-    static int isCollideV(PhysicalObject anObject1,PhysicalObject anObject2);
+    static int isCollide(PhysicalObject anObject1, PhysicalObject anObject2);
 
 
 

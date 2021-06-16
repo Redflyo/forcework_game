@@ -16,11 +16,12 @@ private:
     int itsRight2=Qt::Key_Right;
     int itsJump1=-50;
     int itsJump2=Qt::Key_Up;
-    double itsTimer;
+    QString itsTimer;
     float itsReactionTimeIA;
     int itsAreaDetected;
     float itsGravity;
     string itsShootButton;
+
 
 public:
     Settings();
@@ -54,6 +55,8 @@ public:
     void setItsLeft1(int value);
     void setItsRight1(int value);
     void setItsJump1(int value);
+    void setItsTimer(const QString &value);
+    QString getItsTimer() const;
 };
 
 #endif // SETTINGS_H

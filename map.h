@@ -39,7 +39,7 @@ public:
     /// \param mapFile path to get the map
     ///
     vector<Personnage*> loadMap(std::string mapFile);
-    std::vector<Block> getItsBlocks() const;
+    std::vector<Block> & getItsBlocks();
     int getItsWidthMap() const;
     int getItsHeightMap() const;
 };

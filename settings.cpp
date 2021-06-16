@@ -20,6 +20,16 @@ void Settings::setItsJump1(int value)
     itsJump1 = value;
 }
 
+void Settings::setItsTimer(const QString &value)
+{
+    itsTimer = value;
+}
+
+QString Settings::getItsTimer() const
+{
+    return itsTimer;
+}
+
 Settings::Settings()
 {
     itsJump1 = -50;
@@ -94,7 +104,7 @@ void Settings::writeHallOfFameFile(PlayerScore &playerScore)
     vecScoresNames.pop_back();
     vecScoresNames.pop_back();
   }
-  ofstream out(itsHallOfFameFile); //ouvre le fichier en écriture pour effacer son contenu afin d'eviter les doublons lors du re-enregistrement
+  ofstream out(itsHallOfFameFile); //ouvre le fichier en ï¿½criture pour effacer son contenu afin d'eviter les doublons lors du re-enregistrement
 
 
   for(int i=0; i<vecScoresNames.size()-1; i+=2)

@@ -47,7 +47,7 @@ vector<string> Map::split(string s,string delimeter)
     return result;
 }
 
-std::vector<Block> Map::getItsBlocks() const
+std::vector<Block> & Map::getItsBlocks()
 {
     return itsBlocks;
 }
@@ -71,11 +71,11 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
     string line;
     while(!stream.eof())
     {
-        y++;
         getline(stream,line);
 
         if(line[0] == '(' )
         {
+
             // round of enemies
             while(replace(line," ", ""));
             while(replace(line,"(", ""));
@@ -107,7 +107,7 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
             // map
             char c;
 
-
+            y++;
 
             for(int i = 0; i<(int)line.size();i++,c = line[i])
             {
@@ -119,6 +119,8 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
                 if(line[i] >= '2' && line[i] <= '4')
                 {
                     Block block(line[i]- '0',i,y);
+                    block.setItsWidth(sizeBlock);
+                    block.setItsHeight(sizeBlock);
                     itsBlocks.push_back(block);
                 }
                 else

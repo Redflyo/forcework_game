@@ -11,7 +11,7 @@ IA::~IA()
 
 }
 
-void IA::move(std::vector<Block> itsMap)
+void IA::move(std::vector<Block> & itsMap)
 {
 
 }

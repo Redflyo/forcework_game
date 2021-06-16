@@ -18,9 +18,34 @@ QSet<int>& ForceWork::getPressedKeys()
     return pressedKeys;
 }
 
+QString ForceWork::getTickScore() const
+{
+    QString Score;
+    int cent =tickScore%100;
+    int second = tickScore/100;
+    int min = second/60;
+    second -= min*60;
+    if(min==0)
+    {
+        Score = QString::number(second) + ":" + QString::number(cent);
+    }
+    else Score = QString::number(min) + ":" + QString::number(second) + ":" + QString::number(cent);
+    return Score;
+}
+
+Settings *ForceWork::getItsSettings() const
+{
+    return itsSettings;
+}
+
+vector<Bullet *> ForceWork::getItsBullets() const
+{
+    return itsBullets;
+}
+
 ForceWork::~ForceWork()
 {
-
+    delete  camera;
     for(Personnage* perso: itsPersonnages)
     {
         delete perso;
@@ -46,8 +71,11 @@ void ForceWork::gameLoop()
     aPlayer->move(itsMap.getItsBlocks());
     aPlayer->animate();
     getCamera().follow((PhysicalObject)(*aPlayer));
-
-
+    tickScore++;
+    for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end(); it++)
+    {
+        (*it)->move();
+    }
 
 }
 
@@ -61,19 +89,21 @@ void ForceWork::manageKeys()
     {
         for(int key : pressedKeys)
         {
+            if(itsSettings->validJump(key))
+            {
+                getPlayer()->jump();
+            }
             if(itsSettings->validRight(key))
             {
                 getPlayer()->setMovement(2);
+                getPlayer()->setDirection(false);
             }
-            else if(itsSettings->validLeft(key))
+            if(itsSettings->validLeft(key))
             {
                 getPlayer()->setMovement(1);
+                getPlayer()->setDirection(true);
             }
-            else if(itsSettings->validJump(key))
-            {
-                getPlayer()->setMovement(3);
 
-            }
         }
     }
 
@@ -97,4 +127,17 @@ void ForceWork::addPersonnage(IA ia)
 Player *ForceWork::getPlayer()
 {
     return (Player*)itsPersonnages[0];
+}
+
+void ForceWork::addBullet(Bullet *a)
+{
+    itsBullets.emplace_back(a);
+}
+
+void ForceWork::deleteBullet(Bullet *a)
+{
+    for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end(); it++)
+    {
+        if(*it == a) itsBullets.erase(it);
+    }
 }

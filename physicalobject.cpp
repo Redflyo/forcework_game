@@ -80,27 +80,36 @@ PhysicalObject::~PhysicalObject()
 
 }
 
-int PhysicalObject::isCollideH(PhysicalObject anObject1, PhysicalObject anObject2)
+int PhysicalObject::isCollide(PhysicalObject anObject1, PhysicalObject anObject2)
 {
-  int x1 = anObject1.getItsX(),
-      x2 = anObject1.getItsX()+anObject1.getItsWidth(),
-      x3 = anObject2.getItsX(),
-      x4 = anObject2.getItsX()+anObject1.getItsWidth();
+  int beReturn = 0;
+  QRect rect1 = QRect(anObject1.getItsX(),anObject1.getItsY(),anObject1.getItsWidth(),anObject1.getItsHeight());
+  QRect rect2 = QRect(anObject2.getItsX(),anObject2.getItsY(),anObject2.getItsWidth(),anObject2.getItsHeight());
+  if(rect1.intersects(rect2))
+  {
+      return 1;
+  }
+  else
+  {
+      return 2;
+  }
 
-  qDebug() << x1 << " " << x2 << " " << x3 << " " << x4;
+  /*
+  if(y1<y4 && y1>y3)
+  {
+      if(y2<y4 && y2>y3)
+      {
+          if(x1<x4 && x1>x3)
+          {
+              if(x2<x4 && x2>x3)
+              {
+                  beReturn = 1;
+              }
+          }
+      }
+  }*/
 
-  if(x1>x4 && x1<x3) return 1;
-  else if(x2>x4 && x2<x3) return 2;
-  else return 0;
+  return beReturn;
 }
 
-int PhysicalObject::isCollideV(PhysicalObject anObject1, PhysicalObject anObject2)
-{
-  int y1 = anObject1.getItsY(),
-      y2 = anObject1.getItsY()+anObject1.getItsHeight(),
-      y3 = anObject2.getItsY(),
-      y4 = anObject2.getItsY()+anObject1.getItsHeight();
-  if(y1>y4 && y1<y3) return 1;
-  else if(y2>y4 && y2<y3) return 2;
-  else return 0;
-}
+
