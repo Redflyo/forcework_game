@@ -58,46 +58,185 @@ void MainWindow::loadImage()
     flag2->load("../forcework_game/data/drapeau2-2.png");
 
     perso1 = new QImage;
-    perso1->load("../forcework_game/data/persoStopD.png");
+    perso1->load("../forcework_game/data/persoStopHDD.png");
 
     perso2 = new QImage;
-    perso2->load("../forcework_game/data/persoStopG.png");
+    perso2->load("../forcework_game/data/persoStopHDG.png");
 
     persoMarcher1_6D = new QImage;
-    persoMarcher1_6D->load("../forcework_game/data/persoMarcher1-6D.png");
+    persoMarcher1_6D->load("../forcework_game/data/persoMarcherHD1-6D.png");
 
     persoMarcher2_6D = new QImage;
-    persoMarcher2_6D->load("../forcework_game/data/persoMarcher2-6D.png");
+    persoMarcher2_6D->load("../forcework_game/data/persoMarcherHD2-6D.png");
 
     persoMarcher3_6D = new QImage;
-    persoMarcher3_6D->load("../forcework_game/data/persoMarcher3-6D.png");
+    persoMarcher3_6D->load("../forcework_game/data/persoMarcherHD3-6D.png");
 
     persoMarcher4_6D = new QImage;
-    persoMarcher4_6D->load("../forcework_game/data/persoMarcher4-6D.png");
+    persoMarcher4_6D->load("../forcework_game/data/persoMarcherHD4-6D.png");
 
     persoMarcher5_6D = new QImage;
-    persoMarcher5_6D->load("../forcework_game/data/persoMarcher5-6D.png");
+    persoMarcher5_6D->load("../forcework_game/data/persoMarcherHD5-6D.png");
 
     persoMarcher6_6D = new QImage;
-    persoMarcher6_6D->load("../forcework_game/data/persoMarcher6-6D.png");
+    persoMarcher6_6D->load("../forcework_game/data/persoMarcherHD6-6D.png");
 
     persoMarcher1_6G = new QImage;
-    persoMarcher1_6G->load("../forcework_game/data/persoMarcher1-6G.png");
+    persoMarcher1_6G->load("../forcework_game/data/persoMarcherHD1-6G.png");
 
     persoMarcher2_6G = new QImage;
-    persoMarcher2_6G->load("../forcework_game/data/persoMarcher2-6G.png");
+    persoMarcher2_6G->load("../forcework_game/data/persoMarcherHD2-6G.png");
 
     persoMarcher3_6G = new QImage;
-    persoMarcher3_6G->load("../forcework_game/data/persoMarcher3-6G.png");
+    persoMarcher3_6G->load("../forcework_game/data/persoMarcherHD3-6G.png");
 
     persoMarcher4_6G = new QImage;
-    persoMarcher4_6G->load("../forcework_game/data/persoMarcher4-6G.png");
+    persoMarcher4_6G->load("../forcework_game/data/persoMarcherHD4-6G.png");
 
     persoMarcher5_6G = new QImage;
-    persoMarcher5_6G->load("../forcework_game/data/persoMarcher5-6G.png");
+    persoMarcher5_6G->load("../forcework_game/data/persoMarcherHD5-6G.png");
 
     persoMarcher6_6G = new QImage;
-    persoMarcher6_6G->load("../forcework_game/data/persoMarcher6-6G.png");
+    persoMarcher6_6G->load("../forcework_game/data/persoMarcherHD6-6G.png");
+
+    persoSautHD1_5G = new QImage;
+    persoSautHD1_5G->load("../forcework_game/data/persoSautHD1-5G.png");
+
+    persoSautHD2_5G = new QImage;
+    persoSautHD2_5G->load("../forcework_game/data/persoSautHD2-5G.png");
+
+    persoSautHD3_5G = new QImage;
+    persoSautHD3_5G->load("../forcework_game/data/persoSautHD3-5G.png");
+
+    persoSautHD4_5G = new QImage;
+    persoSautHD4_5G->load("../forcework_game/data/persoSautHD4-5G.png");
+
+    persoSautHD5_5G = new QImage;
+    persoSautHD5_5G->load("../forcework_game/data/persoSautHD5-5G.png");
+
+    persoSautHD1_5D = new QImage;
+    persoSautHD1_5D->load("../forcework_game/data/persoSautHD1-5D.png");
+
+    persoSautHD2_5D = new QImage;
+    persoSautHD2_5D->load("../forcework_game/data/persoSautHD2-5D.png");
+
+    persoSautHD3_5D = new QImage;
+    persoSautHD3_5D->load("../forcework_game/data/persoSautHD3-5D.png");
+
+    persoSautHD4_5D = new QImage;
+    persoSautHD4_5D->load("../forcework_game/data/persoSautHD4-5D.png");
+
+    persoSautHD5_5D = new QImage;
+    persoSautHD5_5D->load("../forcework_game/data/persoSautHD5-5D.png");
+
+
+
+
+    // image rambo
+
+    rambo1 = new QImage;
+    rambo1->load("../forcework_game/data/ramboStopD.png");
+
+    rambo2 = new QImage;
+    rambo2->load("../forcework_game/data/ramboStopG.png");
+
+    ramboMarcher1_6D = new QImage;
+    ramboMarcher1_6D->load("../forcework_game/data/ramboMarcher1-6D.png");
+
+    ramboMarcher2_6D = new QImage;
+    ramboMarcher2_6D->load("../forcework_game/data/ramboMarcher2-6D.png");
+
+    ramboMarcher3_6D = new QImage;
+    ramboMarcher3_6D->load("../forcework_game/data/ramboMarcher3-6D.png");
+
+    ramboMarcher4_6D = new QImage;
+    ramboMarcher4_6D->load("../forcework_game/data/ramboMarcher4-6D.png");
+
+    ramboMarcher5_6D = new QImage;
+    ramboMarcher5_6D->load("../forcework_game/data/ramboMarcher5-6D.png");
+
+    ramboMarcher6_6D = new QImage;
+    ramboMarcher6_6D->load("../forcework_game/data/ramboMarcher6-6D.png");
+
+    ramboMarcher1_6G = new QImage;
+    ramboMarcher1_6G->load("../forcework_game/data/ramboMarcher1-6G.png");
+
+    ramboMarcher2_6G = new QImage;
+    ramboMarcher2_6G->load("../forcework_game/data/ramboMarcher2-6G.png");
+
+    ramboMarcher3_6G = new QImage;
+    ramboMarcher3_6G->load("../forcework_game/data/ramboMarcher3-6G.png");
+
+    ramboMarcher4_6G = new QImage;
+    ramboMarcher4_6G->load("../forcework_game/data/ramboMarcher4-6G.png");
+
+    ramboMarcher5_6G = new QImage;
+    ramboMarcher5_6G->load("../forcework_game/data/ramboMarcher5-6G.png");
+
+    ramboMarcher6_6G = new QImage;
+    ramboMarcher6_6G->load("../forcework_game/data/ramboMarcher6-6G.png");
+
+
+
+    // image costar
+
+    costar1 = new QImage;
+    costar1->load("../forcework_game/data/costarStopD.png");
+
+    costar2 = new QImage;
+    costar2->load("../forcework_game/data/costarStopG.png");
+
+    costarMarcher1_6D = new QImage;
+    costarMarcher1_6D->load("../forcework_game/data/costarMarcherHD1-6D.png");
+
+    costarMarcher2_6D = new QImage;
+    costarMarcher2_6D->load("../forcework_game/data/costarMarcherHD2-6D.png");
+
+    costarMarcher3_6D = new QImage;
+    costarMarcher3_6D->load("../forcework_game/data/costarMarcherHD3-6D.png");
+
+    costarMarcher4_6D = new QImage;
+    costarMarcher4_6D->load("../forcework_game/data/costarMarcherHD4-6D.png");
+
+    costarMarcher5_6D = new QImage;
+    costarMarcher5_6D->load("../forcework_game/data/costarMarcherHD5-6D.png");
+
+    costarMarcher6_6D = new QImage;
+    costarMarcher6_6D->load("../forcework_game/data/costarMarcherHD6-6D.png");
+
+    costarMarcher1_6G = new QImage;
+    costarMarcher1_6G->load("../forcework_game/data/costarMarcherHD1-6G.png");
+
+    costarMarcher2_6G = new QImage;
+    costarMarcher2_6G->load("../forcework_game/data/costarMarcherHD2-6G.png");
+
+    costarMarcher3_6G = new QImage;
+    costarMarcher3_6G->load("../forcework_game/data/costarMarcherHD3-6G.png");
+
+    costarMarcher4_6G = new QImage;
+    costarMarcher4_6G->load("../forcework_game/data/costarMarcherHD4-6G.png");
+
+    costarMarcher5_6G = new QImage;
+    costarMarcher5_6G->load("../forcework_game/data/costarMarcherHD5-6G.png");
+
+    costarMarcher6_6G = new QImage;
+    costarMarcher6_6G->load("../forcework_game/data/costarMarcherHD6-6G.png");
+
+
+
+
+
+    *persoSautHD1_5D =  persoSautHD1_5D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD2_5D =  persoSautHD2_5D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD3_5D =  persoSautHD3_5D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD4_5D =  persoSautHD4_5D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD5_5D =  persoSautHD5_5D->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    *persoSautHD1_5G =  persoSautHD1_5G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD2_5G =  persoSautHD2_5G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD3_5G =  persoSautHD3_5G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD4_5G =  persoSautHD4_5G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *persoSautHD5_5G =  persoSautHD5_5G->scaled(QSize(sizeBlock,sizeBlock*2));
 
     *persoMarcher1_6D = persoMarcher1_6D->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoMarcher2_6D = persoMarcher2_6D->scaled(QSize(sizeBlock,sizeBlock*2));
@@ -428,6 +567,70 @@ void MainWindow::paintEvent(QPaintEvent *event)
              painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher1_6D);
             }
             itsPersoSens = false;
+
+        }
+        if (currentGame->getPlayer()->getItsAnimationImage() == 3 and itsPersoSens == false)
+        {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5D);
+            /*                          Pour annimation plus tard
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5D);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD2_5D);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD3_5D);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD4_5D);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
+            }
+            if ()
+            {
+            itsPersoTimeD = 0;
+             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5D);
+            }*/
+
+
+        }
+        if (currentGame->getPlayer()->getItsAnimationImage() == 3 and itsPersoSens == true)
+        {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5G);
+
+           /* if ()                         pour annimation du saut plus tard
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5G);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD2_5G);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD3_5G);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD4_5G);
+            }
+            if ()
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
+            }
+            if ()
+            {
+            itsPersoTimeD = 0;
+             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5G);
+            }*/
+
 
         }
            painter->end();
