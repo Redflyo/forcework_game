@@ -58,20 +58,20 @@ void Player::move(vector<Block> & itsMap)
   }
   if(itsMovement == 1)
   {
-    setItsX(itsX-3);
+    setItsX(itsX-itsSpeedX);
     for(Block block: arroundPlayer)
     {
-      if(isCollide(*this, block) == 1)setItsX(itsX+3);
+      if(isCollide(*this, block) == 1)setItsX(itsX+itsSpeedX);
 
     }
   }
   else if(itsMovement == 2)
   {
 
-    setItsX(itsX+3);
+    setItsX(itsX+itsSpeedX);
     for(Block block: arroundPlayer)
     {
-      if(isCollide(*this, block) == 1) setItsX(itsX-=3);
+      if(isCollide(*this, block) == 1) setItsX(itsX-=itsSpeedX);
     }
   }
   itsGround = false;

@@ -6,7 +6,7 @@
 class Bullet: public PhysicalObject
 {
 private:
-    int itsSpeedX = 10;
+    int itsSpeedX = 5;
     int itsSpeedY;
     int itsAnimationImage;
     Personnage *itsOwner;

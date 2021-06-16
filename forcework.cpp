@@ -275,11 +275,3 @@ void ForceWork::addBullet(Bullet *a)
 {
     itsBullets.emplace_back(a);
 }
-/*
-void ForceWork::deleteBullet(Bullet * it)
-{
-    Bullet* bull(*it);
-
-    itsBullets.erase(it);
-    delete bull;
-}*/

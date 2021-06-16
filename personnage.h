@@ -9,10 +9,11 @@ protected:
     int itsLife;
     int itsAnimationImage = 0;
     bool itsGround;
-    bool itsTurn = false; // false pour droite et true pour gauche
+    //bool itsTurn = false; // false pour droite et true pour gauche
     float itsSpeedY=0;
     int itsMovement;
-    bool direction = false;
+    int itsSpeedX = 2;
+    bool itsDirection = false;
     int gunY;
     bool isDead = false;
 public:
@@ -26,8 +27,8 @@ public:
     virtual void die() = 0;
     virtual void animate() = 0;
     int getItsAnimationImage() const;
-    bool getItsTurn() const;
-    void setItsTurn(bool value);
+   // bool getItsTurn() const;
+   // void setItsTurn(bool value);
     virtual int getGunY() const = 0;
     void setGunY(int value);
     float getItsSpeedY() const;

@@ -51,14 +51,14 @@ int IA::getSwitchMove() const
     return switchMove;
 }
 
-IA::IA(int blockXBegin,int blockXEnd,int blockYRound, bool moveOrNot)
+IA::IA(int blockXBegin,int blockXEnd,int blockYRound)
 {
     roundBlockXBegin = blockXBegin;
     roundBlockXEnd = blockXEnd;
     roundBlockY = blockYRound;
     roundBlockXNow = roundBlockXBegin;
-    itsX = blockToPixel(roundBlockXNow);
-    itsY = blockToPixel(roundBlockY);
+    setItsX(blockToPixel(roundBlockXNow));
+    setItsY(blockToPixel(roundBlockY));
     roundXBegin = blockToPixel(roundBlockXBegin);
     roundXEnd = blockToPixel(roundBlockXEnd);
 
@@ -86,12 +86,12 @@ void IA::move(std::vector<Block> & itsMap)
 {
     if (itsX<roundXBegin)
     {
-        itsTurn = false;
+        setDirection(false);
         switchMove = 2;
     }
     if(itsX>roundXEnd)
     {
-        itsTurn = true;
+        setDirection(true);
         switchMove = 1;
 
     }
@@ -102,7 +102,7 @@ void IA::move(std::vector<Block> & itsMap)
         if (roundBlockXBegin != roundBlockXEnd)
         {
             // left
-            if (itsTurn == true)
+            if (getDirection() == true)
             {
 
                 setItsX( itsX -2 );
@@ -110,7 +110,7 @@ void IA::move(std::vector<Block> & itsMap)
             }
 
             //right
-            if (itsTurn==false )
+            if (getDirection()==false )
             {
 
                 setItsX( itsX +2 );
@@ -201,30 +201,40 @@ bool IA::canShoot()
 bool IA::detectPlayer(Personnage* player)
 {
 
-    double distance = player->getItsX() - itsX;
-    bool beReturn = distance < 400 && distance > -400;
-    if(beReturn)
-    {
-        stop = true;
-        itsTurn = distance < 0;
-        if(itsTurn)
-        {
-            switchMove = 2;
-        }
-        else
-        {
-             switchMove = 1;
-        }
-        itsTimeD = 0;
-        itsTimeG = 0;
-    }
-    else
-    {
+    double distanceX = player->getItsX() - itsX;
+    int distanceBlocY = player->getItsBlockY() - getItsBlockY();
+    bool beReturn = distanceX < 400 && distanceX > -400 && distanceBlocY > -4 && distanceBlocY < 6;
 
-        stop = false;
+        if(beReturn)
+        {
+            stop = true;
+            setDirection(distanceX < 0);
+            if(itsDirection)
+            {
+                switchMove = 2;
+            }
+            else
+            {
+                 switchMove = 1;
+            }
 
-    }
-    return 0;
+        }
+        else if(stop)
+        {
+            if(itsDirection)
+            {
+                switchMove = 1;
+            }
+            else
+            {
+                 switchMove = 2;
+            }
+            stop = false;
+            itsTimeD = 0;
+            itsTimeG = 0;
+
+        }
+    return beReturn;
 
 
 }

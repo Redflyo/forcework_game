@@ -10,13 +10,13 @@ Bullet::Bullet(Personnage *owner, bool direction)
     setItsHeight(10);
     if(direction == true)
     {
-        itsX = owner->getItsX();
+        itsX = owner->getItsX()-5;
         itsY = owner->getGunY();
         itsSpeedX*=-1;
     }
     else
     {
-        itsX = owner->getItsX()+sizeBlock;
+        itsX = owner->getItsX()+sizeBlock+4;
         itsY = owner->getGunY();
     }
 }

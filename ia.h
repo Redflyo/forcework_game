@@ -21,9 +21,9 @@ private:
     int itsTimeD = 0;
     int itsTimeG = 0;
     int itsTimerCanShoot = 0;
-    const int itsTimeMinShoot = 20;
+    const int itsTimeMinShoot = 80;
 public:
-    IA(int blockXBegin,int blockXEnd,int blockYRound, bool moveOrNot);
+    IA(int blockXBegin,int blockXEnd,int blockYRound);
     virtual ~IA();
     virtual void move(std::vector<Block> & itsMap);
     virtual void shoot();
