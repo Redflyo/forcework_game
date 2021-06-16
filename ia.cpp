@@ -147,6 +147,7 @@ void IA::beShot()
 void IA::die()
 {
     stop = true;
+    setIsDead(true);
 }
 
 int IA::getGunY() const

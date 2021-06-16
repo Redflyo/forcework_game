@@ -48,6 +48,16 @@ void Personnage::setItsLife(int value)
     itsLife = value;
 }
 
+bool Personnage::getIsDead() const
+{
+    return isDead;
+}
+
+void Personnage::setIsDead(bool value)
+{
+    isDead = value;
+}
+
 Personnage::Personnage()
 {
 
