@@ -89,6 +89,8 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
                     int x1 = stoi(round[0]);
                     int y1 = stoi(round[1])-1;
                     IA * ia = new IA(x1,x1,y1,true);
+                    ia->setItsWidth(sizeBlock);
+                    ia->setItsHeight(sizeBlock*2);
                     result.push_back(ia);
                 }
                 else if(round.size())
@@ -97,6 +99,8 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
                     int x2 = stoi(round[1]);
                     int y1 = stoi(round[2])-1;
                     IA * ia = new IA(x1,x2,y1,true);
+                    ia->setItsWidth(sizeBlock);
+                    ia->setItsHeight(sizeBlock*2);
                     result.push_back(ia);
                 }
             }

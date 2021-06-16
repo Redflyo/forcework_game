@@ -71,6 +71,7 @@ IA::IA(int blockXBegin,int blockXEnd,int blockYRound, bool moveOrNot)
     {
         itsMoveOrNot = true;
     }
+    setItsLife(3);
 
 
 
@@ -133,19 +134,19 @@ void IA::shoot()
 
 void IA::beShot()
 {
-    if(getItsY()-1==0)
+    setItsLife(getItsLife()-1);
+
+    if(getItsLife()==0)
     {
+
         die();
     }
-    else
-    {
-        setItsLife(getItsY()-1);
-    }
+
 }
 
 void IA::die()
 {
-
+    stop = true;
 }
 
 int IA::getGunY() const
