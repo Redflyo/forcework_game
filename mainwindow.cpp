@@ -103,6 +103,7 @@ MainWindow::~MainWindow()
     delete gameTimer;
     delete itsSetting;
     delete ui;
+    ui->groupBox->setVisible(false);
 }
 
 void MainWindow::loadImage()
@@ -394,7 +395,7 @@ void MainWindow::displayHallOfFame()
   while(!inputFile.eof()) //cre un vecteur avec une fois sur deux le score, puis le nom du joueur, avec en indices pairs les scores et en indices impairs les noms des joueurs
   {
     getline(inputFile, lineOfFile);
-    itsSetting->split(lineOfFile, ':', vecScoresNames);
+    itsSetting->split(lineOfFile, ',', vecScoresNames);
   }
   inputFile.close();
   vecScoresNames.pop_back(); //supprime le retour a la ligne automatique du fichier qui a ete pris en compte dans le vecteur
@@ -533,7 +534,7 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_PB_launchGame_clicked()
 {
-
+    //ui->lineEdit->setText("");
     ui->stackedWidget->setCurrentWidget(ui->GameWidget);
     launchGame();
 }
@@ -541,6 +542,11 @@ void MainWindow::on_PB_launchGame_clicked()
 void MainWindow::Win()
 {
     ui->frame_menuwin->setGraphicsEffect(m_opaEffect);
+    p10->score = (ui->label_winscore->text().toStdString());
+    if(itsSetting->isTopFive(*p10))
+    {
+        ui->groupBox->setVisible(true);
+    }
     ui->stackedWidget->setCurrentWidget(ui->MenuWin);
     gameTimer->stop();
 }
@@ -1034,4 +1040,11 @@ void MainWindow::on_PB_startNewGame_fromMenuWin_2_clicked()
 void MainWindow::on_PB_startmenu_fromMenuWin_2_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->StartMenu);
+}
+
+void MainWindow::on_PB_startmenu_fromMenuWin_3_clicked()
+{
+     p10->name = (ui->lineEdit->text()).toStdString();
+     itsSetting->writeHallOfFameFile(*p10);
+     ui->stackedWidget->setCurrentWidget(ui->StartMenu);
 }

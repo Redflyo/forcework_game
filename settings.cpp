@@ -53,7 +53,7 @@ void Settings::split(std::string strToSplit, char charSeparation, std::vector<st
 bool Settings::isTopFive(PlayerScore &playerScore)
 {
   vector<string> vecScoresNames;
-  vector<double>vecScores;
+  vector<string>vecScores;
   string lineOfFile;
   bool isTop=false;
   ifstream inputFile(itsHallOfFameFile);
@@ -61,13 +61,13 @@ bool Settings::isTopFive(PlayerScore &playerScore)
   while(!inputFile.eof()) //cre un vecteur avec une fois sur deux le score, puis le nom du joueur, avec en indices pairs les scores et en indices impairs les noms des joueurs
   {                       //exemple: vecScoresNames={score1, nom1, score2, nom2 etc...}
     getline(inputFile, lineOfFile);
-    split(lineOfFile, ':', vecScoresNames);
+    split(lineOfFile, ',', vecScoresNames);
 
   }
   inputFile.close();
   for(int i=0; i<vecScoresNames.size()-1; i+=2) //cre un vecteur que de scores pour pouvoir les comparer
   {
-    vecScores.push_back(stod(vecScoresNames[i]));
+    vecScores.push_back(vecScoresNames[i]);
   }
   playerScore.position=0;
   for(int i=0; i<vecScores.size(); ++i) //recherche de la position exacte du nouveau score dans le top cinq
@@ -92,14 +92,14 @@ void Settings::writeHallOfFameFile(PlayerScore &playerScore)
   while(!inputFile.eof())
   {
     getline(inputFile, lineOfFile);
-    split(lineOfFile, ':', vecScoresNames);
+    split(lineOfFile, ',', vecScoresNames);
   }
   vecScoresNames.pop_back(); //supprime le retour a la ligne automatique du fichier qui a ete pris en compte dans le vecteur
   inputFile.close();
   playerScore.position*=2; //multiplication par 2 car la position a ete trouve dans le vecteur de scores or maintenant nous travaillons avec un vecteur de scores avec les noms
   vector<string>::iterator it=vecScoresNames.begin()+playerScore.position;
   it=vecScoresNames.insert(it, playerScore.name);                           //insertion du nouveau score et nom a la position trouvee precedemment
-  vecScoresNames.insert(it, to_string(playerScore.score));
+  vecScoresNames.insert(it, playerScore.score);
   if(vecScoresNames.size()>10) //supprime les lignes de scores et de noms qui ne sont pas dans le top cinq
   {
     vecScoresNames.pop_back();
@@ -110,7 +110,7 @@ void Settings::writeHallOfFameFile(PlayerScore &playerScore)
 
   for(int i=0; i<vecScoresNames.size()-1; i+=2)
   {
-    outputFile << vecScoresNames[i] << ":" << vecScoresNames[i+1] << endl;
+    outputFile << vecScoresNames[i] << "," << vecScoresNames[i+1] << endl;
   }
   outputFile.close();
 }

@@ -80,8 +80,10 @@ private slots:
 
     void on_PB_startmenu_fromMenuWin_2_clicked();
 
-private:
+    void on_PB_startmenu_fromMenuWin_3_clicked();
 
+private:
+    PlayerScore *p10 = new PlayerScore;
     std::vector<Block> blocks;
     QGraphicsOpacityEffect *m_opaEffect;
     QImage *image1;
