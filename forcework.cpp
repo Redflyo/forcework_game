@@ -63,9 +63,15 @@ Settings *ForceWork::getItsSettings() const
 
 void ForceWork::moveBulletGameloop(vector<Bullet*>& bullets)
 {
-    for(vector<Bullet*>::iterator it = bullets.begin(); it!=bullets.end(); it++)
+    for(vector<Bullet*>::iterator it = bullets.begin(); it!=bullets.end();)
     {
         (*it)->move();
+        if((*it)->getIsHit() && (*it)->getAnimTime() > 60)
+        {
+            delete *it;
+            itsBullets.erase(it);
+        }
+        if(it != itsBullets.end()) it++;
     }
 }
 

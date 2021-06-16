@@ -1259,15 +1259,14 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 if(((IA*)i)->getIsDead() == false)
                 {
 
+
+                    if (((IA*)i)->getItsAnimationImage() == 4 and ((IA*)i)->getDirection() == false)
                     {
-                        if (((IA*)i)->getItsAnimationImage() == 4 and ((IA*)i)->getDirection() == false)
-                        {
-                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar1);
-                        }
-                        if (((IA*)i)->getItsAnimationImage() == 4 and ((IA*)i)->getDirection() == true)
-                        {
-                            painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar2);
-                        }
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar1);
+                    }
+                    else if (((IA*)i)->getItsAnimationImage() == 4 and ((IA*)i)->getDirection() == true)
+                    {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar2);
                     }
 
                     if (((IA*)i)->getItsMoveOrNot() == true)
@@ -1276,12 +1275,11 @@ void MainWindow::paintEvent(QPaintEvent *event)
                         {
                              painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *rambo1);
                         }
-                        if (((IA*)i)->getItsAnimationImage() == 0 and ((IA*)i)->getDirection() == true)
+                        else if (((IA*)i)->getItsAnimationImage() == 0 and ((IA*)i)->getDirection() == true)
                         {
                              painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *rambo2);
                         }
-
-                        if (((IA*)i)->getItsAnimationImage() == 2)
+                        else if (((IA*)i)->getItsAnimationImage() == 2)
                         {
                             ((IA*)i)->setItsTimeG(0);
                             if (((IA*)i)->getItsTimeD() >= 0 and ((IA*)i)->getItsTimeD() <15)
@@ -1315,7 +1313,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                             }
                         }
 
-                        if (((IA*)i)->getItsAnimationImage() == 1)
+                        else if (((IA*)i)->getItsAnimationImage() == 1)
                         {
                             ((IA*)i)->setItsTimeD(0);
                             if (((IA*)i)->getItsTimeG() >= 0 and ((IA*)i)->getItsTimeG() <15)
@@ -1399,8 +1397,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                              ((IA*)i)->setAnimationDead(true);
                             }
                         }
-
-                        if ( ((IA*)i)->getDirection() == true and ((IA*)i)->getAnimationDead() == false)
+                        else if ( ((IA*)i)->getDirection() == true and ((IA*)i)->getAnimationDead() == false)
                         {
                             ((IA*)i)->setItsTimeD(0);
                             if (((IA*)i)->getItsTimeG() >= 0 and ((IA*)i)->getItsTimeG() <10)
@@ -1449,7 +1446,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                         {
                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *costarMort9_9D);
                         }
-                        if (((IA*)i)->getDirection() == true and ((IA*)i)->getAnimationDead() == true)
+                        else if (((IA*)i)->getDirection() == true and ((IA*)i)->getAnimationDead() == true)
                         {
                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *costarMort9_9G);
                         }
@@ -1500,8 +1497,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                              ((IA*)i)->setAnimationDead(true);
                             }
                         }
-
-                        if ((((IA*)i)->getItsAnimationImage() == 0 or ((IA*)i)->getItsAnimationImage() == 1) and ((IA*)i)->getDirection() == true and ((IA*)i)->getAnimationDead() == false)
+                        else if ((((IA*)i)->getItsAnimationImage() == 0 or ((IA*)i)->getItsAnimationImage() == 1) and ((IA*)i)->getDirection() == true and ((IA*)i)->getAnimationDead() == false)
                         {
                             ((IA*)i)->setItsTimeD(0);
                             if (((IA*)i)->getItsTimeG() >= 0 and ((IA*)i)->getItsTimeG() <10)
@@ -1549,8 +1545,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *ramboMort9_9G);
 
                         }
-
-                        if (((IA*)i)->getDirection() == false and ((IA*)i)->getAnimationDead() == true)
+                        else if (((IA*)i)->getDirection() == false and ((IA*)i)->getAnimationDead() == true)
                         {
                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *ramboMort9_9D);
 
