@@ -855,11 +855,11 @@ void MainWindow::paintEvent(QPaintEvent *event)
             {
                 if (((IA*)i)->getItsMoveOrNot() == false)
                 {
-                    if (((IA*)i)->getSwitchMove() == 0 and ((IA*)i)->getItsTurn() == false)
+                    if (((IA*)i)->getItsAnimationImage() == 4 and ((IA*)i)->getItsTurn() == false)
                     {
                         painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar1);
                     }
-                    if (((IA*)i)->getSwitchMove() == 0 and ((IA*)i)->getItsTurn() == true)
+                    if (((IA*)i)->getItsAnimationImage() == 4 and ((IA*)i)->getItsTurn() == true)
                     {
                         painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar2);
                     }
@@ -867,16 +867,16 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
                 if (((IA*)i)->getItsMoveOrNot() == true)
                 {
-                    if (((IA*)i)->getSwitchMove() == 0 and ((IA*)i)->getItsTurn() == false)
+                    if (((IA*)i)->getItsAnimationImage() == 0 and ((IA*)i)->getItsTurn() == false)
                     {
                          painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *rambo1);
                     }
-                    if (((IA*)i)->getSwitchMove() == 0 and ((IA*)i)->getItsTurn() == true)
+                    if (((IA*)i)->getItsAnimationImage() == 0 and ((IA*)i)->getItsTurn() == true)
                     {
                          painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *rambo2);
                     }
 
-                    if (((IA*)i)->getSwitchMove() == 2)
+                    if (((IA*)i)->getItsAnimationImage() == 2)
                     {
                         ((IA*)i)->setItsTimeG(0);
                         if (((IA*)i)->getItsTimeD() >= 0 and ((IA*)i)->getItsTimeD() <15)
@@ -910,7 +910,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                         }
                     }
 
-                    if (((IA*)i)->getSwitchMove() == 1)
+                    if (((IA*)i)->getItsAnimationImage() == 1)
                     {
                         ((IA*)i)->setItsTimeD(0);
                         if (((IA*)i)->getItsTimeG() >= 0 and ((IA*)i)->getItsTimeG() <15)

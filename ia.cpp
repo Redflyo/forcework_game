@@ -65,6 +65,7 @@ IA::IA(int blockXBegin,int blockXEnd,int blockYRound, bool moveOrNot)
     if (blockXBegin == blockXEnd)
     {
         itsMoveOrNot = false;
+        forNoMove = true;
     }
     else
     {
@@ -82,12 +83,12 @@ IA::~IA()
 
 void IA::move(std::vector<Block> & itsMap)
 {
-    if (itsX<=roundXBegin)
+    if (itsX<roundXBegin)
     {
         itsTurn = false;
         switchMove = 2;
     }
-    if(itsX>=roundXEnd)
+    if(itsX>roundXEnd)
     {
         itsTurn = true;
         switchMove = 1;
@@ -114,6 +115,10 @@ void IA::move(std::vector<Block> & itsMap)
                 setItsX( itsX +2 );
             }
         }
+    }
+    else
+    {
+        switchMove = 0;
     }
     roundBlockXNow = pixelToBlock(itsX);
 
@@ -158,13 +163,17 @@ void IA::animate()
         itsAnimationImage = 1;
     }
     //right
-    else if(switchMove == 2)
+    if(switchMove == 2)
     {
         itsAnimationImage = 2;
     }
-    else
+    if (switchMove == 0)
     {
         itsAnimationImage = 0;
+    }
+    if (forNoMove == true)
+    {
+        itsAnimationImage = 4;
     }
 
 }

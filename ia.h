@@ -9,6 +9,7 @@ private:
     bool itsMoveOrNot; // savoir si c'est une ia qui bouge ou non true move false ne move pas
     int switchMove = 0;
     bool stop = false;
+    bool forNoMove = false;
 
     int roundXBegin,roundXEnd;
     int roundY;
