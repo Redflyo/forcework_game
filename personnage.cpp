@@ -7,16 +7,30 @@ int Personnage::getItsAnimationImage() const
 
 int Personnage::getGunY() const
 {
-    return gunY;
+    return itsHeight/3+itsY-5;
 }
 
 void Personnage::setGunY(int value)
 {
     gunY = value;
 }
+float Personnage::getItsSpeedY() const
+{
+    return itsSpeedY;
+}
+bool Personnage::getDirection() const
+{
+    return direction;
+}
+
+void Personnage::setDirection(bool value)
+{
+    direction = value;
+}
+
 Personnage::Personnage()
 {
-    gunY = (itsHeight)/4;
+
 }
 
 Personnage::~Personnage()

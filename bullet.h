@@ -6,14 +6,14 @@
 class Bullet: public PhysicalObject
 {
 private:
-    int itsSpeedX;
+    int itsSpeedX = 10;
     int itsSpeedY;
     int itsAnimationImage;
     Personnage *itsOwner;
 public:
     void move();
     void animate();
-    Bullet(Personnage *owner);
+    Bullet(Personnage *owner, bool direction);
     Personnage *getItsOwner() const;
 };
 

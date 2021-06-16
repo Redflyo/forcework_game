@@ -47,7 +47,7 @@ vector<string> Map::split(string s,string delimeter)
     return result;
 }
 
-std::vector<Block> Map::getItsBlocks() const
+std::vector<Block> & Map::getItsBlocks()
 {
     return itsBlocks;
 }
@@ -116,38 +116,39 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
                 itsWidthMap = itsWidthMap < i ? i : itsWidthMap;
 
 
-                    if(line[i] >= '2' && line[i] <= '4')
+                if(line[i] >= '2' && line[i] <= '4')
+                {
+                    Block block(line[i]- '0',i,y);
+                    block.setItsWidth(sizeBlock);
+                    block.setItsHeight(sizeBlock);
+                    itsBlocks.push_back(block);
+                }
+                else
+                {
+                    if(line[i] == '*')
                     {
-                        Block block(line[i]- '0',i,y);
+                        Player * player = new Player();
+                        player->setItsBlockX(i);
+                        player->setItsBlockY(y-1);
+                        player->setItsWidth(sizeBlock);
+                        player->setItsHeight(2*sizeBlock);
+                        result.push_back(player);
+                    }
+                    if(line[i] == '.'|| line[i] == '*')
+                    {
+                        Block block(0,i,y);
+                        block.setItsHeight(sizeBlock);
+                        block.setItsWidth(sizeBlock);
                         itsBlocks.push_back(block);
                     }
-                    else
+                    if(line[i] == '1')
                     {
-                        if(line[i] == '*')
-                        {
-                            Player * player = new Player();
-                            player->setItsBlockX(i);
-                            player->setItsBlockY(y-1);
-                            result.push_back(player);
-                        }
-                        if(line[i] == '.'|| line[i] == '*')
-                        {
-                            Block block(0,i,y);
-                            itsBlocks.push_back(block);
-                        }
-                        if(line[i] == '1')
-                        {
-                            flag.setItsBlockX(i);
-                            flag.setItsBlockY(y);
-                        }
-
+                        flag.setItsBlockX(i);
+                        flag.setItsBlockY(y);
+                        flag.setItsWidth(sizeBlock);
+                        flag.setItsHeight(2*sizeBlock);
                     }
-
-
-
-
-
-
+                }
             }
         }
 

@@ -1,4 +1,5 @@
 #include "physicalobject.h"
+#include <QDebug>
 
 int PhysicalObject::getItsBlockX() const
 {
@@ -44,17 +45,81 @@ void PhysicalObject::setItsX(int value)
     itsBlockX = pixelToBlock(itsX);
 }
 
+int PhysicalObject::getItsWidth() const
+{
+  return itsWidth;
+}
+
+void PhysicalObject::setItsWidth(int value)
+{
+  itsWidth = value;
+}
+
+int PhysicalObject::getItsHeight() const
+{
+  return itsHeight;
+}
+
+void PhysicalObject::setItsHeight(int value)
+{
+  itsHeight = value;
+}
+
 PhysicalObject::PhysicalObject()
 {
-    itsBlockX =0;
-    itsBlockY = 0;
-    itsX =0;
-    itsY = 0;
-    itsHeight = 0;
-    itsWidth = 0;
+  itsBlockX =0;
+  itsBlockY = 0;
+  itsX =0;
+  itsY = 0;
+  itsHeight = 0;
+  itsWidth = 0;
 }
 
 PhysicalObject::~PhysicalObject()
 {
 
 }
+
+int PhysicalObject::isCollide(PhysicalObject anObject1, PhysicalObject anObject2)
+{
+  int x1 = anObject1.getItsX(),
+      x2 = anObject1.getItsX()+anObject1.getItsWidth(),
+      x3 = anObject2.getItsX(),
+      x4 = anObject2.getItsX()+anObject1.getItsWidth();
+
+  int y1 = anObject1.getItsY(),
+      y2 = anObject1.getItsY()+anObject1.getItsHeight(),
+      y3 = anObject2.getItsY(),
+      y4 = anObject2.getItsY()+anObject1.getItsHeight();
+
+  int beReturn = 0;
+  QRect rect1 = QRect(anObject1.getItsX(),anObject1.getItsY(),anObject1.getItsWidth(),anObject1.getItsHeight());
+  QRect rect2 = QRect(anObject2.getItsX(),anObject2.getItsY(),anObject2.getItsWidth(),anObject2.getItsHeight());
+  if(rect1.intersects(rect2))
+  {
+      return 1;
+  }
+  else
+  {
+      return 2;
+  }
+
+  /*
+  if(y1<y4 && y1>y3)
+  {
+      if(y2<y4 && y2>y3)
+      {
+          if(x1<x4 && x1>x3)
+          {
+              if(x2<x4 && x2>x3)
+              {
+                  beReturn = 1;
+              }
+          }
+      }
+  }*/
+
+  return beReturn;
+}
+
+

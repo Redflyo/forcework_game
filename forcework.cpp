@@ -25,7 +25,11 @@ QString ForceWork::getTickScore() const
     int second = tickScore/100;
     int min = second/60;
     second -= min*60;
-    Score = QString::number(min) + ":" + QString::number(second) + ":" + QString::number(cent);
+    if(min==0)
+    {
+        Score = QString::number(second) + ":" + QString::number(cent);
+    }
+    else Score = QString::number(min) + ":" + QString::number(second) + ":" + QString::number(cent);
     return Score;
 }
 
@@ -64,11 +68,14 @@ void ForceWork::gameLoop()
 {
     manageKeys();
     Player* aPlayer = getPlayer();
-    aPlayer->move();
+    aPlayer->move(itsMap.getItsBlocks());
     aPlayer->animate();
     getCamera().follow((PhysicalObject)(*aPlayer));
     tickScore++;
-
+    for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end(); it++)
+    {
+        (*it)->move();
+    }
 
 }
 
@@ -82,18 +89,21 @@ void ForceWork::manageKeys()
     {
         for(int key : pressedKeys)
         {
+            if(itsSettings->validJump(key))
+            {
+                getPlayer()->jump();
+            }
             if(itsSettings->validRight(key))
             {
                 getPlayer()->setMovement(2);
+                getPlayer()->setDirection(false);
             }
             if(itsSettings->validLeft(key))
             {
                 getPlayer()->setMovement(1);
+                getPlayer()->setDirection(true);
             }
-            if(itsSettings->validJump(key))
-            {
 
-            }
         }
     }
 

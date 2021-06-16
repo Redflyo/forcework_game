@@ -17,7 +17,7 @@ private:
 
     QSet<int> pressedKeys;
     ///
-    /// \brief personnages Le joueur est Ã  l'index 0
+    /// \brief personnages Le joueur est Ã  l'index 0
     ///
     vector<Personnage*> itsPersonnages;
     vector<Bullet*> itsBullets;
