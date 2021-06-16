@@ -1,5 +1,5 @@
 #include "ia.h"
-
+#include <cmath>
 
 int IA::getRoundBlockY() const
 {
@@ -129,7 +129,7 @@ void IA::move(std::vector<Block> & itsMap)
 
 void IA::shoot()
 {
-
+    itsTimerCanShoot = 1;
 }
 
 void IA::beShot()
@@ -177,5 +177,54 @@ void IA::animate()
     {
         itsAnimationImage = 4;
     }
+
+}
+
+void IA::incrementCanShoot()
+{
+    if(itsTimerCanShoot > itsTimeMinShoot )
+    {
+        itsTimerCanShoot = 0;
+    }
+    else
+    {
+        itsTimerCanShoot++;
+    }
+
+}
+
+bool IA::canShoot()
+{
+    return itsTimerCanShoot == 0;
+}
+
+bool IA::detectPlayer(Personnage* player)
+{
+
+    double distance = player->getItsX() - itsX;
+    bool beReturn = distance < 400 && distance > -400;
+    if(beReturn)
+    {
+        stop = true;
+        itsTurn = distance < 0;
+        if(itsTurn)
+        {
+            switchMove = 2;
+        }
+        else
+        {
+             switchMove = 1;
+        }
+        itsTimeD = 0;
+        itsTimeG = 0;
+    }
+    else
+    {
+
+        stop = false;
+
+    }
+    return 0;
+
 
 }

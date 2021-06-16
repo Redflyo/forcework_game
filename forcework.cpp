@@ -61,7 +61,7 @@ Settings *ForceWork::getItsSettings() const
     return itsSettings;
 }
 
-void ForceWork::moveBulletGameloop(vector<Bullet*> bullets)
+void ForceWork::moveBulletGameloop(vector<Bullet*>& bullets)
 {
     for(vector<Bullet*>::iterator it = bullets.begin(); it!=bullets.end(); it++)
     {
@@ -69,7 +69,7 @@ void ForceWork::moveBulletGameloop(vector<Bullet*> bullets)
     }
 }
 
-void ForceWork::bulletsCheckCollision(vector<Bullet *> bullets)
+void ForceWork::bulletsCheckCollision()
 {
 
     for(Block bloc: itsMap.getItsBlocks())
@@ -130,6 +130,39 @@ void ForceWork::animateBullets()
     }
 }
 
+void ForceWork::iaGameLoop()
+{
+    // ne prend pas le joueur
+    for (int i = 1;i < (int)itsPersonnages.size();i++)
+    {
+        IA* ia = (IA*)itsPersonnages[i];
+        if(!ia->getIsDead())
+        {
+            if(ia->detectPlayer(getPlayer()))
+            {
+                if(ia->canShoot())
+                {
+                    ia->shoot();
+                    Bullet *bull = new Bullet(itsPersonnages[i], itsPersonnages[i]->getDirection());
+                    addBullet(bull);
+
+                }
+                else
+                {
+                    ia->incrementCanShoot();
+                }
+
+             }
+        }
+
+
+
+        ia->move(itsMap.getItsBlocks());
+        ia->animate();
+
+    }
+}
+
 bool ForceWork::getHaveWin() const
 {
     return haveWin;
@@ -179,24 +212,12 @@ void ForceWork::gameLoop()
     getCamera().follow((PhysicalObject)(*aPlayer));
     tickScore++;
     moveBulletGameloop(itsBullets);
-    bulletsCheckCollision(itsBullets);
+    bulletsCheckCollision();
 
     playerHaveWin();
     animateBullets();
 
-    bool first = true;
-    for (Personnage* i:itsPersonnages ) {
-        if(!first)
-        {
-            ((IA*)i)->move(itsMap.getItsBlocks());
-            ((IA*)i)->animate();
-
-        }
-        else
-        {
-            first = false;
-        }
-    }
+    iaGameLoop();
 
 }
 

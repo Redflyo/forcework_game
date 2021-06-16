@@ -47,12 +47,13 @@ public:
     QSet<int>& getPressedKeys();
     QString getTickScore() const;
     Settings *getItsSettings() const;
-    void moveBulletGameloop(vector<Bullet*> bullets);
-    void bulletsCheckCollision(vector<Bullet*> bullets);
+    void moveBulletGameloop(vector<Bullet*>& bullets);
+    void bulletsCheckCollision();
     vector<Bullet *> getItsBullets() const;
 
     vector<Personnage *> getItsPersonnages() const;
     void animateBullets();
+    void iaGameLoop();
     bool getHaveWin() const;
 };
 

@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include "QKeyEvent"
 #include "forcework.h"
-#include "physicalobject.h"
 #include "settings.h"
 #include <QTimer>
 #include <QPaintEvent>

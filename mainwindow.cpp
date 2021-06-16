@@ -4,7 +4,6 @@
 #include <QDebug>
 #include <QGraphicsEffect>
 #include <fstream>
-#include <QProcess>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

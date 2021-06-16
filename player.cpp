@@ -58,20 +58,20 @@ void Player::move(vector<Block> & itsMap)
   }
   if(itsMovement == 1)
   {
-    setItsX(itsX-2);
+    setItsX(itsX-3);
     for(Block block: arroundPlayer)
     {
-      if(isCollide(*this, block) == 1)setItsX(itsX+2);
+      if(isCollide(*this, block) == 1)setItsX(itsX+3);
 
     }
   }
   else if(itsMovement == 2)
   {
 
-    setItsX(itsX+2);
+    setItsX(itsX+3);
     for(Block block: arroundPlayer)
     {
-      if(isCollide(*this, block) == 1) setItsX(itsX-=2);
+      if(isCollide(*this, block) == 1) setItsX(itsX-=3);
     }
   }
   itsGround = false;
@@ -134,14 +134,12 @@ void Player::shoot()
 
 void Player::beShot()
 {
-    if(getItsY()-1==0)
+    setItsLife(getItsLife()-1);
+    if(getItsLife()==0)
     {
         die();
     }
-    else
-    {
-        setItsLife(getItsY()-1);
-    }
+
 }
 
 void Player::die()

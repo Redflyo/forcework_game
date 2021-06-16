@@ -20,6 +20,8 @@ private:
     int roundBlockXBegin,roundBlockXEnd;
     int itsTimeD = 0;
     int itsTimeG = 0;
+    int itsTimerCanShoot = 0;
+    const int itsTimeMinShoot = 20;
 public:
     IA(int blockXBegin,int blockXEnd,int blockYRound, bool moveOrNot);
     virtual ~IA();
@@ -29,6 +31,9 @@ public:
     virtual void die();
     virtual int getGunY() const;
     virtual void animate();
+    void incrementCanShoot();
+    bool canShoot();
+    bool detectPlayer(Personnage * player);
     int getRoundBlockY() const;
     int getRoundBlockXBegin() const;
     int getRoundBlockXEnd() const;
