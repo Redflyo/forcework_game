@@ -97,6 +97,7 @@ MainWindow::~MainWindow()
     delete persoSautHD5_5D;
     delete persoSautHD5_5G;
 
+    delete heart;
 
     delete m_opaEffect;
     delete gameTimer;
@@ -197,7 +198,8 @@ void MainWindow::loadImage()
     persoSautHD5_5D->load("../forcework_game/data/persoSautHD5-5D.png");
 
 
-
+    heart = new QImage;
+    heart->load("../forcework_game/data/heart.webp");
 
     // image rambo
 
@@ -337,6 +339,8 @@ void MainWindow::loadImage()
     *image2 = image2->scaled(QSize(sizeBlock,sizeBlock));
     *image3 = image3->scaled(QSize(sizeBlock,sizeBlock));
     *image4 = image4->scaled(QSize(sizeBlock,sizeBlock));
+
+    *heart = heart->scaled(QSize(sizeBlock/2,sizeBlock/2));
 }
 
 void MainWindow::displayHallOfFame()
@@ -810,6 +814,11 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
             itsPersoTimeJump =0;
             fall = false;
+        }
+        //if(currentGame->getPlayer()->getItsLife()>3)currentGame->getPlayer()->setItsLife(3);
+        for(int i=0;i<(currentGame->getPlayer()->getItsLife());i++)
+        {
+             painter->drawImage((i*(sizeBlock/2))+3,5,*heart);
         }
            painter->end();
            delete painter;

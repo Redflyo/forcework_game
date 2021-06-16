@@ -48,6 +48,7 @@ public:
     void moveBulletGameloop(vector<Bullet*> bullets);
     void bulletsCheckCollision(vector<Bullet*> bullets);
     vector<Bullet *> getItsBullets() const;
+    void animateBullets();
 };
 
 #endif // FORCEWORK_H

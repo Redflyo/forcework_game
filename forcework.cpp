@@ -25,11 +25,34 @@ QString ForceWork::getTickScore() const
     int second = tickScore/100;
     int min = second/60;
     second -= min*60;
+    QString Qsecond = QString::number(second);
+    QString Qcent = QString::number(cent);
+    QString Qmin = QString::number(min);
     if(min==0)
     {
-        Score = QString::number(second) + ":" + QString::number(cent);
+        Qmin = "00";
     }
-    else Score = QString::number(min) + ":" + QString::number(second) + ":" + QString::number(cent);
+    if(min<10)
+    {
+        Qmin = "0" + QString::number(min);
+    }
+    if(second==0)
+    {
+        Qsecond = "00";
+    }
+    if(second<10)
+    {
+        Qsecond = "0" + QString::number(second);
+    }
+    if(cent==0)
+    {
+        Qcent = "00";
+    }
+    if(cent<10)
+    {
+        Qcent = "0" + QString::number(cent);
+    }
+    Score = Qmin + ":" + Qsecond + ":" + Qcent;
     return Score;
 }
 
@@ -57,22 +80,47 @@ void ForceWork::bulletsCheckCollision(vector<Bullet *> bullets)
             {
                  if((*it)->isCollide((*(*it)), bloc)==1)
                  {
-                     //bull->animate();
-                     Bullet * bull = *it;
-                     itsBullets.erase(it);
-                     delete bull;
-
-
+                     (*it)->setIsHit(true);
+                     (*it)->setItsSpeedX(0);
                  }
                  if(it != itsBullets.end()) it++;
             }
         }
     }
+    for(Personnage *person: itsPersonnages)
+    {
+            for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end();)
+            {
+                 if((*it)->isCollide((*(*it)), *person)==1 && (*it)->getItsSpeedX()>0)
+                 {
+                     (*it)->setIsHit(true);
+                     (*it)->setItsSpeedX(0);
+                     person->beShot();
+
+                 }
+                 if(it != itsBullets.end()) it++;
+            }
+        }
 }
 
 vector<Bullet *> ForceWork::getItsBullets() const
 {
     return itsBullets;
+}
+
+void ForceWork::animateBullets()
+{
+    for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end();)
+    {
+        (*it)->animate();
+        if((*it)->getAnimTime()>100)
+        {
+            Bullet * bull = *it;
+            itsBullets.erase(it);
+            delete bull;
+        }
+        if(it != itsBullets.end()) it++;
+    }
 }
 
 ForceWork::~ForceWork()
@@ -106,7 +154,7 @@ void ForceWork::gameLoop()
     tickScore++;
     moveBulletGameloop(itsBullets);
     bulletsCheckCollision(itsBullets);
-
+    animateBullets();
 
 }
 

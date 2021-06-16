@@ -150,6 +150,9 @@ private:
     QImage *costarMarcher5_6G;
     QImage *costarMarcher6_6G;
 
+
+    QImage *heart;
+
     int itsPersoTimeD = 0;
     int itsPersoTimeG = 0;
     int itsPersoTimeJump = 0;

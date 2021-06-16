@@ -23,6 +23,7 @@ public:
     virtual void beShot();
     virtual void die();
     virtual void animate();
+    virtual int getGunY() const;
     bool isWin();
     bool getItsImpulsion() const;
     bool getItsGround() const;

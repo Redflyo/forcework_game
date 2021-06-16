@@ -26,14 +26,44 @@ Personnage *Bullet::getItsOwner() const
     return itsOwner;
 }
 
+bool Bullet::getIsHit() const
+{
+    return isHit;
+}
+
+void Bullet::setIsHit(bool value)
+{
+    isHit = value;
+}
+
+int Bullet::getAnimTime() const
+{
+    return animTime;
+}
+
+void Bullet::setAnimTime(int value)
+{
+    animTime = value;
+}
+
+void Bullet::setItsSpeedX(int value)
+{
+    itsSpeedX = value;
+}
+
+int Bullet::getItsSpeedX() const
+{
+    return itsSpeedX;
+}
+
 void Bullet::move()
 {
-
+    
     itsX+=itsSpeedX;
 }
 
 void Bullet::animate()
 {
-
+    if(getIsHit())animTime++;
 }
 
