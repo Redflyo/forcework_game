@@ -588,6 +588,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
         if (currentGame->getPlayer()->getItsAnimationImage() == 0)
         {
+            haveDrawSomething = true;
             itsPersoTimeD = 0;
             itsPersoTimeG = 0;
 
@@ -595,8 +596,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *perso1);
             }
-            if (currentGame->getPlayer()->getDirection() == true and ground == true)
-            haveDrawSomething = true;
+
             if (currentGame->getPlayer()->getDirection() == false and ground == true)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *perso1);
@@ -604,6 +604,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
             else if (currentGame->getPlayer()->getDirection() == true and ground == true)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *perso2);
+            }
+            else
+            {
+                haveDrawSomething = false;
             }
         }
         if (currentGame->getPlayer()->getItsAnimationImage() == 1 and ground == true)
@@ -782,15 +786,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
         if(!haveDrawSomething)
         {
-            if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 3 and itsPersoSens == false)
-            {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
-            }
-            else if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 3 and itsPersoSens == true)
-            {
-                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
-            }
-            else if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 2 and itsPersoSens == false)
+            if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 2 and itsPersoSens == false)
             {
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
             }
@@ -807,7 +803,6 @@ void MainWindow::paintEvent(QPaintEvent *event)
             {
               painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
             }
-
         }
 
         if (ground == true)
