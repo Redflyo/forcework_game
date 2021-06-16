@@ -28,6 +28,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->editR,SIGNAL(clicked()), this, SLOT(editRfunc()));
     connect(ui->editJ,SIGNAL(clicked()), this, SLOT(editJfunc()));
     connect(gameTimer,SIGNAL(timeout()),this,SLOT(gameLoop()));
+    QRegularExpression re("^[^,]{0,16}$");
+    QRegularExpressionValidator *validator = new QRegularExpressionValidator(re, this);
+    ui->lineEdit->setValidator(validator);
 
 }
 
@@ -318,7 +321,8 @@ void MainWindow::loadImage()
 
 
     heart = new QImage;
-    heart->load("../forcework_game/data/heart.webp");
+    //heart->load("../forcework_game/data/heart.webp");
+    heart->load("../forcework_game/data/heartP.png");
 
     // image rambo
 
@@ -1578,7 +1582,6 @@ void MainWindow::paintEvent(QPaintEvent *event)
         {
              painter->drawImage((i*(sizeBlock/2))+3,5,*heart);
         }
-
         // Balle ------------------------------------------------------------------------------------------------------------------------------
 
         if(currentGame->getItsBullets().size()!=0)
