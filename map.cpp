@@ -87,16 +87,16 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
                 if(round.size()== 2)
                 {
                     int x1 = stoi(round[0]);
-                    int y1 = stoi(round[1]);
-                    IA * ia = new IA(x1,x1,y1);
+                    int y1 = stoi(round[1])-1;
+                    IA * ia = new IA(x1,x1,y1,true);
                     result.push_back(ia);
                 }
                 else if(round.size())
                 {
                     int x1 = stoi(round[0]);
                     int x2 = stoi(round[1]);
-                    int y1 = stoi(round[2]);
-                    IA * ia = new IA(x1,x2,y1);
+                    int y1 = stoi(round[2])-1;
+                    IA * ia = new IA(x1,x2,y1,true);
                     result.push_back(ia);
                 }
             }

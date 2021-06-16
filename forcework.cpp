@@ -43,6 +43,11 @@ vector<Bullet *> ForceWork::getItsBullets() const
     return itsBullets;
 }
 
+vector<Personnage *> ForceWork::getItsPersonnages() const
+{
+    return itsPersonnages;
+}
+
 ForceWork::~ForceWork()
 {
     delete  camera;
@@ -75,6 +80,20 @@ void ForceWork::gameLoop()
     for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end(); it++)
     {
         (*it)->move();
+    }
+
+    bool first = true;
+    for (Personnage* i:itsPersonnages ) {
+        if(!first)
+        {
+            ((IA*)i)->move(itsMap.getItsBlocks());
+            ((IA*)i)->animate();
+
+        }
+        else
+        {
+            first = false;
+        }
     }
 
 }

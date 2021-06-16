@@ -12,6 +12,7 @@
 #include <QEvent>
 #include <QGraphicsEffect>
 #include <QMouseEvent>
+#include "ia.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -153,6 +154,9 @@ private:
     int itsPersoTimeD = 0;
     int itsPersoTimeG = 0;
     int itsPersoTimeJump = 0;
+    bool sauterG = false;
+    bool sauterD = false;
+    int tempoCochon = 0;
 
 
 

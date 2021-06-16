@@ -288,11 +288,14 @@ void MainWindow::loadImage()
 
     costarMarcher6_6G = new QImage;
     costarMarcher6_6G->load("../forcework_game/data/costarMarcherHD6-6G.png");
+    balleDroite = new QImage;
+    balleDroite->load("../forcework_game/data/BalleD.png");
+
+    balleGauche = new QImage;
+    balleGauche->load("../forcework_game/data/BalleG.png");
 
 
-
-
-
+    // dimention des images personnage principal
     *persoSautHD1_5D =  persoSautHD1_5D->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoSautHD2_5D =  persoSautHD2_5D->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoSautHD3_5D =  persoSautHD3_5D->scaled(QSize(sizeBlock,sizeBlock*2));
@@ -325,9 +328,48 @@ void MainWindow::loadImage()
     *persoMarcher5_6G = persoMarcher5_6G->scaled(QSize(sizeBlock,sizeBlock*2));
     *persoMarcher6_6G = persoMarcher6_6G->scaled(QSize(sizeBlock,sizeBlock*2));
 
-
     *perso1 = perso1->scaled(QSize(sizeBlock,sizeBlock*2));
     *perso2 = perso2->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    //redimention des images Rambo
+
+    *ramboMarcher1_6D = ramboMarcher1_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMarcher2_6D = ramboMarcher2_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMarcher3_6D = ramboMarcher3_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMarcher4_6D = ramboMarcher4_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMarcher5_6D = ramboMarcher5_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMarcher6_6D = ramboMarcher6_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    *ramboMarcher1_6G = ramboMarcher1_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMarcher2_6G = ramboMarcher2_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMarcher3_6G = ramboMarcher3_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMarcher4_6G = ramboMarcher4_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMarcher5_6G = ramboMarcher5_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *ramboMarcher6_6G = ramboMarcher6_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    *rambo1 = rambo1->scaled(QSize(sizeBlock,sizeBlock*2));
+    *rambo2 = rambo2->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    //redimmention des images Costar
+
+    *costarMarcher1_6D = costarMarcher1_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMarcher2_6D = costarMarcher2_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMarcher3_6D = costarMarcher3_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMarcher4_6D = costarMarcher4_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMarcher5_6D = costarMarcher5_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMarcher6_6D = costarMarcher6_6D->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    *costarMarcher1_6G = costarMarcher1_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMarcher2_6G = costarMarcher2_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMarcher3_6G = costarMarcher3_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMarcher4_6G = costarMarcher4_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMarcher5_6G = costarMarcher5_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costarMarcher6_6G = costarMarcher6_6G->scaled(QSize(sizeBlock,sizeBlock*2));
+
+    *costar1 = costar1->scaled(QSize(sizeBlock,sizeBlock*2));
+    *costar2 = costar2->scaled(QSize(sizeBlock,sizeBlock*2));
+
+
 
     *flag = flag->scaled(QSize(sizeBlock,sizeBlock*2));
     *flag2 = flag2->scaled(QSize(sizeBlock,sizeBlock*2));
@@ -691,8 +733,6 @@ void MainWindow::paintEvent(QPaintEvent *event)
             }
          }
 
-        if (ground == false and currentGame->getPlayer()->getDirection() == false and currentGame->getPlayer()->getItsAnimationImage() == 3)
-        {
 
 
         // animation saut droit
@@ -721,9 +761,8 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 }
 
             }
-        }
 
-        if (ground == false and currentGame->getPlayer()->getDirection() == true and currentGame->getPlayer()->getItsAnimationImage() == 3)
+
         // animation saut gauche
         if (ground == false and itsPersoSens == true)
         {
@@ -804,6 +843,118 @@ void MainWindow::paintEvent(QPaintEvent *event)
               painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
             }
         }
+
+        // IA -------------------------------------------------------------------------------------------------------
+        bool first = true;
+        for (Personnage* i:currentGame->getItsPersonnages() ) {
+            if(!first)
+            {
+                if (((IA*)i)->getItsMoveOrNot() == false)
+                {
+                    if (((IA*)i)->getSwitchMove() == 0 and ((IA*)i)->getItsTurn() == false)
+                    {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar1);
+                    }
+                    if (((IA*)i)->getSwitchMove() == 0 and ((IA*)i)->getItsTurn() == true)
+                    {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *costar2);
+                    }
+                }
+
+                if (((IA*)i)->getItsMoveOrNot() == true)
+                {
+                    if (((IA*)i)->getSwitchMove() == 0 and ((IA*)i)->getItsTurn() == false)
+                    {
+                         painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *rambo1);
+                    }
+                    if (((IA*)i)->getSwitchMove() == 0 and ((IA*)i)->getItsTurn() == true)
+                    {
+                         painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *rambo2);
+                    }
+
+                    if (((IA*)i)->getSwitchMove() == 2)
+                    {
+                        ((IA*)i)->setItsTimeG(0);
+                        if (((IA*)i)->getItsTimeD() >= 0 and ((IA*)i)->getItsTimeD() <15)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6D);
+                        }
+                        else if (((IA*)i)->getItsTimeD() >= 15 and ((IA*)i)->getItsTimeD() <30)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher2_6D);
+                        }
+                        else if (((IA*)i)->getItsTimeD() >= 30 and ((IA*)i)->getItsTimeD() <45)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher3_6D);
+                        }
+                        else if (((IA*)i)->getItsTimeD() >= 45 and ((IA*)i)->getItsTimeD() <60)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher4_6D);
+                        }
+                        else if (((IA*)i)->getItsTimeD() >= 60 and ((IA*)i)->getItsTimeD() <75)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher5_6D);
+                        }
+                        else if (((IA*)i)->getItsTimeD() >= 75 and ((IA*)i)->getItsTimeD() <90)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher6_6D);
+                        }
+                        else if (((IA*)i)->getItsTimeD() >= 90)
+                        {
+                        ((IA*)i)->setItsTimeD(0);
+                         painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6D);
+                        }
+                    }
+
+                    if (((IA*)i)->getSwitchMove() == 1)
+                    {
+                        ((IA*)i)->setItsTimeD(0);
+                        if (((IA*)i)->getItsTimeG() >= 0 and ((IA*)i)->getItsTimeG() <15)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6G);
+                        }
+                        else if (((IA*)i)->getItsTimeG() >= 15 and ((IA*)i)->getItsTimeG() <30)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher2_6G);
+                        }
+                        else if (((IA*)i)->getItsTimeG() >= 30 and ((IA*)i)->getItsTimeG() <45)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher3_6G);
+                        }
+                        else if (((IA*)i)->getItsTimeG() >= 45 and ((IA*)i)->getItsTimeG() <60)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher4_6G);
+                        }
+                        else if (((IA*)i)->getItsTimeG() >= 60 and ((IA*)i)->getItsTimeG() <75)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher5_6G);
+                        }
+                        else if (((IA*)i)->getItsTimeG() >= 75 and ((IA*)i)->getItsTimeG() <90)
+                        {
+                        painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher6_6G);
+                        }
+                        else if (((IA*)i)->getItsTimeG() >= 90)
+                        {
+                        ((IA*)i)->setItsTimeG(0);
+                         painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY, *ramboMarcher1_6G);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                first = false;
+            }
+
+        }
+
+
+
+
+
+
+
+
 
         if (ground == true)
         {

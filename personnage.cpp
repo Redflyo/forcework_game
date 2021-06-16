@@ -5,6 +5,16 @@ int Personnage::getItsAnimationImage() const
     return itsAnimationImage;
 }
 
+
+bool Personnage::getItsTurn() const
+{
+    return itsTurn;
+}
+
+void Personnage::setItsTurn(bool value)
+{
+    itsTurn = value;
+}
 int Personnage::getGunY() const
 {
     return itsHeight/3+itsY-5;
@@ -35,7 +45,7 @@ Personnage::Personnage()
 
 Personnage::~Personnage()
 {
-    
+
 }
 
 void Personnage::setMovement(int movement)

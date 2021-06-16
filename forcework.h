@@ -46,6 +46,8 @@ public:
     QString getTickScore() const;
     Settings *getItsSettings() const;
     vector<Bullet *> getItsBullets() const;
+
+    vector<Personnage *> getItsPersonnages() const;
 };
 
 #endif // FORCEWORK_H

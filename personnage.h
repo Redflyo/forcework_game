@@ -8,6 +8,8 @@ class Personnage: public PhysicalObject
 protected:
     int itsLife;
     int itsAnimationImage = 0;
+    bool itsGround;
+    bool itsTurn = false; // false pour droite et true pour gauche
     float itsSpeedY=0;
     int itsMovement;
     bool direction = false;
@@ -23,6 +25,8 @@ public:
     virtual void die() = 0;
     virtual void animate() = 0;
     int getItsAnimationImage() const;
+    bool getItsTurn() const;
+    void setItsTurn(bool value);
     int getGunY() const;
     void setGunY(int value);
     float getItsSpeedY() const;
