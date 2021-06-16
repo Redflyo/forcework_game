@@ -14,7 +14,7 @@ bool Player::getItsGround() const
 
 Player::Player()
 {
-
+    setItsLife(3);
 }
 
 void Player::resetJump()
@@ -134,7 +134,14 @@ void Player::shoot()
 
 void Player::beShot()
 {
-
+    if(getItsY()-1==0)
+    {
+        die();
+    }
+    else
+    {
+        setItsLife(getItsY()-1);
+    }
 }
 
 void Player::die()
@@ -165,9 +172,11 @@ void Player::animate()
 }
 
 int Player::getGunY() const
+
 {
     return itsHeight/3+itsY-5;
 }
+
 
 
 

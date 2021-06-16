@@ -22,6 +22,7 @@ public:
     int getAnimTime() const;
     void setAnimTime(int value);
     void setItsSpeedX(int value);
+    int getItsSpeedX() const;
 };
 
 #endif // BULLET_H

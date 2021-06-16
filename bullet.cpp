@@ -51,14 +51,19 @@ void Bullet::setItsSpeedX(int value)
     itsSpeedX = value;
 }
 
+int Bullet::getItsSpeedX() const
+{
+    return itsSpeedX;
+}
+
 void Bullet::move()
 {
-
+    
     itsX+=itsSpeedX;
 }
 
 void Bullet::animate()
 {
-    animTime++;
+    if(getIsHit())animTime++;
 }
 

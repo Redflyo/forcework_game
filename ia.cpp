@@ -24,7 +24,14 @@ void IA::shoot()
 
 void IA::beShot()
 {
-
+    if(getItsY()-1==0)
+    {
+        die();
+    }
+    else
+    {
+        setItsLife(getItsY()-1);
+    }
 }
 
 void IA::die()
