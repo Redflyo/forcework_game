@@ -8,7 +8,7 @@ class Personnage: public PhysicalObject
 protected:
     int itsLife;
     int itsAnimationImage = 0;
-    float itsSpeedY;
+    float itsSpeedY=0;
     int itsMovement;
     bool direction = false;
     int gunY;

@@ -33,6 +33,72 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    delete image1;
+    delete image2;
+    delete image3;
+    delete image4;
+    delete flag;
+    delete flag2;
+    delete perso1;
+    delete perso2;
+    delete persoMarcher1_6D;
+    delete persoMarcher1_6G;
+    delete persoMarcher2_6D;
+    delete persoMarcher2_6G;
+    delete persoMarcher3_6D;
+    delete persoMarcher3_6G;
+    delete persoMarcher4_6D;
+    delete persoMarcher4_6G;
+    delete persoMarcher5_6D;
+    delete persoMarcher5_6G;
+    delete persoMarcher6_6D;
+    delete persoMarcher6_6G;
+
+    delete rambo1;
+    delete rambo2;
+    delete ramboMarcher1_6D;
+    delete ramboMarcher1_6G;
+    delete ramboMarcher2_6D;
+    delete ramboMarcher2_6G;
+    delete ramboMarcher3_6D;
+    delete ramboMarcher3_6G;
+    delete ramboMarcher4_6D;
+    delete ramboMarcher4_6G;
+    delete ramboMarcher5_6D;
+    delete ramboMarcher5_6G;
+    delete ramboMarcher6_6D;
+    delete ramboMarcher6_6G;
+
+
+
+    delete costar1;
+    delete costar2;
+    delete costarMarcher1_6D;
+    delete costarMarcher1_6G;
+    delete costarMarcher2_6D;
+    delete costarMarcher2_6G;
+    delete costarMarcher3_6D;
+    delete costarMarcher3_6G;
+    delete costarMarcher4_6D;
+    delete costarMarcher4_6G;
+    delete costarMarcher5_6D;
+    delete costarMarcher5_6G;
+    delete costarMarcher6_6D;
+    delete costarMarcher6_6G;
+
+    delete persoSautHD1_5D;
+    delete persoSautHD1_5G;
+    delete persoSautHD2_5D;
+    delete persoSautHD2_5G;
+    delete persoSautHD3_5D;
+    delete persoSautHD3_5G;
+    delete persoSautHD4_5D;
+    delete persoSautHD4_5G;
+    delete persoSautHD5_5D;
+    delete persoSautHD5_5G;
+
+
+    delete m_opaEffect;
     delete gameTimer;
     delete itsSetting;
     delete ui;
@@ -465,13 +531,17 @@ void MainWindow::gameLoop()
 void MainWindow::paintEvent(QPaintEvent *event)
 {
 
+
     if(ui->stackedWidget->currentIndex() == 1 || ui->stackedWidget->currentIndex() == 4 || ui->stackedWidget->currentIndex() == 5)
     {
+        bool itsPersoSens = currentGame->getPlayer()->getDirection();
+        bool fall = false;
         blocks = currentGame->getItsMap().getItsBlocks();
         int offSetX = currentGame->getCamera().getItsOffsetX();
         int offSetY = currentGame->getCamera().getItsOffsetY();
         QPainter * painter = new QPainter(this);
         int locX,locY;
+        bool haveDrawSomething = false;
         bool ground = currentGame->getPlayer()->getItsSpeedY()<1 and currentGame->getPlayer()->getItsSpeedY()>-1 ;
         for (int i = 0; i<(int)blocks.size() ;i++ ) {
 
@@ -514,6 +584,8 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
             }
         }
+
+
         if (currentGame->getPlayer()->getItsAnimationImage() == 0)
         {
             itsPersoTimeD = 0;
@@ -524,39 +596,46 @@ void MainWindow::paintEvent(QPaintEvent *event)
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *perso1);
             }
             if (currentGame->getPlayer()->getDirection() == true and ground == true)
+            haveDrawSomething = true;
+            if (currentGame->getPlayer()->getDirection() == false and ground == true)
+            {
+            painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *perso1);
+            }
+            else if (currentGame->getPlayer()->getDirection() == true and ground == true)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *perso2);
             }
         }
         if (currentGame->getPlayer()->getItsAnimationImage() == 1 and ground == true)
         {
+            haveDrawSomething = true;
             itsPersoTimeD = 0;
             if (itsPersoTimeG >= 0 and itsPersoTimeG <15)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher1_6G);
             }
-            if (itsPersoTimeG >= 15 and itsPersoTimeG <30)
+            else if (itsPersoTimeG >= 15 and itsPersoTimeG <30)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher2_6G);
             }
-            if (itsPersoTimeG >= 30 and itsPersoTimeG <45)
+            else if (itsPersoTimeG >= 30 and itsPersoTimeG <45)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher3_6G);
             }
-            if (itsPersoTimeG >= 45 and itsPersoTimeG <60)
+            else if (itsPersoTimeG >= 45 and itsPersoTimeG <60)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher4_6G);
             }
-            if (itsPersoTimeG >= 60 and itsPersoTimeG <75)
+            else if (itsPersoTimeG >= 60 and itsPersoTimeG <75)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher5_6G);
             }
-            if (itsPersoTimeG >= 75 and itsPersoTimeG <90)
+            else if (itsPersoTimeG >= 75 and itsPersoTimeG <90)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher6_6G);
 
             }
-            if (itsPersoTimeG == 90)
+            else if (itsPersoTimeG >= 90)
             {
 
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher1_6G);
@@ -566,32 +645,33 @@ void MainWindow::paintEvent(QPaintEvent *event)
         }
         if (currentGame->getPlayer()->getItsAnimationImage() == 2 and ground == true)
         {
+            haveDrawSomething = true;
             itsPersoTimeG = 0;
             if (itsPersoTimeD >= 0 and itsPersoTimeD <15)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher1_6D);
             }
-            if (itsPersoTimeD >= 15 and itsPersoTimeD <30)
+            else if (itsPersoTimeD >= 15 and itsPersoTimeD <30)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher2_6D);
             }
-            if (itsPersoTimeD >= 30 and itsPersoTimeD <45)
+            else if (itsPersoTimeD >= 30 and itsPersoTimeD <45)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher3_6D);
             }
-            if (itsPersoTimeD >= 45 and itsPersoTimeD <60)
+            else if (itsPersoTimeD >= 45 and itsPersoTimeD <60)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher4_6D);
             }
-            if (itsPersoTimeD >= 60 and itsPersoTimeD <75)
+            else if (itsPersoTimeD >= 60 and itsPersoTimeD <75)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher5_6D);
             }
-            if (itsPersoTimeD >= 75 and itsPersoTimeD <90)
+            else if (itsPersoTimeD >= 75 and itsPersoTimeD <90)
             {
             painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher6_6D);
             }
-            if (itsPersoTimeD == 90)
+            else if (itsPersoTimeD >= 90)
             {
             itsPersoTimeD = 0;
              painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoMarcher1_6D);
@@ -609,36 +689,39 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
         if (ground == false and currentGame->getPlayer()->getDirection() == false and currentGame->getPlayer()->getItsAnimationImage() == 3)
         {
-            if (currentGame->getPlayer()->getItsImpulsion() == true)
-            {
-                if (itsPersoTimeJump>= 0 and itsPersoTimeJump <10)
-                {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5D);
-                }
-                if (itsPersoTimeJump>= 10 and itsPersoTimeJump <20)
-                {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD2_5D);
-                }
-                if (itsPersoTimeJump>= 20 and itsPersoTimeJump <30)
-                {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD3_5D);
-                }
-            }
-            if (currentGame->getPlayer()->getItsImpulsion() == false)
-            {
-                if (itsPersoTimeJump>= 30 and itsPersoTimeJump <40)
-                {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD4_5D);
-                }
-                if (itsPersoTimeJump >= 40)
-                {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
-                }
-            }
 
+
+        // animation saut droit
+            if (ground == false and itsPersoSens == false)
+            {
+                if (currentGame->getPlayer()->getItsImpulsion() == true)
+                {
+                    if (itsPersoTimeJump>= 0 and itsPersoTimeJump <10)
+                    {
+                    painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5D);
+                    }
+                    else if (itsPersoTimeJump>= 10 and itsPersoTimeJump <20)
+                    {
+                    painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD2_5D);
+                    }
+                    else if (itsPersoTimeJump>= 20 and itsPersoTimeJump <30)
+                    {
+                    painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD3_5D);
+                    }
+                    haveDrawSomething = true;
+                }
+                else
+                {
+                    itsPersoTimeJump = 0;
+                    fall = true;
+                }
+
+            }
         }
 
         if (ground == false and currentGame->getPlayer()->getDirection() == true and currentGame->getPlayer()->getItsAnimationImage() == 3)
+        // animation saut gauche
+        if (ground == false and itsPersoSens == true)
         {
             if (currentGame->getPlayer()->getItsImpulsion() == true)
             {
@@ -646,61 +729,95 @@ void MainWindow::paintEvent(QPaintEvent *event)
                 {
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD1_5G);
                 }
-                if (itsPersoTimeJump>= 10 and itsPersoTimeJump <20)
+                else if (itsPersoTimeJump>= 10 and itsPersoTimeJump <20)
                 {
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD2_5G);
                 }
-                if (itsPersoTimeJump>= 20 and itsPersoTimeJump <30)
+                else if (itsPersoTimeJump>= 20 and itsPersoTimeJump <30)
                 {
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD3_5G);
                 }
+                haveDrawSomething = true;
             }
-            if (currentGame->getPlayer()->getItsImpulsion() == false)
+            else
             {
-                if (itsPersoTimeJump>= 30 and itsPersoTimeJump <40)
-                {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD4_5G);
-                }
-                if (itsPersoTimeJump >= 40)
-                {
-                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
-                }
+                itsPersoTimeJump = 0;
+                fall = true;
             }
 
         }
+
         if (ground == false and currentGame->getPlayer()->getDirection() == true and currentGame->getPlayer()->getItsImpulsion() == false)
+
+
+        // animation chute gauche
+        if ((ground == false and itsPersoSens == true and currentGame->getPlayer()->getItsImpulsion() == false) or (fall == true and itsPersoSens == true))
         {
                 if (itsPersoTimeJump>= 0 and itsPersoTimeJump <10)
                 {
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD4_5G);
                 }
-                if (itsPersoTimeJump >= 10)
+                else if (itsPersoTimeJump >= 10)
                 {
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
                 }
 
+            haveDrawSomething = true;
         }
-        if (ground == false and currentGame->getPlayer()->getDirection() == false and currentGame->getPlayer()->getItsImpulsion() == false)
+
+        if ((ground == false and itsPersoSens == false and currentGame->getPlayer()->getItsImpulsion() == false) or (fall == true and itsPersoSens == false))
         {
-            qDebug() << currentGame->getPlayer()->getItsGround();
-            qDebug() << currentGame->getPlayer()->getItsImpulsion();
 
                 if (itsPersoTimeJump>= 0 and itsPersoTimeJump <10)
                 {
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD4_5D);
                 }
-                if (itsPersoTimeJump >= 10)
+                else if (itsPersoTimeJump >= 10)
                 {
                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
                 }
+            haveDrawSomething = true;
+        }
+
+
+        if(!haveDrawSomething)
+        {
+            if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 3 and itsPersoSens == false)
+            {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
+            }
+            else if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 3 and itsPersoSens == true)
+            {
+                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
+            }
+            else if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 2 and itsPersoSens == false)
+            {
+                painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
+            }
+            else if (ground == true and currentGame->getPlayer()->getItsAnimationImage() == 1 and itsPersoSens == true)
+            {
+                 painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
+            }
+
+            if(!itsPersoSens)
+            {
+              painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5D);
+            }
+            else
+            {
+              painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX,currentGame->getPlayer()->getItsY()+offSetY, *persoSautHD5_5G);
+            }
 
         }
 
-        if (currentGame->getPlayer()->getItsGround() == true)
+        if (ground == true)
         {
+
             itsPersoTimeJump =0;
+            fall = false;
         }
            painter->end();
+           delete painter;
     }
 
 }

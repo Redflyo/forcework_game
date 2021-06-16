@@ -45,7 +45,7 @@ vector<Bullet *> ForceWork::getItsBullets() const
 
 ForceWork::~ForceWork()
 {
-
+    delete  camera;
     for(Personnage* perso: itsPersonnages)
     {
         delete perso;
