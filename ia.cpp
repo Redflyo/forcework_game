@@ -51,7 +51,6 @@ int IA::getSwitchMove() const
     return switchMove;
 }
 
-
 void IA::setAnimationDead(bool value)
 {
     animationDead = value;
@@ -61,6 +60,7 @@ bool IA::getAnimationDead() const
 {
     return animationDead;
 }
+
 IA::IA(int blockXBegin,int blockXEnd,int blockYRound)
 {
     roundBlockXBegin = blockXBegin;
@@ -158,6 +158,10 @@ void IA::die()
 {
     stop = true;
     setIsDead(true);
+    itsTimeD=0;
+    itsTimeG=0;
+    setItsHeight(0);
+    setItsWidth(0);
 }
 
 int IA::getGunY() const

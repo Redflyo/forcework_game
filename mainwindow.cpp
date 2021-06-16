@@ -1352,6 +1352,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
                     if (((IA*)i)->getItsMoveOrNot() == false)
                     {
+
                         if ( ((IA*)i)->getDirection() == false and ((IA*)i)->getAnimationDead() == false)
                         {
                             ((IA*)i)->setItsTimeG(0);
@@ -1394,6 +1395,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                              ((IA*)i)->setAnimationDead(true);
                             }
                         }
+
                         if ( ((IA*)i)->getDirection() == true and ((IA*)i)->getAnimationDead() == false)
                         {
                             ((IA*)i)->setItsTimeD(0);
@@ -1436,6 +1438,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                              ((IA*)i)->setAnimationDead(true);
                             }
                         }
+
 
 
                         if (((IA*)i)->getDirection() == false and ((IA*)i)->getAnimationDead() == true)
@@ -1493,6 +1496,7 @@ void MainWindow::paintEvent(QPaintEvent *event)
                              ((IA*)i)->setAnimationDead(true);
                             }
                         }
+
                         if ((((IA*)i)->getItsAnimationImage() == 0 or ((IA*)i)->getItsAnimationImage() == 1) and ((IA*)i)->getDirection() == true and ((IA*)i)->getAnimationDead() == false)
                         {
                             ((IA*)i)->setItsTimeD(0);
@@ -1535,11 +1539,13 @@ void MainWindow::paintEvent(QPaintEvent *event)
                              ((IA*)i)->setAnimationDead(true);
                             }
                         }
+
                         if (((IA*)i)->getDirection() == true and ((IA*)i)->getAnimationDead() == true)
                         {
                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *ramboMort9_9G);
 
                         }
+
                         if (((IA*)i)->getDirection() == false and ((IA*)i)->getAnimationDead() == true)
                         {
                             painter->drawImage(((IA*)i)->getItsX()+offSetX, ((IA*)i)->getItsY()+offSetY+sizeBlock+10, *ramboMort9_9D);
