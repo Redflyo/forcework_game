@@ -14,6 +14,7 @@ protected:
     int itsMovement;
     bool direction = false;
     int gunY;
+    bool isDead = false;
 public:
 
     Personnage();
@@ -34,6 +35,8 @@ public:
     void setDirection(bool value);
     int getItsLife() const;
     void setItsLife(int value);
+    bool getIsDead() const;
+    void setIsDead(bool value);
 };
 
 #endif // PERSONNAGE_H

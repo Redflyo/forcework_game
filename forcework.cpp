@@ -91,7 +91,7 @@ void ForceWork::bulletsCheckCollision(vector<Bullet *> bullets)
     {
             for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end();)
             {
-                 if((*it)->isCollide((*(*it)), *person)==1 && (*it)->getItsSpeedX()>0)
+                 if((*it)->isCollide((*(*it)), *person)==1 && (*it)->getItsSpeedX()!=0)
                  {
                      (*it)->setIsHit(true);
                      (*it)->setItsSpeedX(0);

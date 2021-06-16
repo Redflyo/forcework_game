@@ -450,6 +450,10 @@ void MainWindow::on_pushButton_6_clicked()
 
 void MainWindow::keyPressEvent(QKeyEvent*ev)
 {
+    /*if(ev->key()==Qt::Key_A)
+    {
+        Loose();
+    }*/
     if(editKey == 0 && ui->stackedWidget->currentIndex()==2)
     {
         ui->keyL1->setText(ev->text());
@@ -541,6 +545,13 @@ void MainWindow::Win()
     gameTimer->stop();
 }
 
+void MainWindow::Loose()
+{
+    ui->frame_menuwin->setGraphicsEffect(m_opaEffect);
+    ui->stackedWidget->setCurrentWidget(ui->MenuLoose);
+    gameTimer->stop();
+}
+
 void MainWindow::launchGame()
 {
     currentGame = new ForceWork(itsSetting);
@@ -571,6 +582,11 @@ void MainWindow::gameLoop()
     {
         ui->label_winscore->setText(currentGame->getItsSettings()->getItsTimer());
         Win();
+    }
+
+    if(currentGame->getPlayer()->getIsDead()==true)
+    {
+            Loose();
     }
 }
 
@@ -1005,4 +1021,17 @@ void MainWindow::on_PB_startNewGame_fromMenuWin_clicked()
     delete itsSetting;
     itsSetting = new Settings;
     ui->PB_launchGame->click();
+}
+
+void MainWindow::on_PB_startNewGame_fromMenuWin_2_clicked()
+{
+    delete currentGame;
+    delete itsSetting;
+    itsSetting = new Settings;
+    ui->PB_launchGame->click();
+}
+
+void MainWindow::on_PB_startmenu_fromMenuWin_2_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->StartMenu);
 }

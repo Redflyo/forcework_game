@@ -64,15 +64,14 @@ void PhysicalObject::setItsHeight(int value)
 {
   itsHeight = value;
 }
-
 PhysicalObject::PhysicalObject()
 {
-  itsBlockX =0;
-  itsBlockY = 0;
-  itsX =0;
-  itsY = 0;
-  itsHeight = 0;
-  itsWidth = 0;
+    itsBlockX =0;
+    itsBlockY = 0;
+    itsX =0;
+    itsY = 0;
+    itsHeight = 0;
+    itsWidth = 0;
 }
 
 PhysicalObject::~PhysicalObject()

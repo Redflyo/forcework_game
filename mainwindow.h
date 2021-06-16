@@ -62,6 +62,8 @@ private slots:
 
     void Win();
 
+    void Loose();
+
     void gameLoop();
 
     void on_pushButton_5_clicked();
@@ -73,6 +75,10 @@ private slots:
     void on_PB_startmenu_fromMenuWin_clicked();
 
     void on_PB_startNewGame_fromMenuWin_clicked();
+
+    void on_PB_startNewGame_fromMenuWin_2_clicked();
+
+    void on_PB_startmenu_fromMenuWin_2_clicked();
 
 private:
 

@@ -146,7 +146,7 @@ void Player::beShot()
 
 void Player::die()
 {
-
+    setIsDead(true);
 }
 
 void Player::animate()

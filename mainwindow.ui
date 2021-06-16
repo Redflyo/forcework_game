@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="StartMenu">
      <widget class="QFrame" name="frame">
@@ -1030,6 +1030,102 @@ font-size: 40px;
        </property>
        <property name="text">
         <string/>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="MenuLoose">
+     <widget class="QFrame" name="frame_menuwin_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1200</width>
+        <height>399</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(0,0,0);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="PB_startmenu_fromMenuWin_2">
+       <property name="geometry">
+        <rect>
+         <x>1070</x>
+         <y>350</y>
+         <width>121</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color:rgb(255, 255, 255);
+	border:none;
+	color:rgb(0, 0, 0);
+	border-radius: 5px;
+}
+QPushButton:hover {
+	background-color:rgb(196, 196, 196);
+}
+QPushButton:pressed {
+	background-color:rgb(117, 117, 117);
+}
+</string>
+       </property>
+       <property name="text">
+        <string>START MENU</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="PB_startNewGame_fromMenuWin_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>350</y>
+         <width>121</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color:rgb(255, 255, 255);
+	border:none;
+	color:rgb(0, 0, 0);
+	border-radius: 5px;
+}
+QPushButton:hover {
+	background-color:rgb(196, 196, 196);
+}
+QPushButton:pressed {
+	background-color:rgb(117, 117, 117);
+}
+</string>
+       </property>
+       <property name="text">
+        <string>RETRY</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>70</y>
+         <width>721</width>
+         <height>171</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+font-size: 50px;
+font: 100pt;
+color:rgb(214,38,0);</string>
+       </property>
+       <property name="text">
+        <string>YOU LOOSE</string>
        </property>
       </widget>
      </widget>
