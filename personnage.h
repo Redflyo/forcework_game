@@ -27,11 +27,13 @@ public:
     int getItsAnimationImage() const;
     bool getItsTurn() const;
     void setItsTurn(bool value);
-    int getGunY() const;
+    virtual int getGunY() const = 0;
     void setGunY(int value);
     float getItsSpeedY() const;
     bool getDirection() const;
     void setDirection(bool value);
+    int getItsLife() const;
+    void setItsLife(int value);
 };
 
 #endif // PERSONNAGE_H

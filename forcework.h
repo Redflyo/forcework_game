@@ -24,6 +24,7 @@ private:
     Map itsMap;
     Camera * camera;
     Settings *itsSettings;
+    bool haveWin = false;
     int tickScore = 0;
 
 
@@ -31,6 +32,7 @@ public:
 
     ~ForceWork();
     ForceWork(Settings * settings);
+    void playerHaveWin();
     void gameLoop();
     void manageKeys();
     void addPersonnage(Personnage * personnage);
@@ -38,16 +40,20 @@ public:
     void addPersonnage(IA ia);
     Player* getPlayer();
     void addBullet(Bullet *a);
-    void deleteBullet(Bullet *a);
+    void deleteBullet(vector<Bullet*>::iterator it);
     Map getItsMap();
 
     Camera& getCamera();
     QSet<int>& getPressedKeys();
     QString getTickScore() const;
     Settings *getItsSettings() const;
+    void moveBulletGameloop(vector<Bullet*> bullets);
+    void bulletsCheckCollision(vector<Bullet*> bullets);
     vector<Bullet *> getItsBullets() const;
 
     vector<Personnage *> getItsPersonnages() const;
+    void animateBullets();
+    bool getHaveWin() const;
 };
 
 #endif // FORCEWORK_H

@@ -14,7 +14,7 @@ bool Player::getItsGround() const
 
 Player::Player()
 {
-
+    setItsLife(3);
 }
 
 void Player::resetJump()
@@ -43,7 +43,7 @@ void Player::move(vector<Block> & itsMap)
   arroundPlayer.clear();
   for(Block bloc: itsMap)
   {
-    if(bloc.getItsBlockType() != 0)
+    if(bloc.getItsBlockType() != 0 && bloc.getItsBlockType() != 1)
     {
       if( getItsBlockX() >= bloc.getItsBlockX()-2 && getItsBlockX() <= bloc.getItsBlockX() +2)
       {
@@ -134,7 +134,14 @@ void Player::shoot()
 
 void Player::beShot()
 {
-
+    if(getItsY()-1==0)
+    {
+        die();
+    }
+    else
+    {
+        setItsLife(getItsY()-1);
+    }
 }
 
 void Player::die()
@@ -164,11 +171,13 @@ void Player::animate()
 
 }
 
+int Player::getGunY() const
 
-bool Player::isWin()
 {
-
+    return itsHeight/3+itsY-5;
 }
+
+
 
 
 

@@ -38,6 +38,16 @@ void Personnage::setDirection(bool value)
     direction = value;
 }
 
+int Personnage::getItsLife() const
+{
+    return itsLife;
+}
+
+void Personnage::setItsLife(int value)
+{
+    itsLife = value;
+}
+
 Personnage::Personnage()
 {
 
