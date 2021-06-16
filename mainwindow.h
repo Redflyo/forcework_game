@@ -12,6 +12,8 @@
 #include <QGraphicsEffect>
 #include <QMouseEvent>
 #include "ia.h"
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 
 
 QT_BEGIN_NAMESPACE
@@ -231,7 +233,6 @@ private:
     bool sauterG = false;
     bool sauterD = false;
     int tempoCochon = 0;
-
 
 
     void launchGame();
