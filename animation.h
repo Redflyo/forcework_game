@@ -151,6 +151,7 @@ private:
     int itsPersoTimeJump = 0;
     bool sauterG = false;
     bool sauterD = false;
+    bool animDead = false;
     ForceWork * currentGame;
 public:
     ///
@@ -168,6 +169,7 @@ public:
     /// \param painter QPainter créer dans un PaintEvent
     ///
     void drawAnimation(QPainter * painter);
+    bool getAnimDead() const;
 };
 
 #endif // ANIMATION_H
