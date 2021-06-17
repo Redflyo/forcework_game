@@ -234,10 +234,7 @@ void MainWindow::Win()
             ui->groupBox->setVisible(true);
         }
     }
-    else
-    {
-        itsSetting->setItsTutorial(false);
-    }
+    else itsSetting->setItsTutorial(false);
     ui->stackedWidget->setCurrentWidget(ui->MenuWin);
     gameTimer->stop();
 }
@@ -247,6 +244,7 @@ void MainWindow::Loose()
     ui->frame_menuwin->setGraphicsEffect(m_opaEffect);
     ui->stackedWidget->setCurrentWidget(ui->MenuLoose);
     gameTimer->stop();
+    itsSetting->setItsTutorial(false);
 }
 
 void MainWindow::launchGame()
@@ -317,6 +315,7 @@ void MainWindow::on_pushButton_5_clicked()
 void MainWindow::on_pushButton_7_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->StartMenu);
+    itsSetting->setItsTutorial(false);
 }
 
 void MainWindow::on_pushButton_8_clicked()
