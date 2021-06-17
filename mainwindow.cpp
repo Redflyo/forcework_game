@@ -258,7 +258,7 @@ void MainWindow::gameLoop()
         Win();
     }
 
-    if(currentGame->getPlayer()->getIsDead()==true)
+    if(animation->getAnimDead() == true)
     {
             Loose();
     }

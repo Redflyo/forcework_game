@@ -151,12 +151,25 @@ private:
     int itsPersoTimeJump = 0;
     bool sauterG = false;
     bool sauterD = false;
+    bool animDead = false;
     ForceWork * currentGame;
 public:
+    ///
+    /// \brief Animation Constructeur de l'objet d'animation
+    /// \param forceWork parti en cours
+    ///
     Animation(ForceWork * forceWork);
     ~Animation();
+    ///
+    /// \brief updateAnimation actualise les timers d'animation
+    ///
     void updateAnimation();
+    ///
+    /// \brief drawAnimation dessinne le jeu en gérant les animation
+    /// \param painter QPainter créer dans un PaintEvent
+    ///
     void drawAnimation(QPainter * painter);
+    bool getAnimDead() const;
 };
 
 #endif // ANIMATION_H

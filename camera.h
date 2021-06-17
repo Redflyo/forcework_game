@@ -15,10 +15,21 @@ public:
     /// \param sizeBlock définie la taille d'un bloc
     ///
     Camera(int widthBlockMap,int heightBlockMap);
+    ///
+    /// \brief follow La camera traque un objet dans les limites de la carte (surtout le joueur)
+    /// \param object objet qui va etre tracke
+    ///
     void follow(PhysicalObject object);
 
-
+    ///
+    /// \brief getItsOffsetX getter du decalage de la camera sur les X
+    /// \return retourne le decalage de la camera en X
+    ///
     int getItsOffsetX();
+    ///
+    /// \brief getItsOffsetY getetr du decalage de la camera sur les Y
+    /// \return retourne le decalage de la camera en Y
+    ///
     int getItsOffsetY() const;
 };
 

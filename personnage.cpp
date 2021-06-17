@@ -11,10 +11,7 @@ int Personnage::getGunY() const
     return itsHeight/3+itsY-5;
 }
 
-void Personnage::setGunY(int value)
-{
-    gunY = value;
-}
+
 float Personnage::getItsSpeedY() const
 {
     return itsSpeedY;

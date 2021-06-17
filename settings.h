@@ -24,6 +24,9 @@ private:
 
 
 public:
+    ///
+    /// \brief Settings constructeur de settings
+    ///
     Settings();
     ///
     /// \brief split : fonction servant a decouper un string en plusieurs string grace a un caractere separateur et a les inserer dans un vecteur
@@ -48,14 +51,46 @@ public:
     /// \return le nom du fichier
     ///
     string getItsHallOfFameFile();
+    ///
+    /// \brief validLeft exprime si la touche permet un mouvement vers la gauche
+    /// \param key touche qui va être verifie
+    /// \return retourne true si la touche permet un mouvement vers la gauche
+    ///
     bool validLeft(int key);
+    ///
+    /// \brief validRight exprime si la touche permet un mouvement vers la droite
+    /// \param key touche qui va être verifie
+    /// \return retourne true si la touche permet un mouvement vers la droite
     bool validRight(int key);
+    ///
+    /// \brief validJump exprime si la touche permet un saut
+    /// \param key touche qui va être verifie
+    /// \return retourne true si la touche permet un saut
     bool validJump(int key);
-
+    ///
+    /// \brief setItsLeft1 permet de definir la touche (parametrable) de mouvement vers la gauche
+    /// \param value valeur qui va être attribue a la touche parametrable gauche
+    ///
     void setItsLeft1(int value);
+    ///
+    /// \brief setItsRight1 permet de definir la touche (parametrable) de mouvement vers la droite
+    /// \param value valeur qui va être attribue a la touche parametrable droite
+    ///
     void setItsRight1(int value);
+    ///
+    /// \brief setItsJump1 permet de definir la touche (parametrable) de saut
+    /// \param value valeur qui va etre attribue a la touche parametrable saut
+    ///
     void setItsJump1(int value);
+    ///
+    /// \brief setItsTimer permet de definir la valeur de itsTimer faisant reference au score du joueur
+    /// \param value Chaine de caractere qui va etre attribue a itsTimer
+    ///
     void setItsTimer(const QString &value);
+    ///
+    /// \brief getItsTimer Permet d'obtenir itsTimer
+    /// \return Retourne ItsTimer
+    ///
     QString getItsTimer() const;
 };
 

@@ -1,5 +1,10 @@
 #include "animation.h"
 
+bool Animation::getAnimDead() const
+{
+    return animDead;
+}
+
 Animation::Animation(ForceWork * forceWork)
 {
 
@@ -958,7 +963,10 @@ void Animation::drawAnimation(QPainter *painter)
             else if (itsPersoTimeD >= 80)
             {
              painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY+sizeBlock+10, *persoMort9_9D);
-
+              if (itsPersoTimeD >= 100)
+              {
+                  animDead = true;
+              }
             }
         }
 
@@ -1001,7 +1009,10 @@ void Animation::drawAnimation(QPainter *painter)
             else if (itsPersoTimeG >= 80)
             {
              painter->drawImage(currentGame->getPlayer()->getItsX()+offSetX, currentGame->getPlayer()->getItsY()+offSetY+sizeBlock+10, *persoMort9_9D);
-
+             if (itsPersoTimeG >= 100)
+             {
+                 animDead = true;
+             }
             }
         }
 
