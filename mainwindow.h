@@ -69,6 +69,10 @@ public:
     /// \brief displayHallOfFame affiche les temple de la renommé
     ///
     void displayHallOfFame();
+    ///
+    /// \brief viewLabelIntro affiche le label lorsque le turoriel est lancé
+    ///
+    void viewLabelIntro();
 
 private slots:
 

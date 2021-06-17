@@ -128,6 +128,11 @@ public:
     /// \return retourne true si la partie est gagne par le joueur
     ///
     bool getHaveWin() const;
+    ///
+    /// \brief noteIntro permet de savoir ce que l'on doit afficher
+    /// \return retourne un Qstring a afficher dans un label
+    ///
+    QString noteIntro();
 };
 
 #endif // FORCEWORK_H
