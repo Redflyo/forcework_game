@@ -98,6 +98,7 @@ void MainWindow::displayHallOfFame()
 
 void MainWindow::on_pushButton_clicked()
 {
+        QSound::play("../forcework_game/data/minecraft_click.wav");
     ui->stackedWidget->setCurrentWidget(ui->Settings);
 }
 
@@ -220,6 +221,10 @@ void MainWindow::Win()
             ui->groupBox->setVisible(true);
         }
     }
+    else
+    {
+        itsSetting->setItsTutorial(false);
+    }
     ui->stackedWidget->setCurrentWidget(ui->MenuWin);
     gameTimer->stop();
 }
@@ -328,9 +333,12 @@ void MainWindow::on_PB_startmenu_fromMenuWin_2_clicked()
 
 void MainWindow::on_PB_startmenu_fromMenuWin_3_clicked()
 {
+    if(itsSetting->getItsTutorial()==false)
+    {
      p10->name = (ui->lineEdit->text()).toStdString();
      itsSetting->writeHallOfFameFile(*p10);
-     ui->stackedWidget->setCurrentWidget(ui->HOF);
+    }
+     ui->pushButton_4->click();
 }
 
 void MainWindow::on_pushButton_9_clicked()
