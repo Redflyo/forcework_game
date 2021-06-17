@@ -31,12 +31,22 @@ QString Settings::getItsTimer() const
     return itsTimer;
 }
 
+bool Settings::getItsTutorial() const
+{
+    return itsTutorial;
+}
+
+void Settings::setItsTutorial(bool value)
+{
+    itsTutorial = value;
+}
+
 Settings::Settings()
 {
     itsJump1 = -50;
     itsLeft1 = -50;
     itsRight1 = -50;
-
+    
 }
 
 void Settings::split(std::string strToSplit, char charSeparation, std::vector<std::string> &vecToReturn)

@@ -36,10 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-
     delete heart;
-
-
     delete m_opaEffect;
     delete gameTimer;
     delete itsSetting;
@@ -331,4 +328,10 @@ void MainWindow::on_PB_startmenu_fromMenuWin_3_clicked()
      p10->name = (ui->lineEdit->text()).toStdString();
      itsSetting->writeHallOfFameFile(*p10);
      ui->stackedWidget->setCurrentWidget(ui->HOF);
+}
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    currentGame->getItsSettings()->setItsTutorial(true);
+    ui->PB_launchGame->click();
 }

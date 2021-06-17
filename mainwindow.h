@@ -119,14 +119,13 @@ private slots:
 
     void on_PB_startmenu_fromMenuWin_3_clicked();
 
+    void on_pushButton_9_clicked();
+
 private:
     PlayerScore *p10 = new PlayerScore;
     std::vector<Block> blocks;
     QGraphicsOpacityEffect *m_opaEffect;
-
     QImage *heart;
-
-
     Animation * animation;
     void launchGame();
     QTimer * gameTimer;
