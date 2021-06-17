@@ -21,6 +21,7 @@ private:
     int itsAreaDetected;
     float itsGravity;
     string itsShootButton;
+    bool itsTutorial = false;
 
 
 public:
@@ -92,6 +93,8 @@ public:
     /// \return Retourne ItsTimer
     ///
     QString getItsTimer() const;
+    bool getItsTutorial() const;
+    void setItsTutorial(bool value);
 };
 
 #endif // SETTINGS_H

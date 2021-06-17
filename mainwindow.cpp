@@ -332,6 +332,6 @@ void MainWindow::on_PB_startmenu_fromMenuWin_3_clicked()
 
 void MainWindow::on_pushButton_9_clicked()
 {
-    currentGame->getItsSettings()->setItsTutorial(true);
+    itsSetting->setItsTutorial(true);
     ui->PB_launchGame->click();
 }

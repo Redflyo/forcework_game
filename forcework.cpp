@@ -189,10 +189,12 @@ ForceWork::ForceWork(Settings * settings)
     itsSettings = settings;
     Map map;
     itsMap = map;
-    itsPersonnages = itsMap.loadMap("../forcework_game/data/mapTest.txt");
+    if(itsSettings->getItsTutorial())
+    {
+        itsPersonnages = itsMap.loadMap("../forcework_game/data/mapIntro.txt");
+    }
+    else itsPersonnages = itsMap.loadMap("../forcework_game/data/mapTest.txt");
     camera = new Camera(itsMap.getItsWidthMap(),itsMap.getItsHeightMap());
-
-
 }
 
 void ForceWork::playerHaveWin()
