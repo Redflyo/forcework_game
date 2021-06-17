@@ -179,19 +179,19 @@ QString ForceWork::noteIntro()
     if (getPlayer()->getItsBlockX() >= 0 and getPlayer()->getItsBlockX() <= 20)
     {
         QString premier;
-        premier = "Vous pouvez avancer vers la droite en utilisant la fleche directionel droite ( → ) ou bien votre touche defini";
+        premier = "Vous pouvez avancer vers la droite en utilisant la flèche directionel droite ( → ) ou bien votre touche defini !";
         return premier;
     }
     else if (getPlayer()->getItsBlockX() >= 30 and getPlayer()->getItsBlockX() <= 40)
     {
         QString premier;
-        premier = "Vous pouvez sauter en utilisant la fleche directionel haut ( ↑ ) ou bien votre touche defini";
+        premier = "Vous pouvez sauter en utilisant la flèche directionel haut ( ↑ ) ou bien votre touche defini !";
         return premier;
     }
     else if (getPlayer()->getItsBlockX() >= 44 and getPlayer()->getItsBlockX() <= 51 and getPlayer()->getItsBlockY() >= 10)
     {
         QString premier;
-        premier = "Vous pouvez avancer vers la gauche en utilisant la fleche directionel gauche ( ← ) ou bien votre touche defini";
+        premier = "Vous pouvez avancer vers la gauche en utilisant la flèche directionel gauche ( ← ) ou bien votre touche defini !";
         return premier;
     }
     else if (getPlayer()->getItsBlockX() >= 48 and getPlayer()->getItsBlockX() <= 53 and getPlayer()->getItsBlockY() <= 6)
@@ -203,7 +203,7 @@ QString ForceWork::noteIntro()
     else if (getPlayer()->getItsBlockX() >= 74 and getPlayer()->getItsBlockX() <= 94 and getPlayer()->getItsBlockY() <= 12)
     {
         QString premier;
-        premier = "Attention ! votre enemie peut bouger et tirer ! esquive ses balles et tue le !";
+        premier = "Attention ! les enemies peuvent bouger et tirer ! Esquive ses balles et tue le !";
         return premier;
     }
     else if (getPlayer()->getItsBlockX() >= 74 and getPlayer()->getItsBlockX() <= 94 and getPlayer()->getItsBlockY() <= 16 )
@@ -215,7 +215,7 @@ QString ForceWork::noteIntro()
     else if (getPlayer()->getItsBlockX() >= 102 and getPlayer()->getItsBlockX() <= 116)
     {
         QString premier;
-        premier = "Il faut maintenant atteindre le drapeau ! a toi de le trouver";
+        premier = "Il faut maintenant atteindre le drapeau ! Dépêche-toi de le trouver !";
         return premier;
     }
     else

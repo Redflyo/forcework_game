@@ -166,7 +166,9 @@ void IA::die()
 
 int IA::getGunY() const
 {
-    return itsHeight/3+itsY;
+    if(itsMoveOrNot==true)return itsHeight/3+itsY;
+    else return itsHeight/3+itsY-13;
+
 }
 
 void IA::animate()

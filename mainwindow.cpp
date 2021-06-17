@@ -112,7 +112,6 @@ void MainWindow::viewLabelIntro()
 
 void MainWindow::on_pushButton_clicked()
 {
-        QSound::play("../forcework_game/data/minecraft_click.wav");
     ui->stackedWidget->setCurrentWidget(ui->Settings);
 }
 
