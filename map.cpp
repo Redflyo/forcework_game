@@ -120,7 +120,7 @@ vector<Personnage*> Map::loadMap(std::string mapFile)
                 itsWidthMap = itsWidthMap < i ? i : itsWidthMap;
 
 
-                if(line[i] >= '2' && line[i] <= '4')
+                if(line[i] >= '2' && line[i] <= '5')
                 {
                     Block block(line[i]- '0',i,y);
                     block.setItsWidth(sizeBlock);

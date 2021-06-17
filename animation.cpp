@@ -22,6 +22,9 @@ Animation::Animation(ForceWork * forceWork)
     image4 = new QImage;
     image4->load("../forcework_game/data/Herbe.png");
 
+    image5 = new QImage;
+    image5->load("../forcework_game/data/inTerre.png");
+
     flag = new QImage;
     flag->load("../forcework_game/data/drapeau1-2.png");
 
@@ -515,6 +518,7 @@ Animation::Animation(ForceWork * forceWork)
     *image2 = image2->scaled(QSize(sizeBlock,sizeBlock));
     *image3 = image3->scaled(QSize(sizeBlock,sizeBlock));
     *image4 = image4->scaled(QSize(sizeBlock,sizeBlock));
+    *image5 = image5->scaled(QSize(sizeBlock,sizeBlock));
 }
 
 Animation::~Animation()
@@ -523,6 +527,7 @@ Animation::~Animation()
     delete image2;
     delete image3;
     delete image4;
+    delete image5;
     delete flag;
     delete flag2;
     delete perso1;
@@ -685,6 +690,13 @@ void Animation::drawAnimation(QPainter *painter)
 
 
             if (blocks[i].getItsBlockType() == 2){
+                painter->drawImage(locX,locY, *image1);
+            }
+            if (blocks[i].getItsBlockType() == 5 and currentGame->getPlayer()->getItsBlockY() >=25){
+                painter->drawImage(locX,locY, *image5);
+            }
+            else if(blocks[i].getItsBlockType() == 5)
+            {
                 painter->drawImage(locX,locY, *image1);
             }
             if (blocks[i].getItsBlockType() == 3){

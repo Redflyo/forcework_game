@@ -80,7 +80,7 @@ void ForceWork::bulletsCheckCollision()
 
     for(Block bloc: itsMap.getItsBlocks())
     {
-        if(!(bloc.getItsBlockType()==0 || bloc.getItsBlockType()==1))
+        if(!(bloc.getItsBlockType()==0 || bloc.getItsBlockType()==1 || bloc.getItsBlockType()==5))
         {
             for(vector<Bullet*>::iterator it = itsBullets.begin(); it!=itsBullets.end();)
             {

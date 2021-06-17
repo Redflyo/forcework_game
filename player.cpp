@@ -43,7 +43,7 @@ void Player::move(vector<Block> & itsMap)
   arroundPlayer.clear();
   for(Block bloc: itsMap)
   {
-    if(bloc.getItsBlockType() != 0 && bloc.getItsBlockType() != 1)
+    if(bloc.getItsBlockType() != 0 && bloc.getItsBlockType() != 1 && bloc.getItsBlockType() != 5)
     {
       if( getItsBlockX() >= bloc.getItsBlockX()-2 && getItsBlockX() <= bloc.getItsBlockX() +2)
       {
