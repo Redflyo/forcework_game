@@ -174,6 +174,58 @@ bool ForceWork::getHaveWin() const
     return haveWin;
 }
 
+QString ForceWork::noteIntro()
+{
+    if (getPlayer()->getItsBlockX() >= 0 and getPlayer()->getItsBlockX() <= 20)
+    {
+        QString premier;
+        premier = "Vous pouvez avancer vers la droite en utilisant la fleche directionel droite ( → ) ou bien votre touche defini";
+        return premier;
+    }
+    else if (getPlayer()->getItsBlockX() >= 30 and getPlayer()->getItsBlockX() <= 40)
+    {
+        QString premier;
+        premier = "Vous pouvez sauter en utilisant la fleche directionel haut ( ↑ ) ou bien votre touche defini";
+        return premier;
+    }
+    else if (getPlayer()->getItsBlockX() >= 44 and getPlayer()->getItsBlockX() <= 51 and getPlayer()->getItsBlockY() >= 10)
+    {
+        QString premier;
+        premier = "Vous pouvez avancer vers la gauche en utilisant la fleche directionel gauche ( ← ) ou bien votre touche defini";
+        return premier;
+    }
+    else if (getPlayer()->getItsBlockX() >= 48 and getPlayer()->getItsBlockX() <= 53 and getPlayer()->getItsBlockY() <= 6)
+    {
+        QString premier;
+        premier = "Vous pouvez abattre votre enemie en tirant avec le clique gauche de la souris";
+        return premier;
+    }
+    else if (getPlayer()->getItsBlockX() >= 74 and getPlayer()->getItsBlockX() <= 94 and getPlayer()->getItsBlockY() <= 12)
+    {
+        QString premier;
+        premier = "Attention ! votre enemie peut bouger et tirer ! esquive ses balles et tue le !";
+        return premier;
+    }
+    else if (getPlayer()->getItsBlockX() >= 74 and getPlayer()->getItsBlockX() <= 94 and getPlayer()->getItsBlockY() <= 16 )
+    {
+        QString premier;
+        premier = "Ils sont en prison, approche toi de la cellule pour qu'ils s'entretue";
+        return premier;
+    }
+    else if (getPlayer()->getItsBlockX() >= 102 and getPlayer()->getItsBlockX() <= 116)
+    {
+        QString premier;
+        premier = "Il faut maintenant atteindre le drapeau ! a toi de le trouver";
+        return premier;
+    }
+    else
+    {
+        QString premier;
+        premier = "ERROR";
+        return premier;
+    }
+}
+
 ForceWork::~ForceWork()
 {
     delete  camera;

@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     QRegularExpressionValidator *validator = new QRegularExpressionValidator(re, this);
     ui->lineEdit->setValidator(validator);
     ui->groupBox->setVisible(false);
+    ui->introLabel->setAlignment(Qt::AlignCenter);
 
 }
 
@@ -94,6 +95,19 @@ void MainWindow::displayHallOfFame()
   ui->score5->setAlignment(Qt::AlignCenter);
   ui->name5->setText(QString::fromStdString(vecScoresNames[9]));
   ui->name5->setAlignment(Qt::AlignCenter);
+}
+
+void MainWindow::viewLabelIntro()
+{
+    if (itsSetting->getItsTutorial() == false or currentGame->noteIntro() == "ERROR")
+    {
+       ui->introLabel->setVisible(false);
+    }
+    else
+    {
+        ui->introLabel->setVisible(true);
+        ui->introLabel->setText(currentGame->noteIntro());
+    }
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -267,6 +281,8 @@ void MainWindow::gameLoop()
     {
             Loose();
     }
+    viewLabelIntro();
+
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)
