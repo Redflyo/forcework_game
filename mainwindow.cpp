@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     QRegularExpression re("^[^,]{0,16}$");
     QRegularExpressionValidator *validator = new QRegularExpressionValidator(re, this);
     ui->lineEdit->setValidator(validator);
+    ui->groupBox->setVisible(false);
 
 }
 
@@ -43,7 +44,6 @@ MainWindow::~MainWindow()
     delete gameTimer;
     delete itsSetting;
     delete ui;
-    ui->groupBox->setVisible(false);
 }
 
 void MainWindow::loadImage()
@@ -312,16 +312,12 @@ void MainWindow::on_PB_startmenu_fromMenuWin_clicked()
 void MainWindow::on_PB_startNewGame_fromMenuWin_clicked()
 {
     delete currentGame;
-    delete itsSetting;
-    itsSetting = new Settings;
     ui->PB_launchGame->click();
 }
 
 void MainWindow::on_PB_startNewGame_fromMenuWin_2_clicked()
 {
     delete currentGame;
-    delete itsSetting;
-    itsSetting = new Settings;
     ui->PB_launchGame->click();
 }
 
@@ -334,5 +330,5 @@ void MainWindow::on_PB_startmenu_fromMenuWin_3_clicked()
 {
      p10->name = (ui->lineEdit->text()).toStdString();
      itsSetting->writeHallOfFameFile(*p10);
-     ui->stackedWidget->setCurrentWidget(ui->StartMenu);
+     ui->stackedWidget->setCurrentWidget(ui->HOF);
 }
