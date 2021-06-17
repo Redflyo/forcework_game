@@ -189,7 +189,7 @@ ForceWork::ForceWork(Settings * settings)
     itsSettings = settings;
     Map map;
     itsMap = map;
-    itsPersonnages = itsMap.loadMap("../forcework_game/data/mapIntro.txt");
+    itsPersonnages = itsMap.loadMap("../forcework_game/data/mapTest.txt");
     camera = new Camera(itsMap.getItsWidthMap(),itsMap.getItsHeightMap());
 
 
