@@ -212,10 +212,13 @@ void MainWindow::on_PB_launchGame_clicked()
 void MainWindow::Win()
 {
     ui->frame_menuwin->setGraphicsEffect(m_opaEffect);
-    p10->score = (ui->label_winscore->text().toStdString());
-    if(itsSetting->isTopFive(*p10))
+    if(itsSetting->getItsTutorial()==false)
     {
-        ui->groupBox->setVisible(true);
+        p10->score = (ui->label_winscore->text().toStdString());
+        if(itsSetting->isTopFive(*p10))
+        {
+            ui->groupBox->setVisible(true);
+        }
     }
     ui->stackedWidget->setCurrentWidget(ui->MenuWin);
     gameTimer->stop();
